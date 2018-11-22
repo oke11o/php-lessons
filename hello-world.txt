@@ -2,4 +2,5 @@
 echo "Hello, world!";
 echo "Hello";
 echo "Hello, friend";
+echo "Glad to see you";
 ?>
