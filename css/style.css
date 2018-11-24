@@ -1,0 +1,160 @@
+body {
+  background: #f3f3f3;
+}
+
+code {
+  color: #e24a4a;
+}
+
+.codeComment {
+  color: #a4a4a4;
+}
+
+.bodyWrap {
+  width: 1200px;
+  font-family: 'Tahoma', sans-serif;
+  font-weight: 400;
+  font-size: 12pt;
+  color: #474747;
+}
+
+.bodyWrap_position {
+  margin: 0 auto;
+}
+
+.bodyWrap__main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  grid-gap: 30px;
+}
+
+@media (max-width: 1399px) {
+  .bodyWrap {
+    width: 900px;
+  }
+}
+
+@media (max-width: 992px) {
+  .bodyWrap {
+    width: 540px;
+  }
+}
+
+.headerTitle {
+  text-align: center;
+  font-size: 1.75em;
+  font-weight: 700;
+}
+
+.headerDate {
+  text-align: center;
+  font-size: 1.25em;
+}
+
+.taskCard {
+  position: relative;
+  width: calc(100% - 30px);
+  border-radius: 25px;
+  padding: 15px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.taskCard:hover {
+  background-color: #ffffff;
+  -webkit-box-shadow: -4px 12px 20px 0 #b7b7b7;
+          box-shadow: -4px 12px 20px 0 #b7b7b7;
+}
+
+.taskCard__title {
+  text-align: center;
+  font-size: 1.35em;
+  font-weight: 700;
+}
+
+.taskCard__input {
+  height: 1.5em;
+  width: 2.5em;
+  font-size: 1em;
+}
+
+.taskCard__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  padding-top: 15px;
+  padding-bottom: 30px;
+}
+
+.taskCard__codeWrap {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  -webkit-transition: 0.75s;
+  transition: 0.75s;
+  margin-bottom: 30px;
+}
+
+.taskCard__codeWrap_hidden {
+  margin-bottom: 0;
+  border-color: rgba(0, 0, 0, 0);
+}
+
+.functionButton {
+  text-transform: uppercase;
+  font-family: 'Tahoma', sans-serif;
+  font-weight: 700;
+  font-size: 12pt;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 10px;
+  background: #d74645;
+}
+
+.functionButton:hover {
+  background: #df6665;
+}
+
+.functionButton:active {
+  color: #cccccc;
+  background: #ab6665;
+}
+
+.functionButton_position {
+  display: block;
+}
+
+.codeBlock {
+  background: #e7e7e7;
+  -webkit-transition: 0.75s;
+  transition: 0.75s;
+}
+
+.codeBlock_geometry {
+  display: block;
+  margin: 0;
+}
+
+.codeBlock_hidden {
+  margin-top: -50%;
+}
+
+.codeBlock__line:nth-child(odd) {
+  background: #fafafa;
+}
+
+.codeBlock__line:nth-child(even) {
+  background: #efeff7;
+}
+
+.rights {
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 60px;
+}
