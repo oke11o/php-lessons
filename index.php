@@ -21,7 +21,97 @@
       ?>
     </header>
     <main class="bodyWrap__main">
-    <section class="taskCard">
+      <section class="taskCard">
+        <h2 class="taskCard__title">test block</h2>
+        <?php
+          // if (true) {
+          //   echo 'true';
+          // }
+
+          // $a = 5;
+          // $b = 5;
+          // if($a < $b) {
+          //   echo 'a меньше b';
+          // } elseif($a > $b) {
+          //   echo 'a больше b';
+          // } else {
+          //   echo 'a равно b';
+          // }
+
+          // $now = '';
+          // if($now == 'evening') {
+          //   echo 'good evening';
+          // } elseif($now == 'morning') {
+          //   echo 'good morning';
+          // } elseif($now == 'night') {
+          //   echo 'good night';
+          // } else {
+          //   echo 'good day';
+          // }
+          // switch($now) {
+          //   case 'evening':
+          //     echo 'good evening';
+          //     break;
+          //   case 'morning':
+          //     echo 'good morning';
+          //     break;
+          //   case 'night':
+          //     echo 'good night';
+          //     break;
+          //   default:
+          //     echo 'good day';
+          // }
+
+          //тернарный оператор ($a < $b) ? (результат если да) : (результат если нет); //c echo не работает!!!
+          // $a = 11;
+          // $b = 5;
+          // $a > $b ? $c = $a : $c = $b;
+
+          // echo $c;
+          // echo PHP_EOL.'<br>end'; //PHP_EOL = end of line for terminal
+
+          // function function_name(parametr1, parametr2...parametrN)
+          // { //фигурные скобки лучше с новой строки по стандартам языка
+          //   operations;
+          // }
+
+          // if(compare_numbers(7, 7)) {
+          //   echo 'числа равны';
+          // } else {
+          //   echo 'числа не равны';
+          // }
+          // var_dump(compare_numbers(7, 33));
+          // function compare_numbers($x, $y)
+          // {
+          //   if($x !== $y) {
+          //     return false;
+          //   } else {
+          //     return true;
+          //   }
+          // }
+          
+          // var_dump(compare_numbers(23, 0));
+          // function compare_numbers($x = 1, $y = 1) //default parameters
+          // {
+          //   return $x . '-' . $y;
+          // }
+          
+          fibonacci(7);
+
+          function fibonacci($n, $prev1 = 1, $prev2 = 0)
+          {
+            $current = $prev1 + $prev2;
+            echo "$current ";
+            if($n > 1) {
+              $n--;
+              fibonacci($n, $current, $prev1);
+            }
+          }
+
+        ?>
+      </section>
+
+      <section class="taskCard">
         <h2 class="taskCard__title">Задание 1.</h2>
         <p class="taskCard__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, eligendi magni! Voluptas autem eos repellat nulla consequatur quae corporis, dicta repellendus expedita. Dolores sequi ratione hic facilis accusantium unde iusto.</p>
       </section>
@@ -100,3 +190,11 @@
 </body>
 
 </html>
+<!-- 
+  вопросы к изучению
+  -
+  -
+  -
+  -
+  -
+ -->
