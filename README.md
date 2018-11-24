@@ -1,3 +1,3 @@
 # for geekbrains
-# current lesson 02
-# last upd 24-11-18
+# current lesson 01
+# last upd 22-11-18
