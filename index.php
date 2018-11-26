@@ -636,6 +636,81 @@
           </ol></code>
         </div>
       </section>
+
+      <section class="taskCard" id="task8_location">
+        <h2 class="taskCard__title">Задание 8.</h2>
+        <p class="taskCard__text">
+          Доработка функции вывода последовательности чисел Фибоначчи.
+        </p>
+        
+        <form method="post" id="t8_form">
+          Введите количество чисел в последовательности:
+          <input type="number" class="taskCard__input" value="11" name="t8_count">           
+        </form>
+
+        <div class="taskCard__buttons taskCard__buttons_column">
+          <input type="submit" value="выполнить" class="functionButton" form="t8_form" onclick="document.location.href = '#task8_location'">
+          <?php
+            $fib_count = $_POST['t8_count'];
+
+            function fibonacci($n, $prev1 = 1, $prev2 = 0)
+            {
+              $current = $prev1 + $prev2;
+              if($current == 1) echo "$prev2, $prev1, ";
+              echo "$current, ";
+              if($n > 1) {
+                $n--;
+                fibonacci($n, $current, $prev1);
+              }
+            }
+            echo "<code>";
+            fibonacci($fib_count-2);
+            echo "</code>";
+          ?>
+          <button class="functionButton" onclick="showCode('task8')">view code</button>
+        </div>
+
+        <div class="taskCard__codeWrap taskCard__codeWrap_hidden" id="task8_codeWrap">
+          <code><ol class="codeBlock codeBlock_geometry codeBlock_hidden" id="task8_codeBlock">
+            <li class="codeBlock__line">
+              function fibonacci($n, $prev1 = 1, $prev2 = 0)
+            </li>
+            <li class="codeBlock__line">
+              {
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;$current = $prev1 + $prev2;
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;if($current == 1) echo "$prev2, $prev1, ";
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;echo "$current, ";
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;if($n > 1) {
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;$n--;
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;fibonacci($n, $current, $prev1);
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;}
+            </li>
+            <li class="codeBlock__line">
+              }
+            </li>
+            <li class="codeBlock__line">
+              fibonacci($fib_count-2);
+            </li>
+            <li class="codeBlock__line">
+              
+            </li>
+          </ol></code>
+        </div>
+      </section>
     </main>
     
     <footer>
