@@ -22,7 +22,7 @@
     </header>
 
     <main class="bodyWrap__main">
-      <section class="taskCard">
+      <section class="taskCard" id="task1_location">
         <h2 class="taskCard__title">Задание 1.</h2>
         <p class="taskCard__text">
           Объявить две целочисленные переменные <code>$a</code> и <code>$b</code> и задать им произвольные начальные значения. Затем написать скрипт, который работает по следующему принципу: <br>
@@ -41,7 +41,7 @@
         </p>
 
         <div class="taskCard__buttons taskCard__buttons_hideColumn">
-          <input type="submit" value="выполнить" class="functionButton" form="t1_form">
+          <input type="submit" value="выполнить" class="functionButton" form="t1_form" onclick="document.location.href = '#task1_location'">
           <?php
             $a = $_POST['t1_a'];
             $b = $_POST['t1_b'];
@@ -95,7 +95,7 @@
         </div>
       </section>
 
-      <section class="taskCard">
+      <section class="taskCard" id="task2_location">
         <h2 class="taskCard__title">Задание 2.</h2>
         <p class="taskCard__text">
           Присвоить переменной <code>$а</code> значение в промежутке <code>[0..15]</code>. С помощью оператора <code>switch</code> организовать вывод чисел от <code>$a</code> до <code>15</code>.
@@ -106,7 +106,7 @@
         </form>
 
         <div class="taskCard__buttons taskCard__buttons_column">
-          <input type="submit" value="выполнить" class="functionButton" form="t2_form">
+          <input type="submit" value="выполнить" class="functionButton" form="t2_form" onclick="document.location.href = '#task2_location'">
           <?php
             $a = $_POST['t2_a'];
             echo "<code>"; 
@@ -193,7 +193,7 @@
         </div>
       </section>
 
-      <section class="taskCard">
+      <section class="taskCard" id="task3_location">
         <h2 class="taskCard__title">Задание 3.</h2>
         <p class="taskCard__text">
           Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор <code>return</code>.
@@ -207,7 +207,7 @@
         </form>
 
         <div class="taskCard__buttons taskCard__buttons_column">
-          <input type="submit" value="выполнить" class="functionButton" form="t3_form">
+          <input type="submit" value="выполнить" class="functionButton" form="t3_form" onclick="document.location.href = '#task3_location'">
           <?php
             $t3_a = $_POST['t3_a'];
             $t3_b = $_POST['t3_b'];
@@ -311,7 +311,7 @@
         </div>
       </section>
 
-      <section class="taskCard">
+      <section class="taskCard" id="task4_location">
         <h2 class="taskCard__title">Задание 4.</h2>
         <p class="taskCard__text">
           Реализовать функцию с тремя параметрами: <code>function mathOperation($arg1, $arg2, $operation)</code>, где <code>$arg1</code>, <code>$arg2</code> – значения аргументов, <code>$operation</code> – строка с названием операции. В зависимости от переданного значения операции выполнить одну из арифметических операций (использовать функции из пункта 3) и вернуть полученное значение (использовать <code>switch</code>).
@@ -333,7 +333,7 @@
         </form>
 
         <div class="taskCard__buttons taskCard__buttons_hideColumn">
-          <input type="submit" value="выполнить" class="functionButton" form="t4_form">
+          <input type="submit" value="выполнить" class="functionButton" form="t4_form" onclick="document.location.href = '#task4_location'">
             <?php
               $a = $_POST['t4_a'];
               $b = $_POST['t4_b'];
@@ -426,7 +426,7 @@
         </div>
       </section>
 
-      <section class="taskCard">
+      <section class="taskCard" id="task3_location">
         <h2 class="taskCard__title">Задание 5.</h2>
         <p class="taskCard__text">Посмотреть на встроенные функции PHP. Используя имеющийся HTML шаблон, вывести текущий год в подвале при помощи встроенных функций PHP.</p>
 
