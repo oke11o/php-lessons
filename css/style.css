@@ -6,6 +6,10 @@ code {
   color: #e24a4a;
 }
 
+sup {
+  letter-spacing: 0em;
+}
+
 .codeComment {
   color: #a4a4a4;
 }
