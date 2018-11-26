@@ -29,7 +29,7 @@ function showCode(task) {
       task4_codeWrap.classList.toggle('taskCard__codeWrap_hidden');
       break;
     case 'task5':
-      task5_codeBlock.classList.toggle('codeBlock_hidden');
+      task5_codeBlock.classList.toggle('codeBlock_fewHidden');
       task5_codeWrap.classList.toggle('taskCard__codeWrap_hidden');
       break;
   }
