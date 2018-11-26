@@ -366,16 +366,61 @@
         <div class="taskCard__codeWrap taskCard__codeWrap_hidden" id="task4_codeWrap">
           <code><ol class="codeBlock codeBlock_geometry codeBlock_hidden" id="task4_codeBlock">
             <li class="codeBlock__line">
-              
+              function mathOperation($arg1, $arg2, $oper) {
             </li>
             <li class="codeBlock__line">
-              
+              &nbsp;&nbsp;$result = 0;
             </li>
             <li class="codeBlock__line">
-              
+              &nbsp;&nbsp;switch($oper) {
             </li>
             <li class="codeBlock__line">
-              
+              &nbsp;&nbsp;&nbsp;&nbsp;case "summ":
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$result = summ($arg1, $arg2);
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;case "diff":
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$result = diff($arg1, $arg2);
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;case "mult":
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$result = mult($arg1, $arg2);
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;case "div":
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$result = div($arg1, $arg2);
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;}
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;return $result;
+            </li>
+            <li class="codeBlock__line">
+              }
+            </li>
+            <li class="codeBlock__line">
+              echo "Результат = ".mathOperation($a, $b, $operation);
             </li>
           </ol></code>
         </div>
@@ -383,25 +428,19 @@
 
       <section class="taskCard">
         <h2 class="taskCard__title">Задание 5.</h2>
-        <p class="taskCard__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos architecto dolorum nobis ut id eius deleniti! Accusantium qui, autem soluta iusto earum molestiae dignissimos sint, aspernatur, numquam modi repellendus magni?</p>
+        <p class="taskCard__text">Посмотреть на встроенные функции PHP. Используя имеющийся HTML шаблон, вывести текущий год в подвале при помощи встроенных функций PHP.</p>
 
         <div class="taskCard__buttons">
           <button class="functionButton" onclick="showCode('task5')">view code</button>
         </div>
 
         <div class="taskCard__codeWrap taskCard__codeWrap_hidden" id="task5_codeWrap">
-          <code><ol class="codeBlock codeBlock_geometry codeBlock_hidden" id="task5_codeBlock">
+          <code><ol class="codeBlock codeBlock_geometry codeBlock_fewHidden" id="task5_codeBlock">
             <li class="codeBlock__line">
-              
+              <code class="codeComment">//вывод порядкового номера года, 4 цифры</code>
             </li>
             <li class="codeBlock__line">
-              
-            </li>
-            <li class="codeBlock__line">
-              
-            </li>
-            <li class="codeBlock__line">
-              
+              &lt;?php echo date('Y'); ?&gt;
             </li>
           </ol></code>
         </div>
@@ -410,7 +449,7 @@
 
     <footer>
       <div class="rights">
-        <span>All Rights Reserved &copy; 2018 Все задания выполнил Михаил Успенский.</span>
+        <span>All Rights Reserved &copy; <?php echo date('Y'); ?> Все задания выполнил Михаил Успенский.</span>
       </div>
     </footer>
   </div>
