@@ -17,6 +17,9 @@ function showCode(task) {
 
   let task6_codeBlock = document.getElementById('task6_codeBlock');
   let task6_codeWrap = document.getElementById('task6_codeWrap');
+
+  let task7_codeBlock = document.getElementById('task7_codeBlock');
+  let task7_codeWrap = document.getElementById('task7_codeWrap');
   
   switch(task) {
     case 'task1':
@@ -48,6 +51,11 @@ function showCode(task) {
       task6_codeBlock.classList.toggle('codeBlock_hidden');
       task6_codeWrap.classList.toggle('taskCard__codeWrap_hidden');
       document.location.href = "#task6_location";
+      break;
+    case 'task7':
+      task7_codeBlock.classList.toggle('codeBlock_hidden');
+      task7_codeWrap.classList.toggle('taskCard__codeWrap_hidden');
+      document.location.href = "#task7_location";
       break;
   }
 }
