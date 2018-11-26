@@ -644,27 +644,35 @@
         </p>
         
         <form method="post" id="t8_form">
-          Введите количество чисел в последовательности:
-          <input type="number" class="taskCard__input" value="11" name="t8_count">           
+          Rоличество чисел в последовательности:
+          <input type="number" class="taskCard__input" value="15" name="t8_count"> .
+          Начать с:
+          <input type="number" class="taskCard__input" value="0" name="t8_num1"> ,
+          <input type="number" class="taskCard__input" value="1" name="t8_num2">
         </form>
 
         <div class="taskCard__buttons taskCard__buttons_column">
           <input type="submit" value="выполнить" class="functionButton" form="t8_form" onclick="document.location.href = '#task8_location'">
           <?php
             $fib_count = $_POST['t8_count'];
+            $num1 = $_POST['t8_num1'];
+            $num2 = $_POST['t8_num2'];
 
-            function fibonacci($n, $prev1 = 1, $prev2 = 0)
+            function fibonacci($n, $prev1 = 0, $prev2 = 1)
             {
-              $current = $prev1 + $prev2;
-              if($current == 1) echo "$prev2, $prev1, ";
-              echo "$current, ";
-              if($n > 1) {
-                $n--;
-                fibonacci($n, $current, $prev1);
+              $current = 0;
+
+              echo "$prev1, $prev2, ";
+
+              for ($i = 0; $i < $n-2; $i++) {
+                $current = $prev1 + $prev2;                
+                $prev1 = $prev2;
+                $prev2 = $current;
+                echo "$current, ";
               }
             }
             echo "<code>";
-            fibonacci($fib_count-2);
+            fibonacci($fib_count, $num1, $num2);
             echo "</code>";
           ?>
           <button class="functionButton" onclick="showCode('task8')">view code</button>
@@ -673,28 +681,31 @@
         <div class="taskCard__codeWrap taskCard__codeWrap_hidden" id="task8_codeWrap">
           <code><ol class="codeBlock codeBlock_geometry codeBlock_hidden" id="task8_codeBlock">
             <li class="codeBlock__line">
-              function fibonacci($n, $prev1 = 1, $prev2 = 0)
+              function fibonacci($n, $prev1 = 0, $prev2 = 1)
             </li>
             <li class="codeBlock__line">
-              {
+              { 
             </li>
             <li class="codeBlock__line">
-              &nbsp;&nbsp;$current = $prev1 + $prev2;
+              &nbsp;&nbsp;$current = 0;
             </li>
             <li class="codeBlock__line">
-              &nbsp;&nbsp;if($current == 1) echo "$prev2, $prev1, ";
+              &nbsp;&nbsp;echo "$prev1, $prev2, ";
             </li>
             <li class="codeBlock__line">
-              &nbsp;&nbsp;echo "$current, ";
+              &nbsp;&nbsp;for ($i = 0; $i < $n-2; $i++) {
             </li>
             <li class="codeBlock__line">
-              &nbsp;&nbsp;if($n > 1) {
+              &nbsp;&nbsp;&nbsp;&nbsp;$current = $prev1 + $prev2;                
             </li>
             <li class="codeBlock__line">
-              &nbsp;&nbsp;&nbsp;&nbsp;$n--;
+              &nbsp;&nbsp;&nbsp;&nbsp;$prev1 = $prev2;
             </li>
             <li class="codeBlock__line">
-              &nbsp;&nbsp;&nbsp;&nbsp;fibonacci($n, $current, $prev1);
+              &nbsp;&nbsp;&nbsp;&nbsp;$prev2 = $current;
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;echo "$current, ";
             </li>
             <li class="codeBlock__line">
               &nbsp;&nbsp;}
@@ -703,10 +714,7 @@
               }
             </li>
             <li class="codeBlock__line">
-              fibonacci($fib_count-2);
-            </li>
-            <li class="codeBlock__line">
-              
+              fibonacci($count, $num1, $num2);
             </li>
           </ol></code>
         </div>
