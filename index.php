@@ -98,7 +98,7 @@
       <section class="taskCard">
         <h2 class="taskCard__title">Задание 2.</h2>
         <p class="taskCard__text">
-          Присвоить переменной $а значение в промежутке [0..15]. С помощью оператора switch организовать вывод чисел от $a до 15.
+          Присвоить переменной <code>$а</code> значение в промежутке <code>[0..15]</code>. С помощью оператора <code>switch</code> организовать вывод чисел от <code>$a</code> до <code>15</code>.
         </p>
         <form method="POST" id="t2_form">
           Введите значение <code>$a</code>:
@@ -196,10 +196,10 @@
       <section class="taskCard">
         <h2 class="taskCard__title">Задание 3.</h2>
         <p class="taskCard__text">
-          Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор return.
+          Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор <code>return</code>.
         </p>
 
-        <form method="POST" id="t3_form">
+        <form method="post" id="t3_form">
           Введите значение <code>$a</code>:
           <input type="number" class="taskCard__input" value="7" name="t3_a">
           Введите значение <code>$b</code>:
@@ -227,15 +227,16 @@
               return $mult;
             }
 
-            function div($x = 1, $y = 1) {
-              $div = $x / $y;
+            function div($x, $y) {
+              if($x != 0 && $y != 0) $div = $x / $y;
+              else $div = 0;
               return $div;
             }
             echo "<code>";
             echo "Сумма = ".summ($t3_a, $t3_b)."; ";
             echo "Разность = ".diff($t3_a, $t3_b)."; ";
             echo "Произведение = ".mult($t3_a, $t3_b)."; ";
-            if($t3_a != 0 && $t3_b != 0) { echo "Соотношение = ".div($t3_a, $t3_b).";"; }
+            echo "Соотношение = ".div($t3_a, $t3_b).";";
             echo "</code>";
           ?>
           <button class="functionButton" onclick="showCode('task3')">view code</button>
@@ -283,7 +284,10 @@
               function div($x = 1, $y = 1) {
             </li>
             <li class="codeBlock__line">
-              &nbsp;&nbsp;$div = $x / $y;
+              &nbsp;&nbsp;if($x != 0 && $y != 0) $div = $x / $y;
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;else $div = 0;
             </li>
             <li class="codeBlock__line">
               &nbsp;&nbsp;return $div;
@@ -301,7 +305,7 @@
               echo "Произведение = ".mult($a, $b)."; ";
             </li>
             <li class="codeBlock__line">
-              if($a != 0 && $b != 0) { echo "Соотношение = ".div($a, $b).";"; }
+              echo "Соотношение = ".div($a, $b).";";
             </li>
           </ol></code>
         </div>
@@ -309,9 +313,53 @@
 
       <section class="taskCard">
         <h2 class="taskCard__title">Задание 4.</h2>
-        <p class="taskCard__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, eligendi magni! Voluptas autem eos repellat nulla consequatur quae corporis, dicta repellendus expedita. Dolores sequi ratione hic facilis accusantium unde iusto.</p>
+        <p class="taskCard__text">
+          Реализовать функцию с тремя параметрами: <code>function mathOperation($arg1, $arg2, $operation)</code>, где <code>$arg1</code>, <code>$arg2</code> – значения аргументов, <code>$operation</code> – строка с названием операции. В зависимости от переданного значения операции выполнить одну из арифметических операций (использовать функции из пункта 3) и вернуть полученное значение (использовать <code>switch</code>).
+        </p>
+        
+        <form method="post" id="t4_form">
+          Введите <code>$a</code>:
+          <input type="number" class="taskCard__input" value="11" name="t4_a">
+          Введите <code>$b</code>:
+          <input type="number" class="taskCard__input" value="-5" name="t4_b">
+          Действие:
+          <select class="taskCard__input taskCard__input_select" name="t4_oper">
+            <option disabled>оператор</option>
+            <option value="summ">сумма</option>
+            <option selected value="diff">разность</option>
+            <option value="mult">умножение</option>
+            <option value="div">деление</option>
+          </select>
+        </form>
 
-        <div class="taskCard__buttons">
+        <div class="taskCard__buttons taskCard__buttons_hideColumn">
+          <input type="submit" value="выполнить" class="functionButton" form="t4_form">
+            <?php
+              $a = $_POST['t4_a'];
+              $b = $_POST['t4_b'];
+              $operation = $_POST['t4_oper'];
+              function mathOperation($arg1, $arg2, $oper) {
+                $result = 0;
+                switch($oper) {
+                  case "summ":
+                    $result = summ($arg1, $arg2);
+                    break;
+                  case "diff":
+                    $result = diff($arg1, $arg2);
+                    break;
+                  case "mult":
+                    $result = mult($arg1, $arg2);
+                    break;
+                  case "div":
+                    $result = div($arg1, $arg2);
+                    break;
+                }
+                return $result;
+              }
+              echo "<code>";
+              echo "Результат = ".mathOperation($a, $b, $operation);
+              echo "</code>";
+            ?>
           <button class="functionButton" onclick="showCode('task4')">view code</button>
         </div>
 
