@@ -20,6 +20,9 @@ function showCode(task) {
 
   let task7_codeBlock = document.getElementById('task7_codeBlock');
   let task7_codeWrap = document.getElementById('task7_codeWrap');
+
+  let task8_codeBlock = document.getElementById('task8_codeBlock');
+  let task8_codeWrap = document.getElementById('task8_codeWrap');
   
   switch(task) {
     case 'task1':
@@ -56,6 +59,11 @@ function showCode(task) {
       task7_codeBlock.classList.toggle('codeBlock_hidden');
       task7_codeWrap.classList.toggle('taskCard__codeWrap_hidden');
       document.location.href = "#task7_location";
+      break;
+    case 'task8':
+      task8_codeBlock.classList.toggle('codeBlock_hidden');
+      task8_codeWrap.classList.toggle('taskCard__codeWrap_hidden');
+      document.location.href = "#task8_location";
       break;
   }
 }
