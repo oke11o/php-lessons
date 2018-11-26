@@ -15,22 +15,83 @@
     <header>
       <?php
         $headTitle = 'Домашнее задание по курсу PHP. Урок 2.';
-        $date = '24 ноября 2018 года.';
+        $date ="'24 ноября 2018 года.";
         echo "<h1 class='headerTitle'>$headTitle</h1>
         <p class='headerDate'>$date</p>";
       ?>
     </header>
     <main class="bodyWrap__main">
       <section class="taskCard">
-        <h2 class="taskCard__title">test block</h2>
-        <?php
-          
-        ?>
-      </section>
-
-      <section class="taskCard">
         <h2 class="taskCard__title">Задание 1.</h2>
-        <p class="taskCard__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, eligendi magni! Voluptas autem eos repellat nulla consequatur quae corporis, dicta repellendus expedita. Dolores sequi ratione hic facilis accusantium unde iusto.</p>
+        <p class="taskCard__text">
+          Объявить две целочисленные переменные <code>$a</code> и <code>$b</code> и задать им произвольные начальные значения. Затем написать скрипт, который работает по следующему принципу: <br>
+          если <code>$a</code> и <code>$b</code> положительные, вывести их разность; <br>
+          если <code>$а</code> и <code>$b</code> отрицательные, вывести их произведение; <br>
+          если <code>$а</code> и <code>$b</code> разных знаков, вывести их сумму; <br>
+          ноль можно считать положительным числом.
+        </p>
+        <p class="taskCard__release">
+          <form method="POST" id="t1_form">
+            Введите значение <code>$a</code>:
+            <input type="number" class="taskCard__input" id="task1_input" value="5" name="t1_a">
+            Введите значение <code>$b</code>:
+            <input type="number" class="taskCard__input" id="task1_input" value="9" name="t1_b">            
+          </form>
+        </p>
+
+        <div class="taskCard__buttons">
+            <input type="submit" value="выполнить" class="functionButton" form="t1_form">
+            <?php
+              $a = $_POST['t1_a'];
+              $b = $_POST['t1_b'];
+              if ($a >= 0 && $b >= 0) { 
+                $c = $a - $b;
+                echo "<code>a - b = $c</code>";
+              } elseif ($a < 0 && $b < 0) {
+                $c = $a * $b;
+                echo "<code>a * b = $c</code>";
+              } else {
+                $c = $a + $b;
+                echo "<code>a + b = $c</code>";
+              }
+            ?>
+            <button class="functionButton" onclick="showCode('task1')">view code</button>
+          </div>
+
+          <div class="taskCard__codeWrap taskCard__codeWrap_hidden" id="task1_codeWrap">
+            <code><ol class="codeBlock codeBlock_geometry codeBlock_hidden" id="task1_codeBlock">
+              <li class="codeBlock__line">
+                if ($a &gt;= 0 &amp;&amp; $b &gt;= 0) {
+              </li>
+              <li class="codeBlock__line">
+                &nbsp;&nbsp;$c = $a - $b;
+              </li>
+              <li class="codeBlock__line">
+                &nbsp;&nbsp;echo "a - b = $c";
+              </li>
+              <li class="codeBlock__line">
+                } elseif ($a &lt; 0 &amp;&amp; $b &lt; 0) {
+              </li>
+              <li class="codeBlock__line">
+                &nbsp;&nbsp;$c = $a * $b;
+              </li>
+              <li class="codeBlock__line">
+                &nbsp;&nbsp;echo "a * b = $c";
+              </li>
+              <li class="codeBlock__line">
+                } else {
+              </li>
+              <li class="codeBlock__line">
+                &nbsp;&nbsp;$c = $a + $b;
+              </li>
+              <li class="codeBlock__line">
+                &nbsp;&nbsp;echo "a + b = $c";
+              </li>
+              <li class="codeBlock__line">
+                }
+              </li>
+            </ol></code>
+          </div>
       </section>
 
       <section class="taskCard">
@@ -107,11 +168,3 @@
 </body>
 
 </html>
-<!-- 
-  вопросы к изучению
-  -
-  -
-  -
-  -
-  -
- -->
