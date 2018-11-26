@@ -181,6 +181,9 @@ code {
     //   margin-top: -125%;
     // }
   }
+  &_fewHidden {
+    margin-top: -25%;
+  }
 
   &__line:nth-child(odd) {
     background: #fafafa;
