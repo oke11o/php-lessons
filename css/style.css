@@ -112,6 +112,26 @@ code {
   padding-bottom: 30px;
 }
 
+.taskCard__buttons_column {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  grid-gap: 15px;
+  justify-items: center;
+}
+
+@media (max-width: 559px) {
+  .taskCard__buttons_hideColumn {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    grid-gap: 15px;
+    justify-items: center;
+  }
+}
+
 .taskCard__codeWrap {
   position: relative;
   overflow: hidden;
@@ -164,7 +184,7 @@ code {
 }
 
 .codeBlock_hidden {
-  margin-top: -50%;
+  margin-top: -100%;
 }
 
 .codeBlock__line:nth-child(odd) {

@@ -90,6 +90,22 @@ code {
     align-items: center;
     padding-top: 15px;
     padding-bottom: 30px;
+
+    &_column {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 15px;
+      justify-items: center;
+    }
+
+    &_hideColumn {
+      @include vwMedia(559px) {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 15px;
+        justify-items: center;
+      }
+    }
   }
 
   &__codeWrap {
@@ -142,7 +158,7 @@ code {
   }
 
   &_hidden {
-    margin-top: -50%;
+    margin-top: -100%;
 
     // @include vwMedia(1480px) {
     //   margin-top: -125%;
