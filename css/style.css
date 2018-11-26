@@ -11,7 +11,7 @@ code {
 }
 
 .bodyWrap {
-  width: 1200px;
+  width: 1400px;
   font-family: 'Tahoma', sans-serif;
   font-weight: 400;
   font-size: 12pt;
@@ -37,9 +37,15 @@ code {
   }
 }
 
+@media (max-width: 1599px) {
+  .bodyWrap {
+    width: 1200px;
+  }
+}
+
 @media (max-width: 1399px) {
   .bodyWrap {
-    width: 930px;
+    width: 900px;
   }
 }
 
@@ -99,6 +105,10 @@ code {
   font-size: 1em;
 }
 
+.taskCard__input_select {
+  width: 7em;
+}
+
 .taskCard__buttons {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -121,7 +131,31 @@ code {
   justify-items: center;
 }
 
-@media (max-width: 559px) {
+@media (max-width: 1399px) {
+  .taskCard__buttons_hideColumn {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    grid-gap: 15px;
+    justify-items: center;
+  }
+}
+
+@media (max-width: 992px) {
+  .taskCard__buttons_hideColumn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media (max-width: 767px) {
   .taskCard__buttons_hideColumn {
     display: -ms-grid;
     display: grid;

@@ -17,7 +17,7 @@ code {
 }
 
 .bodyWrap {
-  width: 1200px;
+  width: 1400px;
   font-family: 'Tahoma', sans-serif;
   font-weight: 400;
   font-size: 12pt;
@@ -36,8 +36,11 @@ code {
     }
   }
 
+  @include vwMedia(1599px) {
+    width: 1200px;
+  }
   @include vwMedia(1399px) {
-    width: 930px;
+    width: 900px;
   }
   @include vwMedia(992px) {
     width: 720px;
@@ -82,6 +85,9 @@ code {
     height: 1.5em;
     width: 2.5em;
     font-size: 1em;
+    &_select {
+      width: 7em;
+    }
   }
 
   &__buttons {
@@ -99,7 +105,18 @@ code {
     }
 
     &_hideColumn {
-      @include vwMedia(559px) {
+      @include vwMedia(1399px) {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 15px;
+        justify-items: center;
+      }
+      @include vwMedia(992px) {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      @include vwMedia(767px) {
         display: grid;
         grid-template-columns: 1fr;
         grid-gap: 15px;
