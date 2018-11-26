@@ -14,9 +14,9 @@
   <div class="bodyWrap bodyWrap_position">
     <header>
       <?php
-        $headTitle = 'Домашнее задание по курсу PHP. Урок 2.';
-        $date ="'24 ноября 2018 года.";
-        echo "<h1 class='headerTitle'>$headTitle</h1>
+      $headTitle = 'Домашнее задание по курсу PHP. Урок 2.';
+      $date = "'24 ноября 2018 года.";
+      echo "<h1 class='headerTitle'>$headTitle</h1>
         <p class='headerDate'>$date</p>";
       ?>
     </header>
@@ -43,18 +43,18 @@
         <div class="taskCard__buttons taskCard__buttons_hideColumn">
           <input type="submit" value="выполнить" class="functionButton" form="t1_form" onclick="document.location.href = '#task1_location'">
           <?php
-            $a = $_POST['t1_a'];
-            $b = $_POST['t1_b'];
-            if ($a >= 0 && $b >= 0) { 
-              $c = $a - $b;
-              echo "<code>a - b = $c</code>";
-            } elseif ($a < 0 && $b < 0) {
-              $c = $a * $b;
-              echo "<code>a * b = $c</code>";
-            } else {
-              $c = $a + $b;
-              echo "<code>a + b = $c</code>";
-            }
+          $a = $_POST['t1_a'];
+          $b = $_POST['t1_b'];
+          if ($a >= 0 && $b >= 0) {
+            $c = $a - $b;
+            echo "<code>a - b = $c</code>";
+          } elseif ($a < 0 && $b < 0) {
+            $c = $a * $b;
+            echo "<code>a * b = $c</code>";
+          } else {
+            $c = $a + $b;
+            echo "<code>a + b = $c</code>";
+          }
           ?>
           <button class="functionButton" onclick="showCode('task1')">view code</button>
         </div>
@@ -108,27 +108,43 @@
         <div class="taskCard__buttons taskCard__buttons_column">
           <input type="submit" value="выполнить" class="functionButton" form="t2_form" onclick="document.location.href = '#task2_location'">
           <?php
-            $a = $_POST['t2_a'];
-            echo "<code>"; 
-            switch ($a) {
-              case 0: echo "0";
-              case 1: echo " 1";
-              case 2: echo " 2";
-              case 3: echo " 3";
-              case 4: echo " 4";
-              case 5: echo " 5";
-              case 6: echo " 6";
-              case 7: echo " 7";
-              case 8: echo " 8";
-              case 9: echo " 9";
-              case 10: echo " 10";
-              case 11: echo " 11";
-              case 12: echo " 12";
-              case 13: echo " 13";
-              case 14: echo " 14";
-              case 15: echo " 15";
-            }
-            echo "</code>";
+          $a = $_POST['t2_a'];
+          echo "<code>";
+          switch ($a) {
+            case 0:
+              echo "0";
+            case 1:
+              echo " 1";
+            case 2:
+              echo " 2";
+            case 3:
+              echo " 3";
+            case 4:
+              echo " 4";
+            case 5:
+              echo " 5";
+            case 6:
+              echo " 6";
+            case 7:
+              echo " 7";
+            case 8:
+              echo " 8";
+            case 9:
+              echo " 9";
+            case 10:
+              echo " 10";
+            case 11:
+              echo " 11";
+            case 12:
+              echo " 12";
+            case 13:
+              echo " 13";
+            case 14:
+              echo " 14";
+            case 15:
+              echo " 15";
+          }
+          echo "</code>";
           ?>
           <button class="functionButton" onclick="showCode('task2')">view code</button>
         </div>
@@ -209,35 +225,39 @@
         <div class="taskCard__buttons taskCard__buttons_column">
           <input type="submit" value="выполнить" class="functionButton" form="t3_form" onclick="document.location.href = '#task3_location'">
           <?php
-            $t3_a = $_POST['t3_a'];
-            $t3_b = $_POST['t3_b'];
+          $t3_a = $_POST['t3_a'];
+          $t3_b = $_POST['t3_b'];
 
-            function summ($x, $y) {
-              $summ = $x + $y;
-              return $summ;
-            }
+          function summ($x, $y)
+          {
+            $summ = $x + $y;
+            return $summ;
+          }
 
-            function diff($x, $y) {
-              $diff = $x - $y;
-              return $diff;
-            }
+          function diff($x, $y)
+          {
+            $diff = $x - $y;
+            return $diff;
+          }
 
-            function mult($x, $y) {
-              $mult = $x * $y;
-              return $mult;
-            }
+          function mult($x, $y)
+          {
+            $mult = $x * $y;
+            return $mult;
+          }
 
-            function div($x, $y) {
-              if($x != 0 && $y != 0) $div = $x / $y;
-              else $div = 0;
-              return $div;
-            }
-            echo "<code>";
-            echo "Сумма = ".summ($t3_a, $t3_b)."; ";
-            echo "Разность = ".diff($t3_a, $t3_b)."; ";
-            echo "Произведение = ".mult($t3_a, $t3_b)."; ";
-            echo "Соотношение = ".div($t3_a, $t3_b).";";
-            echo "</code>";
+          function div($x, $y)
+          {
+            if ($x != 0 && $y != 0) $div = $x / $y;
+            else $div = 0;
+            return $div;
+          }
+          echo "<code>";
+          echo "Сумма = " . summ($t3_a, $t3_b) . "; ";
+          echo "Разность = " . diff($t3_a, $t3_b) . "; ";
+          echo "Произведение = " . mult($t3_a, $t3_b) . "; ";
+          echo "Соотношение = " . div($t3_a, $t3_b) . ";";
+          echo "</code>";
           ?>
           <button class="functionButton" onclick="showCode('task3')">view code</button>
         </div>
@@ -335,30 +355,31 @@
         <div class="taskCard__buttons taskCard__buttons_hideColumn">
           <input type="submit" value="выполнить" class="functionButton" form="t4_form" onclick="document.location.href = '#task4_location'">
             <?php
-              $a = $_POST['t4_a'];
-              $b = $_POST['t4_b'];
-              $operation = $_POST['t4_oper'];
-              function mathOperation($arg1, $arg2, $oper) {
-                $result = 0;
-                switch($oper) {
-                  case "summ":
-                    $result = summ($arg1, $arg2);
-                    break;
-                  case "diff":
-                    $result = diff($arg1, $arg2);
-                    break;
-                  case "mult":
-                    $result = mult($arg1, $arg2);
-                    break;
-                  case "div":
-                    $result = div($arg1, $arg2);
-                    break;
-                }
-                return $result;
+            $a = $_POST['t4_a'];
+            $b = $_POST['t4_b'];
+            $operation = $_POST['t4_oper'];
+            function mathOperation($arg1, $arg2, $oper)
+            {
+              $result = 0;
+              switch ($oper) {
+                case "summ":
+                  $result = summ($arg1, $arg2);
+                  break;
+                case "diff":
+                  $result = diff($arg1, $arg2);
+                  break;
+                case "mult":
+                  $result = mult($arg1, $arg2);
+                  break;
+                case "div":
+                  $result = div($arg1, $arg2);
+                  break;
               }
-              echo "<code>";
-              echo "Результат = ".mathOperation($a, $b, $operation);
-              echo "</code>";
+              return $result;
+            }
+            echo "<code>";
+            echo "Результат = " . mathOperation($a, $b, $operation);
+            echo "</code>";
             ?>
           <button class="functionButton" onclick="showCode('task4')">view code</button>
         </div>
@@ -462,16 +483,17 @@
         <div class="taskCard__buttons taskCard__buttons_hideColumn">
           <input type="submit" value="выполнить" class="functionButton" form="t6_form" onclick="document.location.href = '#task6_location'">
           <?php
-            $val = $_POST['t6_val'];
-            $pow = $_POST['t6_pow'];
-            function power($value, $power) {
-              if ($power == 0) return 1;
-              if ($power < 0) return power(1/$value, -$power);
-              return $value * power($value, $power - 1);
-            }
-            echo "<code>";
-            echo "$val<sup>$pow</sup> = ".power($val, $pow);
-            echo "</code>";
+          $val = $_POST['t6_val'];
+          $pow = $_POST['t6_pow'];
+          function power($value, $power)
+          {
+            if ($power == 0) return 1;
+            if ($power < 0) return power(1 / $value, -$power);
+            return $value * power($value, $power - 1);
+          }
+          echo "<code>";
+          echo "$val<sup>$pow</sup> = " . power($val, $pow);
+          echo "</code>";
           ?>
           <button class="functionButton" onclick="showCode('task6')">view code</button>
         </div>
@@ -503,11 +525,37 @@
       <section class="taskCard" id="task7_location">
         <h2 class="taskCard__title">Задание 7.</h2>
         <p class="taskCard__text">
-          С помощью рекурсии организовать функцию возведения числа в степень. Формат: function power($val, $pow), где $val – заданное число, $pow – степень.
+          Написать функцию, которая вычисляет текущее время и возвращает его в формате с правильными склонениями, например: <br>
+          22 часа 15 минут <br>
+          21 час 43 минуты
         </p>
 
         <p class="taskCard__text">
+          <?php
+          $hours = date('H');
+          $minutes = date('i');
 
+          function getTimeText($num, $textArray) {
+            $num = $num % 100;
+            if ($num > 10 && $num < 20) {
+              $text = $textArray[2];
+            } else {
+              $i = $num % 10;
+              switch ($i) {
+                case (1): $text = $textArray[0]; break;
+                case (2):
+                case (3):
+                case (4): $text = $textArray[1]; break;
+                default: $text = $textArray[2];
+              }
+            }
+            return $text;
+          }
+
+          echo "Текущее время: ";
+          echo $hours . getTimeText($hours, array(' час ', ' часа ', ' часов '));
+          echo $minutes . getTimeText($minutes, array(' минута', ' минуты', ' минут'));
+          ?>
         </p>
 
         <div class="taskCard__buttons">
@@ -517,28 +565,79 @@
         <div class="taskCard__codeWrap taskCard__codeWrap_hidden" id="task7_codeWrap">
           <code><ol class="codeBlock codeBlock_geometry codeBlock_hidden" id="task7_codeBlock">
             <li class="codeBlock__line">
-              
+              $hours = date('H');
             </li>
             <li class="codeBlock__line">
-              
+              $minutes = date('i');
             </li>
             <li class="codeBlock__line">
-              
+              <code class="codeComment">//функция перебора массива со склонениями, возвращает строку (string)</code>
             </li>
             <li class="codeBlock__line">
-              
+              function getTimeText($num, $textArray) {
             </li>
             <li class="codeBlock__line">
-              
+              &nbsp;&nbsp;$num = $num % 100;
             </li>
             <li class="codeBlock__line">
-              
+              &nbsp;&nbsp;if ($num > 10 && $num < 20) {
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;$text = $textArray[2];
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;} else {
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;$i = $num % 10;
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;switch ($i) {
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case (1): $text = $textArray[0]; break;
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case (2):
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case (3):
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case (4): $text = $textArray[1]; break;
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default: $text = $textArray[2];
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;&nbsp;&nbsp;}
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;}
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;return $text;
+            </li>
+            <li class="codeBlock__line">
+              }
+            </li>
+            <li class="codeBlock__line">
+              <code class="codeComment">//вывод текущего времени</code>
+            </li>
+            <li class="codeBlock__line">
+              echo "Текущее время: ";
+            </li>
+            <li class="codeBlock__line">
+              echo $hours . getTimeText($hours, array(' час ', ' часа ', ' часов '));
+            </li>
+            <li class="codeBlock__line">
+              echo $minutes . getTimeText($minutes, array(' минута', ' минуты', ' минут'));
             </li>
           </ol></code>
         </div>
       </section>
     </main>
-    Написать функцию, которая вычисляет текущее время и возвращает его в формате с правильными склонениями, например:
+    
     <footer>
       <div class="rights">
         <span>All Rights Reserved &copy; <?php echo date('Y'); ?> Все задания выполнил Михаил Успенский.</span>
