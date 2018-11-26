@@ -195,8 +195,116 @@
 
       <section class="taskCard">
         <h2 class="taskCard__title">Задание 3.</h2>
-        <p class="taskCard__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, eligendi magni! Voluptas autem eos repellat nulla consequatur quae corporis, dicta repellendus expedita. Dolores sequi ratione hic facilis accusantium unde iusto.
+        <p class="taskCard__text">
+          Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор return.
         </p>
+
+        <form method="POST" id="t3_form">
+          Введите значение <code>$a</code>:
+          <input type="number" class="taskCard__input" value="7" name="t3_a">
+          Введите значение <code>$b</code>:
+          <input type="number" class="taskCard__input" value="2" name="t3_b">            
+        </form>
+
+        <div class="taskCard__buttons taskCard__buttons_column">
+          <input type="submit" value="выполнить" class="functionButton" form="t3_form">
+          <?php
+            $t3_a = $_POST['t3_a'];
+            $t3_b = $_POST['t3_b'];
+
+            function summ($x, $y) {
+              $summ = $x + $y;
+              return $summ;
+            }
+
+            function diff($x, $y) {
+              $diff = $x - $y;
+              return $diff;
+            }
+
+            function mult($x, $y) {
+              $mult = $x * $y;
+              return $mult;
+            }
+
+            function div($x = 1, $y = 1) {
+              $div = $x / $y;
+              return $div;
+            }
+            echo "<code>";
+            echo "Сумма = ".summ($t3_a, $t3_b)."; ";
+            echo "Разность = ".diff($t3_a, $t3_b)."; ";
+            echo "Произведение = ".mult($t3_a, $t3_b)."; ";
+            if($t3_a != 0 && $t3_b != 0) { echo "Соотношение = ".div($t3_a, $t3_b).";"; }
+            echo "</code>";
+          ?>
+          <button class="functionButton" onclick="showCode('task3')">view code</button>
+        </div>
+
+        <div class="taskCard__codeWrap taskCard__codeWrap_hidden" id="task3_codeWrap">
+          <code><ol class="codeBlock codeBlock_geometry codeBlock_hidden" id="task3_codeBlock">
+            <li class="codeBlock__line">
+              function summ($x, $y) {
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;$summ = $x + $y;
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;return $summ;
+            </li>
+            <li class="codeBlock__line">
+              }
+            </li>
+            <li class="codeBlock__line">
+              function diff($x, $y) {
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;$diff = $x - $y;
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;return $diff;
+            </li>
+            <li class="codeBlock__line">
+              }
+            </li>
+            <li class="codeBlock__line">
+              function mult($x, $y) {
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;$mult = $x * $y;
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;return $mult;
+            </li>
+            <li class="codeBlock__line">
+              }
+            </li>
+            <li class="codeBlock__line">
+              function div($x = 1, $y = 1) {
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;$div = $x / $y;
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;return $div;
+            </li>
+            <li class="codeBlock__line">
+              }
+            </li>
+            <li class="codeBlock__line">
+              echo "Сумма = ".summ($a, $b)."; ";
+            </li>
+            <li class="codeBlock__line">
+              echo "Разность = ".diff($a, $b)."; ";
+            </li>
+            <li class="codeBlock__line">
+              echo "Произведение = ".mult($a, $b)."; ";
+            </li>
+            <li class="codeBlock__line">
+              if($a != 0 && $b != 0) { echo "Соотношение = ".div($a, $b).";"; }
+            </li>
+          </ol></code>
+        </div>
       </section>
 
       <section class="taskCard">
