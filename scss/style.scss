@@ -29,15 +29,24 @@ code {
 
   &__main {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-gap: 30px;
+    @include vwMedia(992px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   @include vwMedia(1399px) {
-    width: 900px;
+    width: 930px;
   }
   @include vwMedia(992px) {
+    width: 720px;
+  }
+  @include vwMedia(767px) {
     width: 540px;
+  }
+  @include vwMedia(599px) {
+    width: 90%;
   }
 }
 

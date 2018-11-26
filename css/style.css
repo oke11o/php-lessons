@@ -25,20 +25,39 @@ code {
 .bodyWrap__main {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   grid-gap: 30px;
+}
+
+@media (max-width: 992px) {
+  .bodyWrap__main {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 1399px) {
   .bodyWrap {
-    width: 900px;
+    width: 930px;
   }
 }
 
 @media (max-width: 992px) {
   .bodyWrap {
+    width: 720px;
+  }
+}
+
+@media (max-width: 767px) {
+  .bodyWrap {
     width: 540px;
+  }
+}
+
+@media (max-width: 599px) {
+  .bodyWrap {
+    width: 90%;
   }
 }
 
