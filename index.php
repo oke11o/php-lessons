@@ -426,7 +426,7 @@
         </div>
       </section>
 
-      <section class="taskCard" id="task3_location">
+      <section class="taskCard" id="task5_location">
         <h2 class="taskCard__title">Задание 5.</h2>
         <p class="taskCard__text">Посмотреть на встроенные функции PHP. Используя имеющийся HTML шаблон, вывести текущий год в подвале при помощи встроенных функций PHP.</p>
 
@@ -445,8 +445,100 @@
           </ol></code>
         </div>
       </section>
-    </main>
 
+      <section class="taskCard" id="task6_location">
+        <h2 class="taskCard__title">Задание 6.</h2>
+        <p class="taskCard__text">
+          С помощью рекурсии организовать функцию возведения числа в степень. Формат: function power($val, $pow), где $val – заданное число, $pow – степень.
+        </p>
+        
+        <form method="post" id="t6_form">
+          Введите число <code>$val</code>:
+          <input type="number" class="taskCard__input" value="4" name="t6_val">
+          Введите степень <code>$pow</code>:
+          <input type="number" class="taskCard__input" value="4" name="t6_pow">            
+        </form>
+
+        <div class="taskCard__buttons taskCard__buttons_hideColumn">
+          <input type="submit" value="выполнить" class="functionButton" form="t6_form" onclick="document.location.href = '#task6_location'">
+          <?php
+            $val = $_POST['t6_val'];
+            $pow = $_POST['t6_pow'];
+            function power($value, $power) {
+              if ($power == 0) return 1;
+              if ($power < 0) return power(1/$value, -$power);
+              return $value * power($value, $power - 1);
+            }
+            echo "<code>";
+            echo "$val<sup>$pow</sup> = ".power($val, $pow);
+            echo "</code>";
+          ?>
+          <button class="functionButton" onclick="showCode('task6')">view code</button>
+        </div>
+
+        <div class="taskCard__codeWrap taskCard__codeWrap_hidden" id="task6_codeWrap">
+          <code><ol class="codeBlock codeBlock_geometry codeBlock_hidden" id="task6_codeBlock">
+            <li class="codeBlock__line">
+              function power($value, $power) {
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;if ($power == 0) return 1;
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;if ($power &lt; 0) return power(1/$value, -$power);
+            </li>
+            <li class="codeBlock__line">
+              &nbsp;&nbsp;return $value * power($value, $power - 1);
+            </li>
+            <li class="codeBlock__line">
+              }
+            </li>
+            <li class="codeBlock__line">
+              echo "$val<sup>$pow</sup> = ".power($val, $pow);
+            </li>
+          </ol></code>
+        </div>
+      </section>
+
+      <section class="taskCard" id="task7_location">
+        <h2 class="taskCard__title">Задание 7.</h2>
+        <p class="taskCard__text">
+          С помощью рекурсии организовать функцию возведения числа в степень. Формат: function power($val, $pow), где $val – заданное число, $pow – степень.
+        </p>
+
+        <p class="taskCard__text">
+
+        </p>
+
+        <div class="taskCard__buttons">
+          <button class="functionButton" onclick="showCode('task7')">view code</button>
+        </div>
+
+        <div class="taskCard__codeWrap taskCard__codeWrap_hidden" id="task7_codeWrap">
+          <code><ol class="codeBlock codeBlock_geometry codeBlock_hidden" id="task7_codeBlock">
+            <li class="codeBlock__line">
+              
+            </li>
+            <li class="codeBlock__line">
+              
+            </li>
+            <li class="codeBlock__line">
+              
+            </li>
+            <li class="codeBlock__line">
+              
+            </li>
+            <li class="codeBlock__line">
+              
+            </li>
+            <li class="codeBlock__line">
+              
+            </li>
+          </ol></code>
+        </div>
+      </section>
+    </main>
+    Написать функцию, которая вычисляет текущее время и возвращает его в формате с правильными склонениями, например:
     <footer>
       <div class="rights">
         <span>All Rights Reserved &copy; <?php echo date('Y'); ?> Все задания выполнил Михаил Успенский.</span>
