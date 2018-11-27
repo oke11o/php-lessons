@@ -222,11 +222,11 @@ sup {
 }
 
 .codeBlock_hidden {
-  margin-top: -100%;
+  margin-top: -475px;
 }
 
 .codeBlock_fewHidden {
-  margin-top: -25%;
+  margin-top: -125px;
 }
 
 .codeBlock__line:nth-child(odd) {
