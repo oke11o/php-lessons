@@ -4,8 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php $title = 'php-lesson-02';
-    echo "<title>$title</title>"; ?>
+    <?php
+    $title = 'php-lesson-02';
+    echo "<title>$title</title>";
+    ?>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="dmicon.ico">
 </head>
@@ -15,7 +17,47 @@
     <header>
       <?php
       $headTitle = 'Домашнее задание по курсу PHP. Урок 2.';
-      $date = "'24 ноября 2018 года.";
+      switch((int)date('n'))
+      {
+        case 1:
+          $month = ' января ';
+          break;
+        case 2:
+          $month = ' февраля ';
+          break;
+        case 3:
+          $month = ' марта ';
+          break;
+        case 4:
+          $month = ' апреля ';
+          break;
+        case 5:
+          $month = ' мая ';
+          break;
+        case 6:
+          $month = ' июня ';
+          break;
+        case 7:
+          $month = ' июля ';
+          break;
+        case 8:
+          $month = ' августа ';
+          break;
+        case 9:
+          $month = ' сентября ';
+          break;
+        case 10:
+          $month = ' октября ';
+          break;
+        case 11:
+          $month = ' ноября ';
+          break;
+        case 12:
+          $month = ' декабря ';
+          break;
+        default: $month = ' день сола ';
+      }
+      $date = date('j').$month.date('Y').' года.';
       echo "<h1 class='headerTitle'>$headTitle</h1>
         <p class='headerDate'>$date</p>";
       ?>
@@ -31,29 +73,33 @@
           если <code>$а</code> и <code>$b</code> разных знаков, вывести их сумму; <br>
           ноль можно считать положительным числом.
         </p>
+
+        <?php
+        $t1_a = $_POST['t1_a'];
+        $t1_b = $_POST['t1_b'];
+        ?>
+
         <p class="taskCard__release">
           <form method="POST" id="t1_form">
             Введите значение <code>$a</code>:
-            <input type="number" class="taskCard__input" value="5" name="t1_a">
+            <input type="number" class="taskCard__input" value="<?=$t1_a?>" name="t1_a">
             Введите значение <code>$b</code>:
-            <input type="number" class="taskCard__input" value="9" name="t1_b">            
+            <input type="number" class="taskCard__input" value="<?=$t1_b?>" name="t1_b">            
           </form>
         </p>
 
         <div class="taskCard__buttons taskCard__buttons_hideColumn">
           <input type="submit" value="выполнить" class="functionButton" form="t1_form" onclick="document.location.href = '#task1_location'">
           <?php
-          $a = $_POST['t1_a'];
-          $b = $_POST['t1_b'];
-          if ($a >= 0 && $b >= 0) {
-            $c = $a - $b;
-            echo "<code>a - b = $c</code>";
-          } elseif ($a < 0 && $b < 0) {
-            $c = $a * $b;
-            echo "<code>a * b = $c</code>";
+          if ($t1_a >= 0 && $t1_b >= 0) {
+            $t1_c = $t1_a - $t1_b;
+            echo "<code>$t1_a - $t1_b = $t1_c</code>";
+          } elseif ($t1_a < 0 && $t1_b < 0) {
+            $t1_c = $t1_a * $t1_b;
+            echo "<code>$t1_a * $t1_b = $t1_c</code>";
           } else {
-            $c = $a + $b;
-            echo "<code>a + b = $c</code>";
+            $t1_c = $t1_a + $t1_b;
+            echo "<code>$t1_a + $t1_b = $t1_c</code>";
           }
           ?>
           <button class="functionButton" onclick="showCode('task1')">view code</button>
@@ -100,17 +146,21 @@
         <p class="taskCard__text">
           Присвоить переменной <code>$а</code> значение в промежутке <code>[0..15]</code>. С помощью оператора <code>switch</code> организовать вывод чисел от <code>$a</code> до <code>15</code>.
         </p>
+
+        <?php
+        $t2_a = $_POST['t2_a'];
+        ?>
+
         <form method="POST" id="t2_form">
           Введите значение <code>$a</code>:
-          <input type="number" class="taskCard__input" value="4" min="0" max="15" name="t2_a">
+          <input type="number" class="taskCard__input" value="<?=$t2_a?>" min="0" max="15" name="t2_a">
         </form>
 
         <div class="taskCard__buttons taskCard__buttons_column">
           <input type="submit" value="выполнить" class="functionButton" form="t2_form" onclick="document.location.href = '#task2_location'">
           <?php
-          $a = $_POST['t2_a'];
           echo "<code>";
-          switch ($a) {
+          switch ((int)$t2_a) {
             case 0:
               echo "0";
             case 1:
@@ -215,19 +265,21 @@
           Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор <code>return</code>.
         </p>
 
+        <?php
+        $t3_a = $_POST['t3_a'];
+        $t3_b = $_POST['t3_b'];        
+        ?>
+
         <form method="post" id="t3_form">
           Введите значение <code>$a</code>:
-          <input type="number" class="taskCard__input" value="7" name="t3_a">
+          <input type="number" class="taskCard__input" value="<?=$t3_a?>" name="t3_a">
           Введите значение <code>$b</code>:
-          <input type="number" class="taskCard__input" value="2" name="t3_b">            
+          <input type="number" class="taskCard__input" value="<?=$t3_b?>" name="t3_b">            
         </form>
 
         <div class="taskCard__buttons taskCard__buttons_column">
           <input type="submit" value="выполнить" class="functionButton" form="t3_form" onclick="document.location.href = '#task3_location'">
           <?php
-          $t3_a = $_POST['t3_a'];
-          $t3_b = $_POST['t3_b'];
-
           function summ($x, $y)
           {
             $summ = $x + $y;
@@ -248,8 +300,10 @@
 
           function div($x, $y)
           {
-            if ($x != 0 && $y != 0) $div = $x / $y;
-            else $div = 0;
+            if ($y != 0) {
+              $div = $x / $y;
+            }
+            else $div = 'Деление на ноль невозможно.';
             return $div;
           }
           echo "<code>";
@@ -336,12 +390,16 @@
         <p class="taskCard__text">
           Реализовать функцию с тремя параметрами: <code>function mathOperation($arg1, $arg2, $operation)</code>, где <code>$arg1</code>, <code>$arg2</code> – значения аргументов, <code>$operation</code> – строка с названием операции. В зависимости от переданного значения операции выполнить одну из арифметических операций (использовать функции из пункта 3) и вернуть полученное значение (использовать <code>switch</code>).
         </p>
+        <?php
+        $t4_a = $_POST['t4_a'];
+        $t4_b = $_POST['t4_b'];        
+        ?>
         
         <form method="post" id="t4_form">
           Введите <code>$a</code>:
-          <input type="number" class="taskCard__input" value="11" name="t4_a">
+          <input type="number" class="taskCard__input" value="<?=$t4_a?>" name="t4_a">
           Введите <code>$b</code>:
-          <input type="number" class="taskCard__input" value="-5" name="t4_b">
+          <input type="number" class="taskCard__input" value="<?=$t4_b?>" name="t4_b">
           Действие:
           <select class="taskCard__input taskCard__input_select" name="t4_oper">
             <option disabled>оператор</option>
@@ -355,8 +413,6 @@
         <div class="taskCard__buttons taskCard__buttons_hideColumn">
           <input type="submit" value="выполнить" class="functionButton" form="t4_form" onclick="document.location.href = '#task4_location'">
             <?php
-            $a = $_POST['t4_a'];
-            $b = $_POST['t4_b'];
             $operation = $_POST['t4_oper'];
             function mathOperation($arg1, $arg2, $oper)
             {
@@ -374,11 +430,12 @@
                 case "div":
                   $result = div($arg1, $arg2);
                   break;
+                default: $result = 'undefined';
               }
               return $result;
             }
             echo "<code>";
-            echo "Результат = " . mathOperation($a, $b, $operation);
+            echo "Результат = " . mathOperation($t4_a, $t4_b, $operation);
             echo "</code>";
             ?>
           <button class="functionButton" onclick="showCode('task4')">view code</button>
@@ -472,23 +529,29 @@
         <p class="taskCard__text">
           С помощью рекурсии организовать функцию возведения числа в степень. Формат: function power($val, $pow), где $val – заданное число, $pow – степень.
         </p>
+        <?php
+        $val = $_POST['t6_val'];
+        $pow = $_POST['t6_pow'];        
+        ?>
         
         <form method="post" id="t6_form">
           Введите число <code>$val</code>:
-          <input type="number" class="taskCard__input" value="4" name="t6_val">
+          <input type="number" class="taskCard__input" value="<?=$val?>" name="t6_val">
           Введите степень <code>$pow</code>:
-          <input type="number" class="taskCard__input" value="4" name="t6_pow">            
+          <input type="number" class="taskCard__input" value="<?=$pow?>" name="t6_pow">            
         </form>
 
         <div class="taskCard__buttons taskCard__buttons_hideColumn">
           <input type="submit" value="выполнить" class="functionButton" form="t6_form" onclick="document.location.href = '#task6_location'">
           <?php
-          $val = $_POST['t6_val'];
-          $pow = $_POST['t6_pow'];
           function power($value, $power)
           {
-            if ($power == 0) return 1;
-            if ($power < 0) return power(1 / $value, -$power);
+            if ($power == 0) {
+              return 1;
+            }
+            if ($power < 0) {
+              return power(1 / $value, -$power);
+            }
             return $value * power($value, $power - 1);
           }
           echo "<code>";
@@ -553,8 +616,8 @@
           }
 
           echo "Текущее время: ";
-          echo $hours . getTimeText($hours, array(' час ', ' часа ', ' часов '));
-          echo $minutes . getTimeText($minutes, array(' минута', ' минуты', ' минут'));
+          echo $hours . getTimeText((int)$hours, array(' час ', ' часа ', ' часов '));
+          echo $minutes . getTimeText((int)$minutes, array(' минута', ' минуты', ' минут'));
           ?>
         </p>
 
@@ -642,38 +705,38 @@
         <p class="taskCard__text">
           Доработка функции вывода последовательности чисел Фибоначчи.
         </p>
-        
+        <?php
+        $fib_count = $_POST['t8_count'];
+        $num1 = $_POST['t8_num1'];
+        $num2 = $_POST['t8_num2'];
+        ?>
         <form method="post" id="t8_form">
           Rоличество чисел в последовательности:
-          <input type="number" class="taskCard__input" value="15" name="t8_count"> .
+          <input type="number" class="taskCard__input" min="2" value="<?=$fib_count?>" name="t8_count"> .
           Начать с:
-          <input type="number" class="taskCard__input" value="0" name="t8_num1"> ,
-          <input type="number" class="taskCard__input" value="1" name="t8_num2">
+          <input type="number" class="taskCard__input" value="<?=$num1?>" name="t8_num1"> ,
+          <input type="number" class="taskCard__input" value="<?=$num2?>" name="t8_num2">
         </form>
 
         <div class="taskCard__buttons taskCard__buttons_column">
           <input type="submit" value="выполнить" class="functionButton" form="t8_form" onclick="document.location.href = '#task8_location'">
           <?php
-            $fib_count = $_POST['t8_count'];
-            $num1 = $_POST['t8_num1'];
-            $num2 = $_POST['t8_num2'];
+          function fibonacci($n, $prev1 = 0, $prev2 = 1)
+          {
+            $current = 0;
 
-            function fibonacci($n, $prev1 = 0, $prev2 = 1)
-            {
-              $current = 0;
+            echo "$prev1, $prev2, ";
 
-              echo "$prev1, $prev2, ";
-
-              for ($i = 0; $i < $n-2; $i++) {
-                $current = $prev1 + $prev2;                
-                $prev1 = $prev2;
-                $prev2 = $current;
-                echo "$current, ";
-              }
+            for ($i = 0; $i < $n-2; $i++) {
+              $current = $prev1 + $prev2;                
+              $prev1 = $prev2;
+              $prev2 = $current;
+              echo "$current, ";
             }
-            echo "<code>";
-            fibonacci($fib_count, $num1, $num2);
-            echo "</code>";
+          }
+          echo "<code>";
+          fibonacci($fib_count, $num1, $num2);
+          echo "</code>";
           ?>
           <button class="functionButton" onclick="showCode('task8')">view code</button>
         </div>
