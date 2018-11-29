@@ -86,7 +86,7 @@
       </section>
 
       <section class="taskCard">
-        <h2 class="taskCard__title">test block 2.</h2>
+        <h2 class="taskCard__title">Задание 2.</h2>
         <p class="taskCard__text">
         С помощью цикла do…while написать функцию для вывода чисел от 0 до 10, чтобы результат выглядел так:
         0 – это ноль. <br>
@@ -205,49 +205,79 @@
       </section>
 
       <section class="taskCard">
-        <h2 class="taskCard__title">test block 6.</h2>
+        <h2 class="taskCard__title">Задание 6.</h2>
         <p class="taskCard__text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis quasi molestias reprehenderit deleniti quis. Facilis at vel, sequi ex consequuntur voluptate, eligendi non vero eius pariatur totam ullam obcaecati itaque explicabo fugit nemo saepe esse? Ad impedit sapiente voluptatem placeat sed magni repellendus aliquid dolores. Reprehenderit distinctio blanditiis rerum culpa.
+          В имеющемся шаблоне сайта заменить статичное меню (ul - li) на генерируемое через PHP. Необходимо представить пункты меню как элементы массива и вывести их циклом. Подумать, как можно реализовать меню с вложенными подменю? Попробовать его реализовать.
         </p>
 
         <?php
-        
+        echo "<code>!!! РЕШИТЬ ЗАДАНИЕ !!!</code>"
         ?>
 
       </section>
 
       <section class="taskCard">
-        <h2 class="taskCard__title">test block 7.</h2>
+        <h2 class="taskCard__title">Задание 7.</h2>
         <p class="taskCard__text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis quasi molestias reprehenderit deleniti quis. Facilis at vel, sequi ex consequuntur voluptate, eligendi non vero eius pariatur totam ullam obcaecati itaque explicabo fugit nemo saepe esse? Ad impedit sapiente voluptatem placeat sed magni repellendus aliquid dolores. Reprehenderit distinctio blanditiis rerum culpa.
+        *Вывести с помощью цикла for числа от 0 до 9, НЕ используя тело цикла. То есть выглядеть должно так: <br>
+        <code>for (…){ // здесь пусто}</code>
         </p>
 
         <?php
-        
+        for ($i = 0; $i < 10; print_r($i++.", ")) { /*здесь пусто*/ }
         ?>
 
       </section>
 
       <section class="taskCard">
-        <h2 class="taskCard__title">test block 8.</h2>
+        <h2 class="taskCard__title">Задание 8.</h2>
         <p class="taskCard__text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis quasi molestias reprehenderit deleniti quis. Facilis at vel, sequi ex consequuntur voluptate, eligendi non vero eius pariatur totam ullam obcaecati itaque explicabo fugit nemo saepe esse? Ad impedit sapiente voluptatem placeat sed magni repellendus aliquid dolores. Reprehenderit distinctio blanditiis rerum culpa.
+          *Повторить третье задание, но вывести на экран только города, начинающиеся с буквы «К».
         </p>
 
         <?php
-        
+        echo "<code>";
+
+        foreach ($citiesArray as $key => $value) {
+          foreach ($citiesArray[$key] as $value) {
+            if (mb_substr($value, 0, 1,"utf-8") == 'К') {
+              echo $value . '</br>';
+            }
+          }
+        }
+
+        echo "</code>";
         ?>
 
       </section>
 
       <section class="taskCard">
-        <h2 class="taskCard__title">test block 9.</h2>
+        <h2 class="taskCard__title">Задание 9.</h2>
         <p class="taskCard__text">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis quasi molestias reprehenderit deleniti quis. Facilis at vel, sequi ex consequuntur voluptate, eligendi non vero eius pariatur totam ullam obcaecati itaque explicabo fugit nemo saepe esse? Ad impedit sapiente voluptatem placeat sed magni repellendus aliquid dolores. Reprehenderit distinctio blanditiis rerum culpa.
+          *Объединить две ранее написанные функции в одну, которая получает строку на русском языке, производит транслитерацию и замену пробелов на подчеркивания (аналогичная задача решается при конструировании url-адресов на основе названия статьи в блогах).
         </p>
 
         <?php
-        
+        echo "вариант 1.";
+        echo "<br>";
+        echo "<code>";
+        echo convertSpaces(translitString($testStringText));
+        echo "</code>";
+
+        function trnsTxtWithSpaces($txtWithSpacesToTrns)
+        {
+          $txtWithSpacesToTrns = translitString($txtWithSpacesToTrns);
+          $txtWithSpacesToTrns = convertSpaces($txtWithSpacesToTrns);
+
+          return $txtWithSpacesToTrns;
+        }
+
+        echo "<br>";
+        echo "вариант 2.";
+        echo "<br>";
+        echo "<code>";
+        echo trnsTxtWithSpaces($testStringText);
+        echo "</code>";
         ?>
 
       </section>
