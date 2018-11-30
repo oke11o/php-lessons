@@ -1,3 +1,4 @@
 # for geekbrains
-# current lesson 01
-# last upd 22-11-18
+# current lesson-03
+# last upd 30-11-18
+# finished tasks 1-9 for lesson-03
