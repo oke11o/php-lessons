@@ -67,3 +67,24 @@ function showCode(task) {
       break;
   }
 }
+
+//main menu and sub-menu
+window.onload = menuHoverListener;
+
+let menuListsArr = null;
+let menuSubMenuArr = null;
+let subMenuWrapArr = null;
+
+function menuHoverListener()
+{  
+  menuListsArr = document.querySelectorAll('.taskCard__menuList'); //5 elements
+  menuSubMenuArr = document.querySelectorAll('.taskCard__subMenu'); //4 elements, starts form second element in menuListsArr[]
+  subMenuWrapArr = document.querySelectorAll('.taskCard__subMenuWrap');
+
+  for (let i = 1; i <= menuSubMenuArr.length; i++) {
+    menuListsArr[i].addEventListener('mouseover', function() { menuSubMenuArr[i-1].classList.remove('taskCard__subMenu_hidden'); });
+    menuListsArr[i].addEventListener('mouseleave', function() { menuSubMenuArr[i-1].classList.add('taskCard__subMenu_hidden'); });
+    subMenuWrapArr[i-1].addEventListener('mouseover', function() { menuSubMenuArr[i-1].classList.remove('taskCard__subMenu_hidden'); });
+    subMenuWrapArr[i-1].addEventListener('mouseleave', function() { menuSubMenuArr[i-1].classList.add('taskCard__subMenu_hidden'); });
+  }
+}
