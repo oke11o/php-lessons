@@ -1,5 +1,6 @@
 body {
   background: #f3f3f3;
+  margin: 0;
 }
 
 header {
@@ -8,6 +9,8 @@ header {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -94,6 +97,142 @@ a {
   font-weight: 700;
 }
 
+.headerDate {
+  margin: 0;
+}
+
+.navBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  padding: 30px;
+}
+
+.navBar__logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navBar__logo div {
+  width: 60px;
+  height: 60px;
+  border-radius: 7.5px;
+  background: #474747;
+}
+
+.navBar__logo span {
+  margin-left: 15px;
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.navBar__menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.navBar__menu_margin {
+  margin: 0;
+}
+
+.navBar__menuItem {
+  position: relative;
+}
+
+.navBar__item {
+  position: relative;
+  display: block;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  height: calc(100% - 33px);
+  padding: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 3px solid rgba(0, 0, 0, 0);
+}
+
+.navBar__item_active {
+  color: #f08f28;
+  border-bottom: 3px solid #f08f28;
+  text-shadow: 0.25px 0.25px 0 #f08f28, -0.25px -0.25px 0 #f08f28, 0.25px -0.25px 0 #f08f28, -0.25px 0.25px 0 #f08f28;
+}
+
+.navBar__item:hover {
+  color: #474747;
+  border-bottom: 3px solid #474747;
+  text-shadow: 0.25px 0.25px 0 #474747, -0.25px -0.25px 0 #474747, 0.25px -0.25px 0 #474747, -0.25px 0.25px 0 #474747;
+}
+
+.subMenu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-transform: capitalize;
+  list-style-type: none;
+  padding: 0;
+  background: #ffffff;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  overflow: hidden;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.subMenu__wrap {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.subMenu_hidden {
+  margin-top: -100px;
+}
+
+.subMenu__item:hover {
+  background: #efad66;
+}
+
+.subMenu__itemHref {
+  display: block;
+  padding: 15px 30px;
+}
+
+@media (max-width: 992px) {
+  .subMenu {
+    font-size: calc(1em / 1.25);
+  }
+}
+
+@media (max-width: 767px) {
+  .subMenu {
+    font-size: calc(1em / 1.10);
+  }
+}
+
 .taskCard {
   position: relative;
   width: calc(100% - 30px);
@@ -107,112 +246,6 @@ a {
   background-color: #ffffff;
   -webkit-box-shadow: -4px 12px 20px 0 #b7b7b7;
           box-shadow: -4px 12px 20px 0 #b7b7b7;
-}
-
-.taskCard_mainMenu {
-  grid-column: 1 / -1;
-}
-
-.taskCard__menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.taskCard__menu_margin {
-  margin: 0;
-}
-
-.taskCard__menuList {
-  position: relative;
-  display: block;
-  padding: 7.5px 30px;
-  font-size: 1.35em;
-  font-weight: 700;
-  text-transform: uppercase;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-
-.taskCard__menuList:hover {
-  -webkit-box-shadow: 0 0 3px 0 #808080;
-          box-shadow: 0 0 3px 0 #808080;
-}
-
-@media (max-width: 992px) {
-  .taskCard__menuList {
-    padding: 5px 15px;
-    font-size: 1.25em;
-  }
-}
-
-@media (max-width: 767px) {
-  .taskCard__menuList {
-    padding: 5px 15px;
-    font-size: 1.10em;
-  }
-}
-
-.taskCard__subMenu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  text-transform: capitalize;
-  font-size: calc(1em / 1.35);
-  list-style-type: none;
-  padding: 0;
-  background: #ffffff;
-  border-top-right-radius: 15px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  overflow: hidden;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  margin-top: 5px;
-}
-
-.taskCard__subMenuWrap {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  overflow: hidden;
-  z-index: 100;
-}
-
-.taskCard__subMenu_hidden {
-  margin-top: -80px;
-}
-
-.taskCard__subMenuList:hover {
-  background: #dce6de;
-}
-
-.taskCard__subMenuListHref {
-  display: block;
-  padding: 10px 15px;
-}
-
-@media (max-width: 992px) {
-  .taskCard__subMenu {
-    font-size: calc(1em / 1.25);
-  }
-}
-
-@media (max-width: 767px) {
-  .taskCard__subMenu {
-    font-size: calc(1em / 1.10);
-  }
 }
 
 .taskCard__title {
