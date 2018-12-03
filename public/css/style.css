@@ -226,6 +226,7 @@ a {
   width: calc(100% - 30px);
   border-radius: 25px;
   padding: 15px;
+  padding-bottom: 60px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
 }
@@ -297,6 +298,19 @@ a {
 
 .taskCard__imgWrap:hover {
   border: 1px solid #f08f28;
+}
+
+.taskCard__imgWrap:hover:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(50% - 40px);
+  left: calc(50% - 40px);
+  background: url("../img/icon-zoom-in.png");
+  background-size: 100%;
+  width: 80px;
+  height: 80px;
+  opacity: 0.5;
 }
 
 .taskCard__imgWrap:hover span {
