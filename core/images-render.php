@@ -1,5 +1,5 @@
 <?php
-function spawnImages($spawnDirectory)
+function renderImages($spawnDirectory)
 {
   $directoryOpen = opendir($spawnDirectory); //gallery directory
   $galleryTypes = ['jpg', 'jpeg', 'png', 'gif']; //allowed file types for gallery
@@ -11,8 +11,8 @@ function spawnImages($spawnDirectory)
     $currentFileName = ucfirst(strtr($currentFileName, ["-0" => " ", "-" => " ", "_" => " "]));
 
     if (in_array($currentFileExt, $galleryTypes)) {
-      echo('<div class="taskCard__imgWrap">');
-      echo('<img src="'.$spawnDirectory.'/'.$galleryImage.'" alt="img" class="taskCard__img spawn-image">');
+      echo('<div class="taskCard__imgWrap spawn-image">');
+      echo('<img src="'.$spawnDirectory.'/'.$galleryImage.'" alt="img" class="taskCard__img">');
       echo('<span>'.$currentFileName.'</span>');
       echo('</div>');
     }
