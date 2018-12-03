@@ -58,6 +58,24 @@
     </main>
     
     <footer>
+      <div class="footerContacts">
+        <div class="footerContacts__social">
+          <a href="https://vk.com/dirty.mike" class="footerContacts__socIcon" target="_blank">
+            <img src="img/icon-vk.svg" alt="vkontakte">
+          </a>
+          <a href="https://www.turbosquid.com/Search/Artists/DirtyMike" class="footerContacts__socIcon" target="_blank">
+            <img src="img/icon-ts.png" alt="turbosquid">
+          </a>
+        </div>
+
+        <div class="footerContacts__counter">
+          <?php
+          include '../modules/visites-counter.php';
+
+          echo('this page opened: '.counter('visites-counter.txt').' times.');
+          ?>
+        </div>
+      </div>
       <div class="rights">
         <span>All Rights Reserved &copy; <?php echo date('Y'); ?> Все задания выполнил Михаил Успенский.</span>
       </div>
