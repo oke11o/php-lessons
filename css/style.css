@@ -88,10 +88,21 @@ a {
   }
 }
 
+@media (max-width: 599px) {
+  .bodyWrap {
+    width: 90%;
+  }
+}
+
 .headerTitle {
   text-align: center;
   font-size: 1.75em;
   font-weight: 700;
+}
+
+.headerDate {
+  text-align: center;
+  font-size: 1.25em;
 }
 
 .taskCard {

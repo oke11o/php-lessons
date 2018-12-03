@@ -364,7 +364,6 @@
           return $txtWithSpacesToTrns;
         }
         ?>
-
       </section>
     </main>
     
