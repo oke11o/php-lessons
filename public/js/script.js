@@ -13,19 +13,24 @@ function showCode(task) {
 }
 
 //main menu and sub-menu
-window.onload = menuItemsListener;
+window.onload = addItemsListener;
 
 let menuItemsArr = [];
 let SubMenuArr = [];
 let subMenuWrapArr = [];
 let menuWithSubMenu = [];
+let spawnedImages = [];
 
-function menuItemsListener()
+function addItemsListener()
 {
+  //find all menu items and menu items with submenu
   menuItemsArr = document.querySelectorAll('.navBar__item');
   menuWithSubMenu = document.querySelectorAll('.sub-menu');
   SubMenuArr = document.querySelectorAll('.subMenu');
   subMenuWrapArr = document.querySelectorAll('.subMenu__wrap');
+  //find all spawned images
+  spawnedImages = document.querySelectorAll('.spawn-image');
+  console.log(spawnedImages);
   
   for (let i = 0; i < menuWithSubMenu.length; i++) {
     menuWithSubMenu[i].addEventListener('mouseover', function() { SubMenuArr[i].classList.remove('subMenu_hidden'); });
