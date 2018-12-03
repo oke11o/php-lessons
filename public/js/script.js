@@ -28,10 +28,18 @@ function addItemsListener()
   menuWithSubMenu = document.querySelectorAll('.sub-menu');
   SubMenuArr = document.querySelectorAll('.subMenu');
   subMenuWrapArr = document.querySelectorAll('.subMenu__wrap');
+
   //find all spawned images
   spawnedImages = document.querySelectorAll('.spawn-image');
-  console.log(spawnedImages);
   
+  //find popup container for image slider and X
+  popupContainer = document.getElementById('popup-container');
+  popupSliderCross = document.getElementById('popup-cross');
+  popupSlider = document.getElementById('popup-slider');
+  popupSlider.innerHTML = '';
+
+  
+  //add event listeners on menu items
   for (let i = 0; i < menuWithSubMenu.length; i++) {
     menuWithSubMenu[i].addEventListener('mouseover', function() { SubMenuArr[i].classList.remove('subMenu_hidden'); });
     menuWithSubMenu[i].addEventListener('mouseleave', function() { SubMenuArr[i].classList.add('subMenu_hidden'); });
@@ -42,6 +50,14 @@ function addItemsListener()
   for (let i = 0; i < menuItemsArr.length; i++) {
     menuItemsArr[i].addEventListener('click', switchActiveMenuItem);
   }
+
+  //add event listener on every spawned image in gallery
+  for (let i = 0; i < spawnedImages.length; i++) {
+    spawnedImages[i].addEventListener('click', openSpawnedImg);
+  }
+
+  //add event listener on popup window and it's elemts
+  popupSliderCross.addEventListener('click', function() { popupContainer.classList.add('popup_hidden'); popupSlider.innerHTML = ''; });
 }
 
 function switchActiveMenuItem()
@@ -53,4 +69,16 @@ function switchActiveMenuItem()
   }
 
   this.classList.add('navBar__item_active');
+}
+
+function openSpawnedImg() {
+  console.log(this);
+  let currentImgPath = this.getAttribute('src');
+  let currentSliderImg = document.createElement('img');
+
+  currentSliderImg.setAttribute('src', currentImgPath);
+  currentSliderImg.setAttribute('class', 'popup__img');
+  popupSlider.appendChild(currentSliderImg);
+
+  popupContainer.classList.remove('popup_hidden');
 }
