@@ -19,7 +19,7 @@ let menuItemsArr = [];
 let SubMenuArr = [];
 let subMenuWrapArr = [];
 let menuWithSubMenu = [];
-let spawnedImages = [];
+let renderedImages = [];
 
 function addItemsListener()
 {
@@ -30,7 +30,7 @@ function addItemsListener()
   subMenuWrapArr = document.querySelectorAll('.subMenu__wrap');
 
   //find all spawned images
-  spawnedImages = document.querySelectorAll('.spawn-image');
+  renderedImages = document.querySelectorAll('.spawn-image');
   
   //find popup container for image slider and X
   popupContainer = document.getElementById('popup-container');
@@ -53,8 +53,8 @@ function addItemsListener()
   }
 
   //add event listener on every spawned image in gallery
-  for (let i = 0; i < spawnedImages.length; i++) {
-    spawnedImages[i].addEventListener('click', openSpawnedImg);
+  for (let i = 0; i < renderedImages.length; i++) {
+    renderedImages[i].addEventListener('click', openRenderedImage);
   }
 
   //add event listener on popup window and it's elemts
@@ -72,8 +72,8 @@ function switchActiveMenuItem()
   this.classList.add('navBar__item_active');
 }
 
-function openSpawnedImg() {
-  let currentImgPath = this.getAttribute('src');
+function openRenderedImage() {
+  let currentImgPath = this.firstChild.getAttribute('src');
   let currentSliderImg = document.createElement('img');
   let currentImgText = document.createElement('h2');
 
@@ -81,7 +81,7 @@ function openSpawnedImg() {
   currentSliderImg.setAttribute('class', 'popup__img');
 
   currentImgText.setAttribute('class', 'taskCard__title');
-  currentImgText.innerText = this.nextSibling.innerText;
+  currentImgText.innerText = this.lastChild.innerText;
 
   popupSlider.appendChild(currentSliderImg);
   popupSlider.appendChild(currentImgText);
