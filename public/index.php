@@ -47,11 +47,11 @@
 
         <div class="taskCard__gallery">
           <?php
-          require '../core/images-spawn.php';
+          require '../core/images-render.php';
 
           $galleryDir = 'img/gallery';
 
-          spawnImages($galleryDir);
+          renderImages($galleryDir);
           ?>
         </div>
       </section>
