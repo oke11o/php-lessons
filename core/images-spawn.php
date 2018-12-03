@@ -7,11 +7,13 @@ function spawnImages($spawnDirectory)
   while ($galleryImage = readdir($directoryOpen)) {
     $galleryImage_parts = explode('.', $galleryImage);
     $currentFileExt = strtolower(array_pop($galleryImage_parts));
+    $currentFileName = strtolower(array_shift($galleryImage_parts));
+    $currentFileName = ucfirst(strtr($currentFileName, ["-0" => " ", "-" => " ", "_" => " "]));
 
     if (in_array($currentFileExt, $galleryTypes)) {
       echo('<div class="taskCard__imgWrap">');
       echo('<img src="'.$spawnDirectory.'/'.$galleryImage.'" alt="img" class="taskCard__img spawn-image">');
-      echo('<span>'.$galleryImage_parts[0].'</span>');
+      echo('<span>'.$currentFileName.'</span>');
       echo('</div>');
     }
   }
