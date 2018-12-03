@@ -33,9 +33,15 @@
     </header>
 
     <main class="bodyWrap__main">
-      <section class="popup__wrap" id="popup-slider">
+      <div class="popup__wrap popup_hidden" id="popup-container">
+        <div class="popup__crossWrap" id="popup-cross">
+          <div class="popup__cross popup__cross_one"></div>
+          <div class="popup__cross popup__cross_two"></div>
+        </div>
 
-      </section>
+        <div class="popup__slider" id="popup-slider"></div>
+      </div>
+
       <section class="taskCard">
         <h2 class="taskCard__title">Галлерея.</h2>
 
