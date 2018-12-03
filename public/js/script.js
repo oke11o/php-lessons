@@ -39,7 +39,7 @@ function addItemsListener()
   popupSlider.innerHTML = '';
 
   
-  //add event listeners on menu items
+  //add event listeners on sub-menu items on hover
   for (let i = 0; i < menuWithSubMenu.length; i++) {
     menuWithSubMenu[i].addEventListener('mouseover', function() { SubMenuArr[i].classList.remove('subMenu_hidden'); });
     menuWithSubMenu[i].addEventListener('mouseleave', function() { SubMenuArr[i].classList.add('subMenu_hidden'); });
@@ -47,6 +47,7 @@ function addItemsListener()
     subMenuWrapArr[i].addEventListener('mouseleave', function() { SubMenuArr[i].classList.add('subMenu_hidden'); });
   }
 
+  //add event listeners on menu items
   for (let i = 0; i < menuItemsArr.length; i++) {
     menuItemsArr[i].addEventListener('click', switchActiveMenuItem);
   }
@@ -57,7 +58,7 @@ function addItemsListener()
   }
 
   //add event listener on popup window and it's elemts
-  popupSliderCross.addEventListener('click', function() { popupContainer.classList.add('popup_hidden'); popupSlider.innerHTML = ''; });
+  popupSliderCross.addEventListener('click', closePopupImage);
 }
 
 function switchActiveMenuItem()
@@ -72,13 +73,23 @@ function switchActiveMenuItem()
 }
 
 function openSpawnedImg() {
-  console.log(this);
   let currentImgPath = this.getAttribute('src');
   let currentSliderImg = document.createElement('img');
+  let currentImgText = document.createElement('h2');
 
   currentSliderImg.setAttribute('src', currentImgPath);
   currentSliderImg.setAttribute('class', 'popup__img');
+
+  currentImgText.setAttribute('class', 'taskCard__title');
+  currentImgText.innerText = this.nextSibling.innerText;
+
   popupSlider.appendChild(currentSliderImg);
+  popupSlider.appendChild(currentImgText);
 
   popupContainer.classList.remove('popup_hidden');
+}
+
+function closePopupImage() {
+  popupContainer.classList.add('popup_hidden');
+  popupSlider.innerHTML = '';
 }
