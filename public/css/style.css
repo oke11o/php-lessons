@@ -457,6 +457,51 @@ a {
   background: #ac6665;
 }
 
+.popup__control {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 90px;
+  height: 100vh;
+  bottom: 0;
+  right: 0;
+  opacity: 0.65;
+}
+
+.popup__control:hover {
+  opacity: 1;
+}
+
+.popup__control:active {
+  opacity: 0.5;
+}
+
+.popup__control img {
+  width: 60px;
+  height: 105px;
+  margin-bottom: calc(50vh - 52.5px);
+}
+
+.popup__control_next {
+  height: calc(100vh - 90px);
+}
+
+.popup__control_prev {
+  left: 0;
+}
+
+.popup__control_prev img {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
 .popup__cross {
   width: 100%;
   height: 8px;
