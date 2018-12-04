@@ -20,7 +20,16 @@ let SubMenuArr = [];
 let subMenuWrapArr = [];
 let menuWithSubMenu = [];
 let renderedImages = [];
+let curImgIndex = 0;
 
+//variables for image in popup window
+let currentSliderImg = document.createElement('img');
+let currentImgText = document.createElement('h2');
+
+currentSliderImg.setAttribute('class', 'popup__img');
+currentImgText.setAttribute('class', 'taskCard__title');
+
+//main intialization function on window load
 function addItemsListener()
 {
   //find all menu items and menu items with submenu
@@ -32,12 +41,13 @@ function addItemsListener()
   //find all spawned images
   renderedImages = document.querySelectorAll('.spawn-image');
   
-  //find popup container for image slider and X
+  //find popup container for image slider and controls
   popupContainer = document.getElementById('popup-container');
-  popupSliderCross = document.getElementById('popup-cross');
   popupSlider = document.getElementById('popup-slider');
   popupSlider.innerHTML = '';
-
+  let popupSliderCross = document.getElementById('popup-cross');
+  let popupControlNext = document.getElementById('popup-control-next');
+  let popupControlPrev = document.getElementById('popup-control-prev');
   
   //add event listeners on sub-menu items on hover
   for (let i = 0; i < menuWithSubMenu.length; i++) {
@@ -59,6 +69,8 @@ function addItemsListener()
 
   //add event listener on popup window and it's elemts
   popupSliderCross.addEventListener('click', closePopupImage);
+  popupControlNext.addEventListener('click', slideCurrentImage);
+  popupControlPrev.addEventListener('click', slideCurrentImage);
 }
 
 function switchActiveMenuItem()
@@ -74,13 +86,9 @@ function switchActiveMenuItem()
 
 function openRenderedImage() {
   let currentImgPath = this.firstChild.getAttribute('src');
-  let currentSliderImg = document.createElement('img');
-  let currentImgText = document.createElement('h2');
+  curImgIndex = this.firstChild.getAttribute('alt');
 
-  currentSliderImg.setAttribute('src', currentImgPath);
-  currentSliderImg.setAttribute('class', 'popup__img');
-
-  currentImgText.setAttribute('class', 'taskCard__title');
+  currentSliderImg.setAttribute('src', currentImgPath);  
   currentImgText.innerText = this.lastChild.innerText;
 
   popupSlider.appendChild(currentSliderImg);
@@ -92,4 +100,37 @@ function openRenderedImage() {
 function closePopupImage() {
   popupContainer.classList.add('popup_hidden');
   popupSlider.innerHTML = '';
+}
+
+function slideCurrentImage()
+{  
+  let newSliderImg = document.createElement('img');
+  let newImgText = document.createElement('h2');
+  let newImgPath = '';
+  let currentDirection = this.getAttribute('id');
+
+  newSliderImg.setAttribute('class', 'popup__img');
+  newImgText.setAttribute('class', 'taskCard__title');
+
+  switch (currentDirection) {
+    case 'popup-control-next':
+      if (curImgIndex == (renderedImages.length - 1)) { curImgIndex = 0; }
+      else { curImgIndex++; }
+      break;
+    case 'popup-control-prev':
+      if (curImgIndex == 0) { curImgIndex = (renderedImages.length - 1); }
+      else { curImgIndex--; }
+      break;
+  }
+  
+  popupSlider.innerHTML = '';
+  newImgText.innerText = '';
+
+  newImgPath = renderedImages[curImgIndex].firstChild.getAttribute('src');
+
+  newSliderImg.setAttribute('src', newImgPath);
+  newImgText.innerText = renderedImages[curImgIndex].lastChild.innerText;
+
+  popupSlider.appendChild(newSliderImg);
+  popupSlider.appendChild(newImgText);
 }
