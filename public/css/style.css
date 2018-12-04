@@ -448,6 +448,7 @@ a {
   right: 30px;
   width: 60px;
   height: 60px;
+  cursor: pointer;
 }
 
 .popup__crossWrap:hover .popup__cross {
@@ -469,11 +470,12 @@ a {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  width: 90px;
+  width: 120px;
   height: 100vh;
   bottom: 0;
   right: 0;
   opacity: 0.65;
+  cursor: pointer;
 }
 
 .popup__control:hover {
