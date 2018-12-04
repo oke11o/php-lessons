@@ -55,11 +55,11 @@
 
         <div class="taskCard__gallery">
           <?php
-          require '../core/images-render.php';
-
           $galleryDir = 'img/gallery';
 
-          renderImages($galleryDir);
+          include '../modules/gallery-img-render.php';
+
+          renderGalleryImages($galleryDir);
           ?>
         </div>
       </section>
@@ -84,6 +84,7 @@
           ?>
         </div>
       </div>
+
       <div class="rights">
         <span>All Rights Reserved &copy; <?php echo date('Y'); ?> Все задания выполнил Михаил Успенский.</span>
       </div>
