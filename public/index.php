@@ -39,6 +39,14 @@
           <div class="popup__cross popup__cross_two"></div>
         </div>
 
+        <div class="popup__control popup__control_next" id="popup-control-next">
+          <img src="img/icon-arrow.svg" alt="next">
+        </div>
+
+        <div class="popup__control popup__control_prev" id="popup-control-prev">
+          <img src="img/icon-arrow.svg" alt="prev">   
+        </div>
+
         <div class="popup__slider" id="popup-slider"></div>
       </div>
 
