@@ -294,6 +294,7 @@ a {
   width: calc(100% - 2px);
   height: 120px;
   border: 1px solid #f7f7f7;
+  cursor: pointer;
 }
 
 .taskCard__imgWrap:hover {
