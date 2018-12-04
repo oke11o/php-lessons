@@ -22,10 +22,13 @@
 <body>
   <div class="bodyWrap bodyWrap_position">
     <header>
-
-      <?php
-      include "../modules/nav-bar.php";
+      <?php      
+      require_once '../core/get-files-array.php'; //include function to get array of files
       include "../core/main-date.php";
+
+      include_once '../modules/gallery-img-render.php'; //include function to render images from array
+      include '../modules/visites-counter.php';
+      include "../modules/nav-bar.php";
       ?>      
 
       <h1 class='headerTitle'>Домашнее задание по курсу PHP. Урок 4.</h1>
@@ -55,11 +58,9 @@
 
         <div class="taskCard__gallery">
           <?php
-          $galleryDir = 'img/gallery';
+          $galleryDir = 'img/gallery';          
 
-          include '../modules/gallery-img-render.php';
-
-          renderGalleryImages($galleryDir);
+          echo(renderGalleryImages($galleryDir));
           ?>
         </div>
       </section>
@@ -78,8 +79,6 @@
 
         <div class="footerContacts__counter">
           <?php
-          include '../modules/visites-counter.php';
-
           echo('this page opened: '.counter('visites-counter.txt').' times.');
           ?>
         </div>
