@@ -9,7 +9,6 @@ function renderGalleryImages($imgDir)
 
   //allowed file types for gallery
   $galImgTypes = ['jpg', 'jpeg', 'png', 'gif'];
-  $trSymbolsFrom = ["-0", "-", "_"];
   $trSymbols = ["-0" => " ", "-" => " ", "_" => " "];
 
   $i = 0;
@@ -20,7 +19,7 @@ function renderGalleryImages($imgDir)
     $curImgName = strtolower(array_shift($img_parts));
 
     //if space as first symbol then delete space
-    if (in_array(substr($curImgName, 0, 1), $trSymbolsFrom)) {
+    if (array_key_exists(substr($curImgName, 0, 1), $trSymbols)) {
       $curImgName = ucfirst(substr($curImgName, 1));
     } else {
       $curImgName = ucfirst($curImgName);
