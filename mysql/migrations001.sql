@@ -38,8 +38,8 @@ VALUES
   ('House 2 preview 8', 'img/gallery/house-02-preview-08.jpg'),
   ('House 2 preview 9', 'img/gallery/house-02-preview-09.jpg'),
   ('House 2 preview 10', 'img/gallery/house-02-preview-10.jpg'),
-  ('House 2 constructions 1', 'img/gallery/house-02-const-01.jpg'),
-  ('House 2 constructions 2', 'img/gallery/house-02-const-02.jpg'),
-  ('House 2 constructions 3', 'img/gallery/house-02-const-03.jpg'),
-  ('House 2 constructions 4', 'img/gallery/house-02-const-04.jpg'),
+  ('House 2 constructions 1', 'img/gallery/house-02-const-04.jpg'),
+  ('House 2 constructions 2', 'img/gallery/house-02-const-03.jpg'),
+  ('House 2 constructions 3', 'img/gallery/house-02-const-02.jpg'),
+  ('House 2 constructions 4', 'img/gallery/house-02-const-01.jpg'),
   ('House 2 constructions 5', 'img/gallery/house-02-const-05.jpg');
