@@ -102,12 +102,13 @@ function openRenderedImage() {
 
   popupContainer.classList.remove('popup_hidden');
 
-  // countViewsOfImg(renderedImgId);
+  countViewsOfImg(renderedImgId);
 }
 
 function closePopupImage() {
   popupContainer.classList.add('popup_hidden');
   popupSlider.innerHTML = '';
+  window.history.pushState("", "", '/');
 }
 
 function slideCurrentImage()
@@ -143,13 +144,14 @@ function slideCurrentImage()
   popupSlider.appendChild(newSliderImg);
   popupSlider.appendChild(newImgText);
 
-  // countViewsOfImg(renderedImgId);
+  countViewsOfImg(renderedImgId);
 }
 
 function countViewsOfImg(id)
 {
-  let phpString = "<?php clickCounter(" + id + ") ?>";
+  window.history.pushState("", "", '?img='+id);
+  // let phpString = "<?php clickCounter(" + id + ") ?>";
 
-  clickCounterDOM.innerText = '';
-  clickCounterDOM.innerText = phpString;
+  // clickCounterDOM.innerText = '';
+  // clickCounterDOM.innerText = phpString;
 }
