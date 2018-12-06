@@ -67,6 +67,12 @@
             require('main.php');
           }
         ?>
+
+        <form id="click-counter" method="post">
+        <?php
+        
+        ?>
+        </form>
       </section>
     </main>
     
