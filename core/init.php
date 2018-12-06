@@ -1,6 +1,7 @@
 <?php
 //include all modules and files here
 require_once '../core/get-files-array.php'; //include function to get array of files
+require_once '../core/get-files-array.mysql.php';
 include_once '../core/main-date.php';
 
 include_once '../modules/gallery-img-render.php'; //include function to render images from array
