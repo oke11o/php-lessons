@@ -15,12 +15,14 @@
   * .spawn-image
   *   reserved for js to initialize all spawned images
   */
-  error_reporting(E_ALL);
+  // error_reporting(E_ALL);
 
   /*
   * init.php includes:
   *   $mysqli //connection to database
-  */
+  */  
+  $page = $_GET['page'];
+
   require '../core/init.php';
   ?>
 </head>
@@ -56,26 +58,15 @@
       </div>
 
       <section class="taskCard">
-        <h2 class="taskCard__title">Галлерея.</h2>
-
-        <div class="taskCard__gallery">
-          <?php
-          //'names' => ['name 1', ... 'name n'], 'src' => ['path 1', ... 'path n']
-          $images_house1_array = getArrayFromMySQL($mysqli, '`lesson_05`', '"House 1%"');
-
-          include '../modules/gallery-image-render.php';
-
-          renderImagesFromMySQL($images_house1_array);
-          ?>
-        </div>
-      </section>
-
-      <section class="taskCard">
-        <h2>test block</h2>
-
-        <div class="taskCard__gallery">
-          
-        </div>
+        <?php
+          if (!isset($page)) {
+            require('main.php');
+          } elseif ($page == 'gallery') {
+            require('gallery.php');
+          } else {
+            require('main.php');
+          }
+        ?>
       </section>
     </main>
     
