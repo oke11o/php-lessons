@@ -21,6 +21,8 @@ let subMenuWrapArr = [];
 let menuWithSubMenu = [];
 let renderedImages = [];
 let curImgIndex = 0;
+let renderedImgId = 0;
+let clickCounterDOM = null;
 
 //variables for image in popup window
 let currentSliderImg = document.createElement('img');
@@ -38,7 +40,7 @@ function addItemsListener()
   SubMenuArr = document.querySelectorAll('.subMenu');
   subMenuWrapArr = document.querySelectorAll('.subMenu__wrap');
 
-  //find all spawned images
+  //find all spawned images and it's information
   renderedImages = document.querySelectorAll('.spawn-image');
   
   //find popup container for image slider and controls
@@ -48,6 +50,9 @@ function addItemsListener()
   let popupSliderCross = document.getElementById('popup-cross');
   let popupControlNext = document.getElementById('popup-control-next');
   let popupControlPrev = document.getElementById('popup-control-prev');
+
+  //find DOM elements
+  clickCounterDOM = document.getElementById('click-counter');
   
   //add event listeners on sub-menu items on hover
   for (let i = 0; i < menuWithSubMenu.length; i++) {
@@ -87,6 +92,7 @@ function switchActiveMenuItem()
 function openRenderedImage() {
   let currentImgPath = this.firstChild.getAttribute('src');
   curImgIndex = this.firstChild.getAttribute('alt');
+  renderedImgId = this.firstChild.getAttribute('data-number');
 
   currentSliderImg.setAttribute('src', currentImgPath);  
   currentImgText.innerText = this.lastChild.innerText;
@@ -95,6 +101,8 @@ function openRenderedImage() {
   popupSlider.appendChild(currentImgText);
 
   popupContainer.classList.remove('popup_hidden');
+
+  // countViewsOfImg(renderedImgId);
 }
 
 function closePopupImage() {
@@ -127,10 +135,21 @@ function slideCurrentImage()
   newImgText.innerText = '';
 
   newImgPath = renderedImages[curImgIndex].firstChild.getAttribute('src');
+  renderedImgId = renderedImages[curImgIndex].firstChild.getAttribute('data-number');
 
   newSliderImg.setAttribute('src', newImgPath);
   newImgText.innerText = renderedImages[curImgIndex].lastChild.innerText;
 
   popupSlider.appendChild(newSliderImg);
   popupSlider.appendChild(newImgText);
+
+  // countViewsOfImg(renderedImgId);
+}
+
+function countViewsOfImg(id)
+{
+  let phpString = "<?php clickCounter(" + id + ") ?>";
+
+  clickCounterDOM.innerText = '';
+  clickCounterDOM.innerText = phpString;
 }
