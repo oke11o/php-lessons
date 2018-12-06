@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PHP lesson 04</title>
+  <title>PHP lesson 5</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="dmicon.ico">
   <?php  
@@ -16,22 +16,24 @@
   *   reserved for js to initialize all spawned images
   */
   error_reporting(E_ALL);
+
+  /*
+  * init.php includes:
+  *   $mysqli //connection to database
+  */
+  require_once '../core/init.php';
   ?>
 </head>
 
 <body>
   <div class="bodyWrap bodyWrap_position">
     <header>
-      <?php      
-      require_once '../core/get-files-array.php'; //include function to get array of files
-      include "../core/main-date.php";
-
-      include_once '../modules/gallery-img-render.php'; //include function to render images from array
-      include '../modules/visites-counter.php';
+      <?php
+      //rendering main nav bar menu
       include "../modules/nav-bar.php";
       ?>      
 
-      <h1 class='headerTitle'>Домашнее задание по курсу PHP. Урок 4.</h1>
+      <h1 class='headerTitle'>Домашнее задание по курсу PHP. Урок 5.</h1>
       <p class='headerDate'><?php echo($date); ?></p>
     </header>
 
@@ -61,6 +63,20 @@
           $galleryDir = 'img/gallery';          
 
           echo(renderGalleryImages($galleryDir));
+          ?>
+        </div>
+      </section>
+
+      <section class="taskCard">
+        <h2>test block</h2>
+
+        <div class="taskCard__gallery">
+          <?php
+          include '../core/get-files-array.mysql.php';
+
+          //'names' => ['name 1', ... 'name n'], 'src' => ['path 1', ... 'path n']
+          $images_house1_array = getArrayFromMySQL($mysqli, '`lesson_05`', '"House 1%"');
+          
           ?>
         </div>
       </section>
