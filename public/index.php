@@ -9,18 +9,18 @@
   <link rel="icon" href="dmicon.ico">
   <?php  
   /*
-  * --- reserved classes list ---
-  * .sub-menu
-  *   resereved for js to initialize menu with dropdown sub-menu
-  * .spawn-image
-  *   reserved for js to initialize all spawned images
-  */
+   * --- reserved classes list ---
+   * .sub-menu
+   *   resereved for js to initialize menu with dropdown sub-menu
+   * .spawn-image
+   *   reserved for js to initialize all spawned images
+   */
   // error_reporting(E_ALL);
 
   /*
-  * init.php includes:
-  *   $mysqli //connection to database
-  */  
+   * init.php includes:
+   *   $mysqli //connection to database
+   */
   $page = $_GET['page'];
 
   require '../core/init.php';
@@ -36,7 +36,7 @@
       ?>      
 
       <h1 class='headerTitle'>Домашнее задание по курсу PHP. Урок 5.</h1>
-      <p class='headerDate'><?php echo($date); ?></p>
+      <p class='headerDate'><?php echo ($date); ?></p>
     </header>
 
     <main class="bodyWrap__main">
@@ -59,20 +59,20 @@
 
       <section class="taskCard">
         <?php
-          if (!isset($page)) {
-            require('main.php');
-          } elseif ($page == 'gallery') {
-            require('gallery.php');
-          } else {
-            require('main.php');
-          }
+        if (!isset($page)) {
+          require('main.php');
+        } elseif ($page == 'gallery') {
+          require('gallery.php');
+        } else {
+          require('main.php');
+        }
         ?>
 
-        <form id="click-counter" method="post">
+        <div id="click-counter" data-counter="123">
         <?php
-        
+
         ?>
-        </form>
+        </div>
       </section>
     </main>
     
@@ -89,7 +89,7 @@
 
         <div class="footerContacts__counter">
           <?php
-          echo('this page opened: '.counter('visites-counter.txt').' times.');
+          echo ('this page opened: ' . counter('visites-counter.txt') . ' times.');
           ?>
         </div>
       </div>
