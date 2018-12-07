@@ -22,14 +22,21 @@ let menuWithSubMenu = [];
 let renderedImages = [];
 let curImgIndex = 0;
 let renderedImgId = 0;
+let renderedImgViews = 0;
 let clickCounterDOM = null;
 
 //variables for image in popup window
 let currentSliderImg = document.createElement('img');
 let currentImgText = document.createElement('h2');
+let currentImgViews = document.createElement('h2');
+let currentImgTextWrap = document.createElement('div');
 
 currentSliderImg.setAttribute('class', 'popup__img');
 currentImgText.setAttribute('class', 'taskCard__title');
+currentImgViews.setAttribute('class', 'taskCard__title');
+currentImgTextWrap.setAttribute('class', 'popup__textWrap');
+currentImgTextWrap.appendChild(currentImgText);
+currentImgTextWrap.appendChild(currentImgViews);
 
 //main intialization function on window load
 function addItemsListener()
@@ -92,17 +99,18 @@ function switchActiveMenuItem()
 function openRenderedImage() {
   let currentImgPath = this.firstChild.getAttribute('src');
   curImgIndex = this.firstChild.getAttribute('alt');
-  renderedImgId = this.firstChild.getAttribute('data-number');
+  // renderedImgId = this.firstChild.getAttribute('data-number');
 
   currentSliderImg.setAttribute('src', currentImgPath);  
   currentImgText.innerText = this.lastChild.innerText;
+  currentImgViews.innerText = 'Просмотров: ' + this.firstChild.nextSibling.innerText;
 
   popupSlider.appendChild(currentSliderImg);
-  popupSlider.appendChild(currentImgText);
+  popupSlider.appendChild(currentImgTextWrap);
 
   popupContainer.classList.remove('popup_hidden');
 
-  countViewsOfImg(renderedImgId);
+  // countViewsOfImg(renderedImgId);
 }
 
 function closePopupImage() {
@@ -115,11 +123,15 @@ function slideCurrentImage()
 {  
   let newSliderImg = document.createElement('img');
   let newImgText = document.createElement('h2');
+  let newImgViews = document.createElement('h2');
+  let newImgTextWrap = document.createElement('div');
   let newImgPath = '';
   let currentDirection = this.getAttribute('id');
 
   newSliderImg.setAttribute('class', 'popup__img');
   newImgText.setAttribute('class', 'taskCard__title');
+  newImgViews.setAttribute('class', 'taskCard__title');
+  newImgTextWrap.setAttribute('class', 'popup__textWrap');
 
   switch (currentDirection) {
     case 'popup-control-next':
@@ -133,18 +145,23 @@ function slideCurrentImage()
   }
   
   popupSlider.innerHTML = '';
+  newImgTextWrap.innerHTML = '';
   newImgText.innerText = '';
+  newImgViews.innerText = '';
 
   newImgPath = renderedImages[curImgIndex].firstChild.getAttribute('src');
-  renderedImgId = renderedImages[curImgIndex].firstChild.getAttribute('data-number');
+  // renderedImgId = renderedImages[curImgIndex].firstChild.getAttribute('data-number');
 
   newSliderImg.setAttribute('src', newImgPath);
   newImgText.innerText = renderedImages[curImgIndex].lastChild.innerText;
-
+  newImgViews.innerText = 'Просмотров: ' + renderedImages[curImgIndex].firstChild.nextSibling.innerText;
+  
+  newImgTextWrap.appendChild(newImgText);
+  newImgTextWrap.appendChild(newImgViews);
   popupSlider.appendChild(newSliderImg);
-  popupSlider.appendChild(newImgText);
+  popupSlider.appendChild(newImgTextWrap);
 
-  countViewsOfImg(renderedImgId);
+  // countViewsOfImg(renderedImgId);
 }
 
 function countViewsOfImg(id)
