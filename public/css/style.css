@@ -343,6 +343,12 @@ a {
   transition: 0.25s;
 }
 
+.taskCard__imgWrap #image-views {
+  position: absolute;
+  opacity: 0;
+  top: 0;
+}
+
 .taskCard__buttons {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -533,6 +539,15 @@ a {
   padding: 30px;
   border-radius: 20px;
   background: #f7f7f7;
+}
+
+.popup__textWrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .popup__img {
