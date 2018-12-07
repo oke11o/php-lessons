@@ -14,6 +14,8 @@
    *   resereved for js to initialize menu with dropdown sub-menu
    * .spawn-image
    *   reserved for js to initialize all spawned images
+   * .image-views
+   *   reserved for js to initialize views of current image
    */
   // error_reporting(E_ALL);
 
@@ -67,12 +69,6 @@
           require('main.php');
         }
         ?>
-
-        <div id="click-counter" data-counter="123">
-        <?php
-
-        ?>
-        </div>
       </section>
     </main>
     
