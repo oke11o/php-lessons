@@ -23,7 +23,8 @@
    * init.php includes:
    *   $mysqli //connection to database
    */
-  $page = isset($_GET['page']) ? $_GET['page'] : 'main';
+  // $page = isset($_GET['page']) ? $_GET['page'] : 'main';
+  $page = $_GET['page'] ?? 'main';
 
   require '../core/init.php';
   ?>
@@ -87,7 +88,7 @@
 
         <div class="footerContacts__counter">
           <?php
-          echo ('this page opened: ' . counter('visites-counter.txt') . ' times.');
+          echo ('this site opened: ' . counter('visites-counter.txt') . ' times.');
           ?>
         </div>
       </div>
