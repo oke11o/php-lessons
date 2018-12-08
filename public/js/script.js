@@ -21,13 +21,22 @@ let subMenuWrapArr = [];
 let menuWithSubMenu = [];
 let renderedImages = [];
 let curImgIndex = 0;
+let renderedImgId = 0;
+let renderedImgViews = 0;
+let clickCounterDOM = null;
 
 //variables for image in popup window
 let currentSliderImg = document.createElement('img');
 let currentImgText = document.createElement('h2');
+let currentImgViews = document.createElement('h2');
+let currentImgTextWrap = document.createElement('div');
 
 currentSliderImg.setAttribute('class', 'popup__img');
 currentImgText.setAttribute('class', 'taskCard__title');
+currentImgViews.setAttribute('class', 'taskCard__title');
+currentImgTextWrap.setAttribute('class', 'popup__textWrap');
+currentImgTextWrap.appendChild(currentImgText);
+currentImgTextWrap.appendChild(currentImgViews);
 
 //main intialization function on window load
 function addItemsListener()
@@ -38,7 +47,7 @@ function addItemsListener()
   SubMenuArr = document.querySelectorAll('.subMenu');
   subMenuWrapArr = document.querySelectorAll('.subMenu__wrap');
 
-  //find all spawned images
+  //find all spawned images and it's information
   renderedImages = document.querySelectorAll('.spawn-image');
   
   //find popup container for image slider and controls
@@ -48,6 +57,9 @@ function addItemsListener()
   let popupSliderCross = document.getElementById('popup-cross');
   let popupControlNext = document.getElementById('popup-control-next');
   let popupControlPrev = document.getElementById('popup-control-prev');
+
+  //find DOM elements
+  clickCounterDOM = document.getElementById('click-counter');
   
   //add event listeners on sub-menu items on hover
   for (let i = 0; i < menuWithSubMenu.length; i++) {
@@ -87,30 +99,39 @@ function switchActiveMenuItem()
 function openRenderedImage() {
   let currentImgPath = this.firstChild.getAttribute('src');
   curImgIndex = this.firstChild.getAttribute('alt');
+  // renderedImgId = this.firstChild.getAttribute('data-number');
 
   currentSliderImg.setAttribute('src', currentImgPath);  
   currentImgText.innerText = this.lastChild.innerText;
+  currentImgViews.innerText = 'Просмотров: ' + this.firstChild.nextSibling.innerText;
 
   popupSlider.appendChild(currentSliderImg);
-  popupSlider.appendChild(currentImgText);
+  popupSlider.appendChild(currentImgTextWrap);
 
   popupContainer.classList.remove('popup_hidden');
+
+  // countViewsOfImg(renderedImgId);
 }
 
 function closePopupImage() {
   popupContainer.classList.add('popup_hidden');
   popupSlider.innerHTML = '';
+  window.history.pushState("", "", '/');
 }
 
 function slideCurrentImage()
 {  
   let newSliderImg = document.createElement('img');
   let newImgText = document.createElement('h2');
+  let newImgViews = document.createElement('h2');
+  let newImgTextWrap = document.createElement('div');
   let newImgPath = '';
   let currentDirection = this.getAttribute('id');
 
   newSliderImg.setAttribute('class', 'popup__img');
   newImgText.setAttribute('class', 'taskCard__title');
+  newImgViews.setAttribute('class', 'taskCard__title');
+  newImgTextWrap.setAttribute('class', 'popup__textWrap');
 
   switch (currentDirection) {
     case 'popup-control-next':
@@ -124,13 +145,30 @@ function slideCurrentImage()
   }
   
   popupSlider.innerHTML = '';
+  newImgTextWrap.innerHTML = '';
   newImgText.innerText = '';
+  newImgViews.innerText = '';
 
   newImgPath = renderedImages[curImgIndex].firstChild.getAttribute('src');
+  // renderedImgId = renderedImages[curImgIndex].firstChild.getAttribute('data-number');
 
   newSliderImg.setAttribute('src', newImgPath);
   newImgText.innerText = renderedImages[curImgIndex].lastChild.innerText;
-
+  newImgViews.innerText = 'Просмотров: ' + renderedImages[curImgIndex].firstChild.nextSibling.innerText;
+  
+  newImgTextWrap.appendChild(newImgText);
+  newImgTextWrap.appendChild(newImgViews);
   popupSlider.appendChild(newSliderImg);
-  popupSlider.appendChild(newImgText);
+  popupSlider.appendChild(newImgTextWrap);
+
+  // countViewsOfImg(renderedImgId);
+}
+
+function countViewsOfImg(id)
+{
+  window.history.pushState("", "", '?img='+id);
+  // let phpString = "<?php clickCounter(" + id + ") ?>";
+
+  // clickCounterDOM.innerText = '';
+  // clickCounterDOM.innerText = phpString;
 }

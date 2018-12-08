@@ -15,12 +15,11 @@
           break;
         default: $isSubMenuSet = '';
       }
-
-      switch ($navBarItemKey) {
-        case 'main':
-          $navBarItemClass = 'navBar__item navBar__item_active';
-          break;
-        default: $navBarItemClass = 'navBar__item';
+      
+      if ($page == $navBarItemKey || (!isset($page) && $navBarItemKey == 'main')) {
+        $navBarItemClass = 'navBar__item navBar__item_active';
+      } else {
+        $navBarItemClass = 'navBar__item';
       }
 
       echo('<li class="navBar__menuItem'.$isSubMenuSet.'">');

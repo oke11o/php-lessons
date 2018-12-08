@@ -4,35 +4,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PHP lesson 04</title>
+  <title>PHP lesson 5</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="dmicon.ico">
   <?php  
   /*
-  * --- reserved classes list ---
-  * .sub-menu
-  *   resereved for js to initialize menu with dropdown sub-menu
-  * .spawn-image
-  *   reserved for js to initialize all spawned images
-  */
-  error_reporting(E_ALL);
+   * --- reserved classes list ---
+   * .sub-menu
+   *   resereved for js to initialize menu with dropdown sub-menu
+   * .spawn-image
+   *   reserved for js to initialize all spawned images
+   * .image-views
+   *   reserved for js to initialize views of current image
+   */
+  // error_reporting(E_ALL);
+
+  /*
+   * init.php includes:
+   *   $mysqli //connection to database
+   */
+  $page = $_GET['page'];
+
+  require '../core/init.php';
   ?>
 </head>
 
 <body>
   <div class="bodyWrap bodyWrap_position">
     <header>
-      <?php      
-      require_once '../core/get-files-array.php'; //include function to get array of files
-      include "../core/main-date.php";
-
-      include_once '../modules/gallery-img-render.php'; //include function to render images from array
-      include '../modules/visites-counter.php';
+      <?php
+      //rendering main nav bar menu
       include "../modules/nav-bar.php";
       ?>      
 
-      <h1 class='headerTitle'>Домашнее задание по курсу PHP. Урок 4.</h1>
-      <p class='headerDate'><?php echo($date); ?></p>
+      <h1 class='headerTitle'>Домашнее задание по курсу PHP. Урок 5.</h1>
+      <p class='headerDate'><?php echo ($date); ?></p>
     </header>
 
     <main class="bodyWrap__main">
@@ -54,15 +60,15 @@
       </div>
 
       <section class="taskCard">
-        <h2 class="taskCard__title">Галлерея.</h2>
-
-        <div class="taskCard__gallery">
-          <?php
-          $galleryDir = 'img/gallery';          
-
-          echo(renderGalleryImages($galleryDir));
-          ?>
-        </div>
+        <?php
+        if (!isset($page)) {
+          require('main.php');
+        } elseif ($page == 'gallery') {
+          require('gallery.php');
+        } else {
+          require('main.php');
+        }
+        ?>
       </section>
     </main>
     
@@ -79,7 +85,7 @@
 
         <div class="footerContacts__counter">
           <?php
-          echo('this page opened: '.counter('visites-counter.txt').' times.');
+          echo ('this page opened: ' . counter('visites-counter.txt') . ' times.');
           ?>
         </div>
       </div>

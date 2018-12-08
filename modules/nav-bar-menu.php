@@ -2,11 +2,11 @@
 $navBarMenuArray = [
   'main' => [
     'name' => 'главная',
-    'href' => '#main'
+    'href' => '/'
   ],
   'gallery' => [
     'name' => 'галлерея',
-    'href' => '#gal'
+    'href' => '?page=gallery'
   ],
   'contacts' => [
     'name' => 'контакты',
