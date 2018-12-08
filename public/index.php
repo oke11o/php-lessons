@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PHP lesson 5</title>
+  <title>PHP lesson 6</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="dmicon.ico">
   <?php  
@@ -17,13 +17,13 @@
    * .image-views
    *   reserved for js to initialize views of current image
    */
-  // error_reporting(E_ALL);
+  error_reporting(E_ALL);
 
   /*
    * init.php includes:
    *   $mysqli //connection to database
    */
-  $page = $_GET['page'];
+  $page = isset($_GET['page']) ? $_GET['page'] : 'main';
 
   require '../core/init.php';
   ?>
@@ -37,7 +37,7 @@
       include "../modules/nav-bar.php";
       ?>      
 
-      <h1 class='headerTitle'>Домашнее задание по курсу PHP. Урок 5.</h1>
+      <h1 class='headerTitle'>Домашнее задание по курсу PHP. Урок 6.</h1>
       <p class='headerDate'><?php echo ($date); ?></p>
     </header>
 
