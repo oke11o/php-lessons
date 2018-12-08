@@ -65,6 +65,8 @@
           require('main.php');
         } elseif ($page == 'gallery') {
           require('gallery.php');
+        } elseif ($page == 'lesson') {
+          require('lesson.php');
         } else {
           require('main.php');
         }
