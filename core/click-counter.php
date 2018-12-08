@@ -1,6 +1,8 @@
 <?php
 function clickCounter($connection, $id)
 {
+  $numOfView = 0;
+  
   $views = mysqli_query($connection, 'SELECT `views` FROM `lesson_05` WHERE `id` = '.$id.';');
 
   foreach ($views as $view) {
