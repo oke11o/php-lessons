@@ -12,9 +12,13 @@ $navBarMenuArray = [
     'name' => 'контакты',
     'href' => '#cont',
     'subMenu' => [
+      // [
+      //   'name' => 'о&nbsp;нас',
+      //   'href' => '#',
+      // ],
       [
-        'name' => 'о&nbsp;нас',
-        'href' => '#',
+        'name' => 'урок-06',
+        'href' => '?page=lesson',
       ],
       [
         'name' => 'обратная&nbsp;связь',
