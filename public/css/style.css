@@ -255,6 +255,17 @@ a {
   font-weight: 400;
 }
 
+.taskCard__form div {
+  width: 65%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .taskCard__input {
   height: 1.5em;
   width: 2.5em;
@@ -303,6 +314,7 @@ a {
 }
 
 .taskCard__imgWrap {
+  display: block;
   position: relative;
   width: calc(100% - 2px);
   height: 120px;
