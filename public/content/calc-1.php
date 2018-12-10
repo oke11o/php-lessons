@@ -6,12 +6,16 @@
   $t1_b = $_POST['t1_b'] ?? 3;
   ?>
 
-  <form method="POST" id="calc_one">
-    <label for="t1_a">Введите значение a: </label>
-    <input type="number" class="taskCard__input" value="<?= $t1_a; ?>" name="t1_a">
-    <br>
-    <label for="t1_b">Введите значение b: </label>
-    <input type="number" class="taskCard__input" value="<?= $t1_b; ?>" name="t1_b">
+  <form action="/" method="POST" id="calc_one" class="taskCard__form">
+    <div>
+      <label for="t1_a">Введите значение a: </label>
+      <input type="number" class="taskCard__input" value="<?= $t1_a; ?>" name="t1_a">
+    </div>
+
+    <div>
+      <label for="t1_b">Введите значение b: </label>
+      <input type="number" class="taskCard__input" value="<?= $t1_b; ?>" name="t1_b">
+    </div>
   </form>
 
   <div class="taskCard__buttons taskCard__buttons_hideColumn">
