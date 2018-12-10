@@ -11,6 +11,7 @@ $mysqli = mysqli_connect($mysql_config['db-localhost'],
 //include all modules and files here
 require_once 'get-files-array.mysql.php';
 include_once 'main-date.php';
+include_once 'math-functions.php';
 include 'click-counter.php';
 
 include_once '../modules/visites-counter.php';
