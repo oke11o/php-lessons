@@ -1,4 +1,4 @@
-<section class="taskCard">
+<section class="taskCard taskCard_width">
   <h2 class="taskCard__title">Главная.</h2>
   <ol>  
     <li>Создать форму-калькулятор операциями: сложение, вычитание, умножение, деление. Не забыть обработать деление на ноль! Выбор операции можно осуществлять с помощью тега <code>&lt;select&gt;</code>.</li>
@@ -14,3 +14,8 @@
     <li><code>*</code>Написать CRUD-блок для управления выбранным модулем через единую функцию (<code>doFeedbackAction()</code>)</li>
   </ol>
 </section>
+
+<?php
+require 'calc-1.php';
+require 'calc-2.php';
+?>
