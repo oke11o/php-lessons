@@ -20,15 +20,15 @@ $navBarMenuArray = [
   ],
   'contacts' => [
     'name' => 'контакты',
-    'href' => '#cont',
+    'href' => '?page=contacts',
     'subMenu' => [
       [
         'name' => 'о&nbsp;нас',
-        'href' => '#',
+        'href' => '?page=contacts',
       ],
       [
         'name' => 'обратная&nbsp;связь',
-        'href' => '#',
+        'href' => '?page=feedback',
       ]
     ]
   ],
