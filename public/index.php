@@ -63,9 +63,9 @@
       <?php
       if (!isset($page) || $page == 'main') {
         require('content/main.php');
-      } elseif ($page == 'gal_one') {
+      } elseif ($page == 'gal1') {
         require('content/gallery-house1.php');
-      } elseif ($page == 'gal_two') {
+      } elseif ($page == 'gal2') {
         require('content/gallery-house2.php');
       }
       ?>      
@@ -83,7 +83,7 @@
         </div>
 
         <div class="footerContacts__counter">
-          this site opened: <?= counter('visites-counter.txt'); ?> times.
+          visites: <?= counter('visites-counter.txt'); ?>
         </div>
       </div>
 
