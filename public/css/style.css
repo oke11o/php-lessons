@@ -48,8 +48,16 @@ a {
 .bodyWrap__main {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr;
-      grid-template-columns: 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+
+@media (max-width: 992px) {
+  .bodyWrap__main {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 1599px) {
@@ -167,7 +175,7 @@ a {
 .navBar__item:hover {
   color: #474747;
   border-bottom: 3px solid #474747;
-  text-shadow: 0.25px 0.25px 0 #474747, -0.25px -0.25px 0 #474747, 0.25px -0.25px 0 #474747, -0.25px 0.25px 0 #474747;
+  text-shadow: 0.25px 0.25px 0 #474747, -0.25px -0.25px 0 #474747, 0.25px -0.25px 0 #474747, -0.25px 0.25px 0 #474747;
 }
 
 @media (max-width: 767px) {
@@ -237,6 +245,10 @@ a {
           box-shadow: -4px 12px 20px 0 #b7b7b7;
 }
 
+.taskCard_width {
+  grid-column: 1 / -1;
+}
+
 .taskCard__title {
   text-align: center;
   font-size: 1.35em;
@@ -247,6 +259,7 @@ a {
   height: 1.5em;
   width: 2.5em;
   font-size: 1em;
+  margin-right: 1em;
 }
 
 .taskCard__input_select {
@@ -332,8 +345,8 @@ a {
   position: absolute;
   top: 100%;
   left: -1px;
-  width: calc(100% + 2px);
-  padding: 5px 0;
+  width: calc(100% + 2px - 10px);
+  padding: 5px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   text-align: center;
@@ -562,7 +575,8 @@ a {
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  padding: 15px;
+  padding-top: 30px;
+  grid-column: 1 / -1;
 }
 
 .functionButton {
@@ -576,6 +590,7 @@ a {
   border: none;
   border-radius: 10px;
   background: #d74645;
+  cursor: pointer;
 }
 
 .functionButton:hover {
@@ -589,6 +604,12 @@ a {
 
 .functionButton_position {
   display: block;
+}
+
+.functionButton_disabled {
+  pointer-events: none;
+  cursor: default;
+  background: #d7d7d7;
 }
 
 .codeBlock {
