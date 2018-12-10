@@ -14,3 +14,5 @@ include_once 'main-date.php';
 include 'click-counter.php';
 
 include_once '../modules/visites-counter.php';
+//include rendering function of image on this page
+include '../modules/gallery-image-render.php';
