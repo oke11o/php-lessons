@@ -59,20 +59,16 @@
 
         <div class="popup__slider" id="popup-slider"></div>
       </div>
-
-      <section class="taskCard">
-        <?php
-        if (!isset($page)) {
-          require('content/main.php');
-        } elseif ($page == 'gallery') {
-          require('content/gallery.php');
-        } elseif ($page == 'lesson') {
-          require('content/lesson.php');
-        } else {
-          require('content/main.php');
-        }
-        ?>
-      </section>
+      
+      <?php
+      if (!isset($page) || $page == 'main') {
+        require('content/main.php');
+      } elseif ($page == 'gal_one') {
+        require('content/gallery-house1.php');
+      } elseif ($page == 'gal_two') {
+        require('content/gallery-house2.php');
+      }
+      ?>      
     </main>
     
     <footer>
