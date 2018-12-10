@@ -9,7 +9,7 @@ include '../modules/gallery-nav.php';
   <div class="taskCard__gallery">
     <?php
     //'names' => ['name 1', ... 'name n'], 'src' => ['path 1', ... 'path n']
-    $images_house1_array = getArrayFromMySQL($mysqli, '`lesson_05`', '`type`', '"house1"');
+    $images_house1_array = getArrayFromMySQL($mysqli, '`gallery`', '`type`', '"house1"');
 
     //call rendering function of images on this page
     renderImagesFromMySQL($images_house1_array);
