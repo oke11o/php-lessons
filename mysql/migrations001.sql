@@ -44,13 +44,3 @@ VALUES
   ('House 2 constructions%nbsp;5', 'img/gallery/house-02-const-05.jpg');
 
 -- UPDATE `lesson_05` SET `name` = 'House 1 constructions&nbsp;1' WHERE `lesson_05`.`id` = 8;
--- UPDATE `lesson_05` SET `name` = 'House 1 constructions&nbsp;2' WHERE `lesson_05`.`id` = 9;
--- UPDATE `lesson_05` SET `name` = 'House 1 constructions&nbsp;3' WHERE `lesson_05`.`id` = 10;
--- UPDATE `lesson_05` SET `name` = 'House 1 constructions&nbsp;4' WHERE `lesson_05`.`id` = 11;
--- UPDATE `lesson_05` SET `name` = 'House 1 constructions&nbsp;5' WHERE `lesson_05`.`id` = 12;
-
--- UPDATE `lesson_05` SET `name` = 'House 2 constructions&nbsp;1' WHERE `lesson_05`.`id` = 24;
--- UPDATE `lesson_05` SET `name` = 'House 2 constructions&nbsp;2' WHERE `lesson_05`.`id` = 25;
--- UPDATE `lesson_05` SET `name` = 'House 2 constructions&nbsp;3' WHERE `lesson_05`.`id` = 26;
--- UPDATE `lesson_05` SET `name` = 'House 2 constructions&nbsp;4' WHERE `lesson_05`.`id` = 27;
--- UPDATE `lesson_05` SET `name` = 'House 2 constructions&nbsp;5' WHERE `lesson_05`.`id` = 28;
