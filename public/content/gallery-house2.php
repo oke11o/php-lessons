@@ -1,3 +1,7 @@
+<div class="wrapper">
+  <a href="?page=gal_one" class="functionButton">House type 1</a>
+</div>
+
 <section class="taskCard">
   <h2 class="taskCard__title">House type 2.</h2>
 
