@@ -63,13 +63,13 @@
       <section class="taskCard">
         <?php
         if (!isset($page)) {
-          require('main.php');
+          require('content/main.php');
         } elseif ($page == 'gallery') {
-          require('gallery.php');
+          require('content/gallery.php');
         } elseif ($page == 'lesson') {
-          require('lesson.php');
+          require('content/lesson.php');
         } else {
-          require('main.php');
+          require('content/main.php');
         }
         ?>
       </section>
@@ -87,14 +87,12 @@
         </div>
 
         <div class="footerContacts__counter">
-          <?php
-          echo ('this site opened: ' . counter('visites-counter.txt') . ' times.');
-          ?>
+          this site opened: <?= counter('visites-counter.txt'); ?> times.
         </div>
       </div>
 
       <div class="rights">
-        <span>All Rights Reserved &copy; <?php echo date('Y'); ?> Все задания выполнил Михаил Успенский.</span>
+        <span>All Rights Reserved &copy; <?= date('Y'); ?> Все задания выполнил Михаил Успенский.</span>
       </div>
     </footer>
   </div>
