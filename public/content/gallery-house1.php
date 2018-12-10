@@ -1,8 +1,6 @@
-<div class="wrapper">
-  <a href="?page=gal_two" class="functionButton">House type 2</a>
-</div>
+<?php include '../modules/gallery-nav.php'; ?>
 
-<section class="taskCard">
+<section class="taskCard taskCard_width">
   <h2 class="taskCard__title">House type 1.</h2>
 
   <div class="taskCard__gallery">
