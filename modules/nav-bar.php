@@ -1,6 +1,4 @@
-<nav class="navBar">  
-  <?php include "nav-bar-menu.php"; ?>
-
+<nav class="navBar">
   <a href="<?php echo($navBarMenuArray['main']['href']) ?>" class="navBar__logo">
     <div></div>
     <span>site.ru</span>
@@ -18,7 +16,9 @@
       
       if ($page == $navBarItemKey || (!isset($page) && $navBarItemKey == 'main')) {
         $navBarItemClass = 'navBar__item navBar__item_active';
-      } elseif (($page == 'gal1' && $navBarItemKey == 'gallery') || ($page == 'gal2' && $navBarItemKey == 'gallery')) {
+      } elseif (($page == 'gal1' || $page == 'gal2' || $page == 'product') && $navBarItemKey == 'gallery') {
+        $navBarItemClass = 'navBar__item navBar__item_active';
+      } elseif (($page == 'contacts' || $page == 'feedback') && $navBarItemKey == 'contacts') {
         $navBarItemClass = 'navBar__item navBar__item_active';
       } else {
         $navBarItemClass = 'navBar__item';
