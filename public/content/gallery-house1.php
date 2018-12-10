@@ -1,3 +1,7 @@
+<div class="wrapper">
+  <a href="?page=gal_two" class="functionButton">House type 2</a>
+</div>
+
 <section class="taskCard">
   <h2 class="taskCard__title">House type 1.</h2>
 
@@ -16,5 +20,5 @@
       clickCounter($mysqli, $house1_i);
     }
     ?>
-  </div>
+  </div>  
 </section>
