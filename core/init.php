@@ -12,8 +12,7 @@ $mysqli = mysqli_connect($mysql_config['db-localhost'],
 require_once 'get-files-array.mysql.php';
 include_once 'main-date.php';
 include_once 'math-functions.php';
-include 'click-counter.php';
+include_once 'visites-counter.php'; //functions to count visites of current page
 
-include_once '../modules/visites-counter.php';
-//include rendering function of image on this page
-include '../modules/gallery-image-render.php';
+include '../modules/gallery-image-render.php'; //rendering function for images
+include '../modules/nav-bar-menu.php'; //menu array
