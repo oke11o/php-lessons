@@ -1,4 +1,4 @@
-CREATE TABLE `geekbrains` . `lesson_05`
+CREATE TABLE `geekbrains` . `gallery`
 (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
   `type` VARCHAR(256) NOT NULL DEFAULT '' COMMENT 'type of images',
@@ -11,7 +11,7 @@ CREATE TABLE `geekbrains` . `lesson_05`
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB;
 
-INSERT INTO lesson_05 (type, name, src)
+INSERT INTO gallery (type, name, src)
 VALUES
   ('house1', 'House 1 preview 1', 'img/gallery/house-01-preview-01.jpg'),
   ('house1', 'House 1 preview 2', 'img/gallery/house-01-preview-02.jpg'),
@@ -26,7 +26,7 @@ VALUES
   ('house1', 'House 1 constructions%nbsp;4', 'img/gallery/house-01-const-04.jpg'),
   ('house1', 'House 1 constructions%nbsp;5', 'img/gallery/house-01-const-05.jpg');
 
-INSERT INTO lesson_05 (type, name, src)
+INSERT INTO gallery (type, name, src)
 VALUES
   ('house2', 'House 2 preview 1', 'img/gallery/house-02-preview-01.jpg'),
   ('house2', 'House 2 preview 2', 'img/gallery/house-02-preview-02.jpg'),
