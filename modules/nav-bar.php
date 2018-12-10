@@ -18,7 +18,7 @@
       
       if ($page == $navBarItemKey || (!isset($page) && $navBarItemKey == 'main')) {
         $navBarItemClass = 'navBar__item navBar__item_active';
-      } elseif (($page == 'gal_one' && $navBarItemKey == 'gallery') || ($page == 'gal_two' && $navBarItemKey == 'gallery')) {
+      } elseif (($page == 'gal1' && $navBarItemKey == 'gallery') || ($page == 'gal2' && $navBarItemKey == 'gallery')) {
         $navBarItemClass = 'navBar__item navBar__item_active';
       } else {
         $navBarItemClass = 'navBar__item';
