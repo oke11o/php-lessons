@@ -4,8 +4,7 @@ CREATE TABLE `geekbrains` . `lesson_05`
 	`name` VARCHAR(256) NOT NULL DEFAULT '' COMMENT 'name of image',
 	`src` VARCHAR(256) NOT NULL DEFAULT '' COMMENT 'relative path for gallery images',
 	`views` INT(11) NOT NULL DEFAULT '0' COMMENT 'number of views of image',
-	`clicks` INT(11) NOT NULL DEFAULT '0' COMMENT 'numbers of clicks on image',
-  `description` TEXT(1024) NOT NULL COMMENT 'description of the image',
+  `description` TEXT NOT NULL COMMENT 'description of the image',
   PRIMARY KEY(`id`)
 )
 COLLATE='utf8_general_ci'
