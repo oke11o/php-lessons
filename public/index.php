@@ -61,13 +61,28 @@
       </div>
       
       <?php
-      if (!isset($page) || $page == 'main') {
-        require('content/main.php');
-      } elseif ($page == 'gal1') {
-        require('content/gallery-house1.php');
-      } elseif ($page == 'gal2') {
-        require('content/gallery-house2.php');
+      $currentPage = '';
+
+      switch ($page) {
+        case 'gal1':
+          $currentPage = 'content/gallery-house1.php';
+          break;        
+        case 'gal2':
+          $currentPage = 'content/gallery-house2.php';
+          break;        
+        case 'product':
+          $currentPage = 'content/product-page.php';
+          break;        
+        case 'contacts':
+          $currentPage = 'content/contacts.php';
+          break;                
+        case 'feedback':
+          $currentPage = 'content/feedback.php';
+          break;
+        default: $currentPage = 'content/main.php';
       }
+
+      require($currentPage);
       ?>      
     </main>
     
@@ -83,7 +98,7 @@
         </div>
 
         <div class="footerContacts__counter">
-          visites: <?= counter('visites-counter.txt'); ?>
+          This page visited: <?=visitesCounter($mysqli, $page);?> times.
         </div>
       </div>
 
