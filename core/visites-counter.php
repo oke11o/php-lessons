@@ -2,12 +2,12 @@
 
 function clickCounter($connection, $id)
 {
-  $views = mysqli_fetch_assoc(mysqli_query($connection, 'SELECT `views` FROM `lesson_05` WHERE `id` = '.$id.';'));
+  $views = mysqli_fetch_assoc(mysqli_query($connection, 'SELECT `views` FROM `gallery` WHERE `id` = '.$id.';'));
   
   $number = $views['views'];
   $number++;
   
-  mysqli_query($connection, 'UPDATE `lesson_05` SET `views` = "'.$number.'" WHERE `lesson_05`.`id` = '.$id.';');
+  mysqli_query($connection, 'UPDATE `gallery` SET `views` = "'.$number.'" WHERE `gallery`.`id` = '.$id.';');
 
   return $number;
 }
