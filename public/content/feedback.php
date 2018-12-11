@@ -23,13 +23,11 @@
     </div>
   </form>
 
-  <?php
-  //get last six feedbacks from database
-  $lastSix_fb = getArrayFromMySQL($mysqli, 'SELECT * FROM `feedbacks` ORDER BY `id` DESC LIMIT 0, 6');
-  ?>
-
   <div class="taskCard__feedback">
     <?php
+    //get last six feedbacks from database
+    $lastSix_fb = getArrayFromMySQL($mysqli, 'SELECT * FROM `feedbacks` ORDER BY `id` DESC LIMIT 0, 6');
+
     //post last six feedbacks from database
     showLastFeedbacks($lastSix_fb);
     ?>
