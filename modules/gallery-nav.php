@@ -1,4 +1,4 @@
-<div class="wrapper">  
+<div class="galleryNavWrapper">  
   <?php
   foreach ($navBarMenuArray['gallery']['subMenu'] as $galleryButton):
     $galleryButton_state = '?page='.$page == $galleryButton['href'] ? ' functionButton_disabled' : '';
