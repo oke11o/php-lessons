@@ -15,6 +15,10 @@ $navBarMenuArray = [
       [
         'name' => 'House&nbsp;type&nbsp;2',
         'href' => '?page=gal2',
+      ],
+      [
+        'name' => 'Upload&nbsp;files',
+        'href' => '?page=upload',
       ]
     ]
   ],
