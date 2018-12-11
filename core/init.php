@@ -13,6 +13,8 @@ require_once 'get-files-array.mysql.php';
 include_once 'main-date.php';
 include_once 'math-functions.php';
 include_once 'visites-counter.php'; //functions to count visites of current page
+include_once 'feedback.mysql.php'; //functions to store feedback in database
 
 include '../modules/gallery-image-render.php'; //rendering function for images
+include '../modules/show-feedbacks.php'; //function to show feedbacks from array
 include '../modules/nav-bar-menu.php'; //menu array
