@@ -16,7 +16,7 @@
       
       if ($page == $navBarItemKey || (!isset($page) && $navBarItemKey == 'main')) {
         $navBarItemClass = 'navBar__item navBar__item_active';
-      } elseif (($page == 'gal1' || $page == 'gal2' || $page == 'product') && $navBarItemKey == 'gallery') {
+      } elseif (($page == 'gal1' || $page == 'gal2' || $page == 'product' || $page == 'upload') && $navBarItemKey == 'gallery') {
         $navBarItemClass = 'navBar__item navBar__item_active';
       } elseif (($page == 'contacts' || $page == 'feedback') && $navBarItemKey == 'contacts') {
         $navBarItemClass = 'navBar__item navBar__item_active';
