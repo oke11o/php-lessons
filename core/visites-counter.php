@@ -1,5 +1,5 @@
 <?php
-
+//counter for visitesof current product
 function clickCounter($connection, $id)
 {
   $views = mysqli_fetch_assoc(mysqli_query($connection, 'SELECT `views` FROM `gallery` WHERE `id` = '.$id.';'));
@@ -12,6 +12,7 @@ function clickCounter($connection, $id)
   return $number;
 }
 
+//counter for visites on page
 function visitesCounter($connection, $pageID)
 {
   if ($pageID != 'product') {
