@@ -24,7 +24,20 @@ function getArrayFromMySQL($connection, $SQLphrase)
 
     if (array_key_exists('description', $arrayItem)) {
       $result['description'][] = $arrayItem['description'];
-    } 
+    }
+
+    //for feedbacks
+    if (array_key_exists('comment', $arrayItem)) {
+      $result['comment'][] = $arrayItem['comment'];
+    }
+
+    if (array_key_exists('date', $arrayItem)) {
+      $result['date'][] = $arrayItem['date'];
+    }    
+
+    if (array_key_exists('time', $arrayItem)) {
+      $result['time'][] = $arrayItem['time'];
+    }
   }
   
   return $result;
