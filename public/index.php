@@ -23,7 +23,6 @@
    * init.php includes:
    *   $mysqli //connection to database
    */
-  // $page = isset($_GET['page']) ? $_GET['page'] : 'main';
   $page = $_GET['page'] ?? 'main';
 
   require '../core/init.php';
@@ -36,30 +35,13 @@
       <?php
       //rendering main nav bar menu
       include "../modules/nav-bar.php";
-      ?>      
+      ?>
 
       <h1 class='headerTitle'>Домашнее задание по курсу PHP. Урок 6.</h1>
       <p class='headerDate'><?php echo ($date); ?></p>
     </header>
 
-    <main class="bodyWrap__main">
-      <div class="popup__wrap popup_hidden" id="popup-container">
-        <div class="popup__crossWrap" id="popup-cross">
-          <div class="popup__cross popup__cross_one"></div>
-          <div class="popup__cross popup__cross_two"></div>
-        </div>
-
-        <div class="popup__control popup__control_next" id="popup-control-next">
-          <img src="img/icon-arrow.svg" alt="next">
-        </div>
-
-        <div class="popup__control popup__control_prev" id="popup-control-prev">
-          <img src="img/icon-arrow.svg" alt="prev">   
-        </div>
-
-        <div class="popup__slider" id="popup-slider"></div>
-      </div>
-      
+    <main class="bodyWrap__main">      
       <?php
       $currentPage = '';
 
