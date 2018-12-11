@@ -1,3 +1,9 @@
+<?php
+require '../core/init.php';
+
+$page = $_GET['page'] ?? 'main';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,9 +29,6 @@
    * init.php includes:
    *   $mysqli //connection to database
    */
-  $page = $_GET['page'] ?? 'main';
-
-  require '../core/init.php';
   ?>
 </head>
 
