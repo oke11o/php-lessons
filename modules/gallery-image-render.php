@@ -1,7 +1,7 @@
 <?php
 function renderImagesFromMySQL($array)
 {
-  $arrayLength = count($array['src']);
+  $arrayLength = count($array['id']);
   
   for ($i = 0; $i < $arrayLength; $i++) {
     $divElementOpen = '<a href="?page=product&product_id='.$array['id'][$i].'" class="taskCard__imgWrap spawn-image">';
