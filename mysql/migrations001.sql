@@ -44,4 +44,8 @@ VALUES
   ('house2', 'House 2 constructions%nbsp;4', 'img/gallery/house-02-const-01.jpg'),
   ('house2', 'House 2 constructions%nbsp;5', 'img/gallery/house-02-const-05.jpg');
 
+UPDATE `gallery` SET `description` = '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint ad officia voluptas voluptatem aliquam maiores. Consequatur totam, sequi commodi in, voluptatum sint sed veritatis id dolore molestiae eius non corrupti laborum assumenda excepturi possimus. Quo, blanditiis beatae consequatur maiores sapiente dolorem quasi porro excepturi, voluptates placeat error! Autem, minus sit!<br>
+Expedita consequatur eos ullam reiciendis commodi perferendis voluptas ab dicta ut accusantium? Dolorum facilis in beatae veniam, expedita aperiam debitis quos ex labore aliquam impedit architecto corporis, qui aut unde. Accusantium facilis debitis quam aspernatur distinctio rem, sed pariatur voluptatibus doloribus ullam quidem magni et optio repudiandae ipsa illum recusandae.<br>
+Maxime laboriosam voluptates necessitatibus perferendis cum quidem sapiente labore ad mollitia. Perferendis praesentium minus eveniet dolore veritatis, atque itaque earum libero officiis sint ullam molestias eos alias eius. Eos, alias sint, iusto ex veniam quas, numquam sit obcaecati hic impedit reprehenderit. Quae omnis non quisquam veniam explicabo libero tempora laborum?</p>' WHERE `type` LIKE 'house%';
+
 -- UPDATE `lesson_05` SET `name` = 'House 1 constructions&nbsp;1' WHERE `lesson_05`.`id` = 8;
