@@ -3,7 +3,7 @@ CREATE TABLE `geekbrains` . `feedbacks`
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(256) NOT NULL DEFAULT '' COMMENT 'author name',
   `email` VARCHAR(256) NOT NULL DEFAULT '' COMMENT 'author email adress';
-  `comment` TEXT NOT NULL COMMENT '',
+  `description` TEXT NOT NULL COMMENT '',
   `date` VARCHAR(256) NOT NULL DEFAULT '' COMMENT 'date of post',
   `time` VARCHAR(256) NOT NULL DEFAULT '' COMMENT 'time of post',
   PRIMARY KEY(`id`)
@@ -11,7 +11,7 @@ CREATE TABLE `geekbrains` . `feedbacks`
 COLLATE='utf8_general_ci'
 ENGINE=InnoDB;
 
-INSERT INTO feedbacks (name, email, comment, date, time)
+INSERT INTO feedbacks (name, email, description, date, time)
 VALUES
   ('Vasya', 'mail@mail.ru', 'texttexttext', 'today', 'now'),
   ('Mike', 'mike@mail.ru', 'lorem ipsum', '2018-12-11', '14:33'),

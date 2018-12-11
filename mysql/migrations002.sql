@@ -14,4 +14,5 @@ VALUES
   ('gallery 1'),
   ('gallery 2'),
   ('contacts'),
-  ('feedback');
+  ('feedback'),
+  ('upload');
