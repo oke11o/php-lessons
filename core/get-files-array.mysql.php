@@ -10,6 +10,10 @@ function getArrayFromMySQL($connection, $SQLphrase)
       $result['id'][] = $arrayItem['id'];
     }
 
+    if (array_key_exists('type', $arrayItem)) {
+      $result['type'][] = $arrayItem['type'];
+    }
+
     if (array_key_exists('name', $arrayItem)) {
       $result['names'][] = $arrayItem['name'];
     }
