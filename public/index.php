@@ -1,4 +1,15 @@
-<?php
+<?php  
+/*
+  * --- reserved classes list ---
+  * .sub-menu
+  *   resereved for js to initialize menu with dropdown sub-menu
+  * .spawn-image
+  *   reserved for js to initialize all spawned images
+  * .image-views
+  *   reserved for js to initialize views of current image
+  */
+error_reporting(E_ALL);
+
 require '../core/init.php';
 
 $page = $_GET['page'] ?? 'main';
@@ -13,23 +24,6 @@ $page = $_GET['page'] ?? 'main';
   <title>PHP lesson 6</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="dmicon.ico">
-  <?php  
-  /*
-   * --- reserved classes list ---
-   * .sub-menu
-   *   resereved for js to initialize menu with dropdown sub-menu
-   * .spawn-image
-   *   reserved for js to initialize all spawned images
-   * .image-views
-   *   reserved for js to initialize views of current image
-   */
-  error_reporting(E_ALL);
-
-  /*
-   * init.php includes:
-   *   $mysqli //connection to database
-   */
-  ?>
 </head>
 
 <body>
@@ -63,6 +57,9 @@ $page = $_GET['page'] ?? 'main';
           break;                
         case 'feedback':
           $currentPage = 'content/feedback.php';
+          break;                        
+        case 'upload':
+          $currentPage = 'content/upload.php';
           break;
         default: $currentPage = 'content/main.php';
       }
