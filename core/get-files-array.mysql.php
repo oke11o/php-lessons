@@ -1,34 +1,31 @@
 <?php
-function getArrayFromMySQL($connection, $table_name, $column, $name)
+function getArrayFromMySQL($connection, $SQLphrase)
 {
-  $names = [];
-  $src = [];
-  $views = [];
-  $id = [];
+  $result = [];
 
-  $array = mysqli_query($connection, "SELECT * FROM ".$table_name." WHERE ".$column." LIKE ".$name);
-  
-  foreach ($array as $arrayObj) {   
-    if (array_key_exists('id', $arrayObj)) {
-      $id[] = $arrayObj['id'];
+  $array = mysqli_query($connection, $SQLphrase);
+
+  foreach ($array as $arrayItem) {
+    if (array_key_exists('id', $arrayItem)) {
+      $result['id'][] = $arrayItem['id'];
     }
 
-    if (array_key_exists('name', $arrayObj)) {
-      $names[] = $arrayObj['name'];
+    if (array_key_exists('name', $arrayItem)) {
+      $result['names'][] = $arrayItem['name'];
     }
 
-    if (array_key_exists('src', $arrayObj)) {
-      $src[] = $arrayObj['src'];
+    if (array_key_exists('src', $arrayItem)) {
+      $result['src'][] = $arrayItem['src'];
     }
 
-    if (array_key_exists('views', $arrayObj)) {
-      $views[] = $arrayObj['views'];
+    if (array_key_exists('views', $arrayItem)) {
+      $result['views'][] = $arrayItem['views'];
     }
 
-    if (array_key_exists('description', $arrayObj)) {
-      $description[] = $arrayObj['description'];
+    if (array_key_exists('description', $arrayItem)) {
+      $result['description'][] = $arrayItem['description'];
     } 
   }
   
-  return ['id' => $id, 'names' => $names, 'src' => $src, 'views' => $views, 'description' => $description];
+  return $result;
 }
