@@ -80,6 +80,144 @@ a {
   }
 }
 
+.headerTitle {
+  text-align: center;
+  font-size: 1.75em;
+  font-weight: 400;
+}
+
+.headerDate {
+  margin: 0;
+}
+
+.functionButton {
+  text-transform: uppercase;
+  font-family: 'Tahoma', sans-serif;
+  font-weight: 700;
+  font-size: 12pt;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 10px;
+  background: #d74645;
+  cursor: pointer;
+}
+
+.functionButton:hover {
+  background: #f76665;
+}
+
+.functionButton:active {
+  color: #cccccc;
+  background: #ac6665;
+}
+
+.functionButton:focus {
+  outline: none;
+}
+
+.functionButton_position {
+  display: block;
+}
+
+.functionButton_disabled {
+  pointer-events: none;
+  cursor: default;
+  background: #d7d7d7;
+}
+
+.navBar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  padding: 30px;
+  border-bottom: 1px solid #f2c18e;
+}
+
+.navBar__logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navBar__logo div {
+  width: 60px;
+  height: 60px;
+  border-radius: 7.5px;
+  background: #474747;
+}
+
+.navBar__logo span {
+  margin-left: 15px;
+  font-size: 2em;
+  font-weight: 700;
+}
+
+.navBar__menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.navBar__menu_margin {
+  margin: 0;
+}
+
+@media (max-width: 767px) {
+  .navBar__menu_margin {
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+}
+
+.navBar__menuItem {
+  position: relative;
+}
+
+.navBar__item {
+  position: relative;
+  display: block;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  height: calc(100% - 33px);
+  padding: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 3px solid rgba(0, 0, 0, 0);
+}
+
+.navBar__item_active {
+  color: #f08f28;
+  border-bottom: 3px solid #f08f28;
+  text-shadow: 0.25px 0.25px 0 #f08f28, -0.25px -0.25px 0 #f08f28, 0.25px -0.25px 0 #f08f28, -0.25px 0.25px 0 #f08f28;
+}
+
+.navBar__item:hover {
+  color: #474747;
+  border-bottom: 3px solid #474747;
+  text-shadow: 0.25px 0.25px 0 #474747, -0.25px -0.25px 0 #474747, 0.25px -0.25px 0 #474747, -0.25px 0.25px 0 #474747;
+}
+
+@media (max-width: 767px) {
+  .navBar {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
 .taskCard {
   position: relative;
   width: calc(100% - 30px);
@@ -175,19 +313,6 @@ a {
 
 .taskCard__imgWrap:hover {
   border: 1px solid #f08f28;
-}
-
-.taskCard__imgWrap:hover:after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: calc(50% - 40px);
-  left: calc(50% - 40px);
-  background: url("../img/icon-zoom-in.png");
-  background-size: 100%;
-  width: 80px;
-  height: 80px;
-  opacity: 0.5;
 }
 
 .taskCard__imgWrap:hover span {
@@ -387,107 +512,6 @@ a {
   .taskCard__feedback {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-  }
-}
-
-.headerTitle {
-  text-align: center;
-  font-size: 1.75em;
-  font-weight: 400;
-}
-
-.headerDate {
-  margin: 0;
-}
-
-.navBar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 100%;
-  padding: 30px;
-  border-bottom: 1px solid #f2c18e;
-}
-
-.navBar__logo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.navBar__logo div {
-  width: 60px;
-  height: 60px;
-  border-radius: 7.5px;
-  background: #474747;
-}
-
-.navBar__logo span {
-  margin-left: 15px;
-  font-size: 2em;
-  font-weight: 700;
-}
-
-.navBar__menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.navBar__menu_margin {
-  margin: 0;
-}
-
-@media (max-width: 767px) {
-  .navBar__menu_margin {
-    margin: 0 auto;
-    margin-top: 30px;
-  }
-}
-
-.navBar__menuItem {
-  position: relative;
-}
-
-.navBar__item {
-  position: relative;
-  display: block;
-  -ms-flex-line-pack: center;
-      align-content: center;
-  height: calc(100% - 33px);
-  padding: 15px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  border-bottom: 3px solid rgba(0, 0, 0, 0);
-}
-
-.navBar__item_active {
-  color: #f08f28;
-  border-bottom: 3px solid #f08f28;
-  text-shadow: 0.25px 0.25px 0 #f08f28, -0.25px -0.25px 0 #f08f28, 0.25px -0.25px 0 #f08f28, -0.25px 0.25px 0 #f08f28;
-}
-
-.navBar__item:hover {
-  color: #474747;
-  border-bottom: 3px solid #474747;
-  text-shadow: 0.25px 0.25px 0 #474747, -0.25px -0.25px 0 #474747, 0.25px -0.25px 0 #474747, -0.25px 0.25px 0 #474747;
-}
-
-@media (max-width: 767px) {
-  .navBar {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
   }
 }
 
@@ -772,43 +796,6 @@ a {
       justify-content: space-around;
 }
 
-.functionButton {
-  text-transform: uppercase;
-  font-family: 'Tahoma', sans-serif;
-  font-weight: 700;
-  font-size: 12pt;
-  letter-spacing: 0.1em;
-  color: #ffffff;
-  padding: 10px 30px;
-  border: none;
-  border-radius: 10px;
-  background: #d74645;
-  cursor: pointer;
-}
-
-.functionButton:hover {
-  background: #f76665;
-}
-
-.functionButton:active {
-  color: #cccccc;
-  background: #ac6665;
-}
-
-.functionButton:focus {
-  outline: none;
-}
-
-.functionButton_position {
-  display: block;
-}
-
-.functionButton_disabled {
-  pointer-events: none;
-  cursor: default;
-  background: #d7d7d7;
-}
-
 .galleryNavWrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -817,6 +804,12 @@ a {
       justify-content: space-around;
   padding-top: 30px;
   grid-column: 1 / -1;
+}
+
+.product img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .footerContacts {
