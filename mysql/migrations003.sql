@@ -1,4 +1,4 @@
-CREATE TABLE `geekbrains` . `feedbacks`
+CREATE TABLE `feedbacks`
 (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(256) NOT NULL DEFAULT '' COMMENT 'author name',

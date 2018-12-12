@@ -1,4 +1,4 @@
-CREATE TABLE `geekbrains` . `visites`
+CREATE TABLE `visites`
 (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
   `page` VARCHAR(256) NOT NULL DEFAULT '' COMMENT 'type of page',

@@ -1,4 +1,4 @@
-CREATE TABLE `geekbrains` . `gallery`
+CREATE TABLE `gallery`
 (
 	`id` INT(11) NOT NULL AUTO_INCREMENT,
   `type` VARCHAR(256) NOT NULL DEFAULT '' COMMENT 'type of images',
