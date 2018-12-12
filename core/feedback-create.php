@@ -8,9 +8,15 @@ $fb_time = date('H'.':'.'i');
 //when required fields are not null
 if ($fb_name && $fb_email && $fb_text) {
   header('Location: ?page=feedback');
-  
-  mysqli_query($mysqli,
-  "INSERT INTO feedbacks (name, email, description, date, time)
-  VALUES
-  ('$fb_name', '$fb_email', '$fb_text', '$fb_date', '$fb_time');");
+
+  $sqlInsertFeedback = sprintf("INSERT INTO feedbacks (name, email, description, date, time)
+  VALUES ('%s', '%s', '%s', '%s', '%s')",
+  mysqli_real_escape_string($mysqli, (string)htmlspecialchars(strip_tags($fb_name))),
+  mysqli_real_escape_string($mysqli, (string)htmlspecialchars(strip_tags($fb_email))),
+  mysqli_real_escape_string($mysqli, (string)htmlspecialchars(strip_tags($fb_text))),
+  $fb_date,
+  $fb_time
+  );
+
+  mysqli_query($mysqli, $sqlInsertFeedback);
 }
