@@ -1,6 +1,4 @@
-<nav class="navBar">  
-  <?php include "nav-bar-menu.php"; ?>
-
+<nav class="navBar">
   <a href="<?php echo($navBarMenuArray['main']['href']) ?>" class="navBar__logo">
     <div></div>
     <span>site.ru</span>
@@ -8,7 +6,7 @@
 
   <ul class="navBar__menu navBar__menu_margin">
     <?php
-    foreach ($navBarMenuArray as $navBarItemKey => $navBarItem) {
+    foreach ($navBarMenuArray as $navBarItemKey => $navBarItem):
       switch (array_key_exists('subMenu', $navBarItem)) {
         case true: 
           $isSubMenuSet = ' sub-menu';
@@ -18,28 +16,37 @@
       
       if ($page == $navBarItemKey || (!isset($page) && $navBarItemKey == 'main')) {
         $navBarItemClass = 'navBar__item navBar__item_active';
+      } elseif (($page == 'gal1' || $page == 'gal2' || $page == 'product' || $page == 'upload') && $navBarItemKey == 'gallery') {
+        $navBarItemClass = 'navBar__item navBar__item_active';
+      } elseif (($page == 'contacts' || $page == 'feedback') && $navBarItemKey == 'contacts') {
+        $navBarItemClass = 'navBar__item navBar__item_active';
       } else {
         $navBarItemClass = 'navBar__item';
       }
+      ?>
 
-      echo('<li class="navBar__menuItem'.$isSubMenuSet.'">');
-      echo('<a class="'.$navBarItemClass.'" href="'.$navBarItem['href'].'">'.$navBarItem['name'].'</a>');
+      <li class="navBar__menuItem<?= $isSubMenuSet; ?>">
+      <a class="<?= $navBarItemClass; ?>" href="<?= $navBarItem['href']; ?>"><?= $navBarItem['name']; ?></a>
+      
+      <?php if (isset($navBarItem['subMenu'])): ?>
 
-      if (isset($navBarItem['subMenu'])) {
-        echo('<div class="subMenu__wrap">
-        <ul class="subMenu subMenu_hidden">');
+        <div class="subMenu__wrap">
+        <ul class="subMenu subMenu_hidden">
 
-        foreach ($navBarItem['subMenu'] as $navBarSubItem) {
-          echo('<li class="subMenu__item">');
-          echo('<a href="'.$navBarSubItem['href'].'" class="subMenu__itemHref">'.$navBarSubItem['name'].'</a>');
-          echo('</li>');
-        }
+        <?php foreach ($navBarItem['subMenu'] as $navBarSubItem): ?>
 
-        echo('</ul></div>');
-      }
+          <li class="subMenu__item">
+            <a href="<?= $navBarSubItem['href']; ?>" class="subMenu__itemHref"><?= $navBarSubItem['name']; ?></a>
+          </li>
+          
+        <?php endforeach; ?>
 
-      echo('</li>');
-    }
-    ?>
+        </ul></div>
+        
+      <?php endif; ?>
+
+      </li>
+
+    <?php endforeach; ?>
   </ul>
 </nav>

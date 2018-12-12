@@ -1,32 +1,29 @@
+<?php  
+/*
+  * --- reserved classes list ---
+  * .sub-menu
+  *   resereved for js to initialize menu with dropdown sub-menu
+  * .spawn-image
+  *   reserved for js to initialize all spawned images
+  * .image-views
+  *   reserved for js to initialize views of current image
+  */
+error_reporting(E_ALL);
+
+require '../core/init.php';
+
+$page = $_GET['page'] ?? 'main';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PHP lesson 5</title>
+  <title>PHP lesson 6</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="dmicon.ico">
-  <?php  
-  /*
-   * --- reserved classes list ---
-   * .sub-menu
-   *   resereved for js to initialize menu with dropdown sub-menu
-   * .spawn-image
-   *   reserved for js to initialize all spawned images
-   * .image-views
-   *   reserved for js to initialize views of current image
-   */
-  // error_reporting(E_ALL);
-
-  /*
-   * init.php includes:
-   *   $mysqli //connection to database
-   */
-  $page = $_GET['page'];
-
-  require '../core/init.php';
-  ?>
 </head>
 
 <body>
@@ -35,41 +32,40 @@
       <?php
       //rendering main nav bar menu
       include "../modules/nav-bar.php";
-      ?>      
+      ?>
 
-      <h1 class='headerTitle'>Домашнее задание по курсу PHP. Урок 5.</h1>
+      <h1 class='headerTitle'>Домашнее задание по курсу PHP. Урок 6.</h1>
       <p class='headerDate'><?php echo ($date); ?></p>
     </header>
 
-    <main class="bodyWrap__main">
-      <div class="popup__wrap popup_hidden" id="popup-container">
-        <div class="popup__crossWrap" id="popup-cross">
-          <div class="popup__cross popup__cross_one"></div>
-          <div class="popup__cross popup__cross_two"></div>
-        </div>
+    <main class="bodyWrap__main">      
+      <?php
+      $currentPage = '';
 
-        <div class="popup__control popup__control_next" id="popup-control-next">
-          <img src="img/icon-arrow.svg" alt="next">
-        </div>
+      switch ($page) {
+        case 'gal1':
+          $currentPage = 'content/gallery-house1.php';
+          break;        
+        case 'gal2':
+          $currentPage = 'content/gallery-house2.php';
+          break;        
+        case 'product':
+          $currentPage = 'content/product-page.php';
+          break;        
+        case 'contacts':
+          $currentPage = 'content/contacts.php';
+          break;                
+        case 'feedback':
+          $currentPage = 'content/feedback.php';
+          break;                        
+        case 'upload':
+          $currentPage = 'content/upload.php';
+          break;
+        default: $currentPage = 'content/main.php';
+      }
 
-        <div class="popup__control popup__control_prev" id="popup-control-prev">
-          <img src="img/icon-arrow.svg" alt="prev">   
-        </div>
-
-        <div class="popup__slider" id="popup-slider"></div>
-      </div>
-
-      <section class="taskCard">
-        <?php
-        if (!isset($page)) {
-          require('main.php');
-        } elseif ($page == 'gallery') {
-          require('gallery.php');
-        } else {
-          require('main.php');
-        }
-        ?>
-      </section>
+      require($currentPage);
+      ?>      
     </main>
     
     <footer>
@@ -84,14 +80,12 @@
         </div>
 
         <div class="footerContacts__counter">
-          <?php
-          echo ('this page opened: ' . counter('visites-counter.txt') . ' times.');
-          ?>
+          This page visited: <?=visitesCounter($mysqli, $page);?> times.
         </div>
       </div>
 
       <div class="rights">
-        <span>All Rights Reserved &copy; <?php echo date('Y'); ?> Все задания выполнил Михаил Успенский.</span>
+        <span>All Rights Reserved &copy; <?= date('Y'); ?> Все задания выполнил Михаил Успенский.</span>
       </div>
     </footer>
   </div>
