@@ -5,8 +5,7 @@ $image_description = $_POST['upload_description'] ?? '';
 $image_dir = 'img/gallery/';
 
 if ($image_type && $image_name) {
-  $image_src = $_FILES['upload-image']['name'];  
-  $image_upload_status = '';
+  $image_src = $_FILES['upload-image']['name'];
 
   if (move_uploaded_file($_FILES['upload-image']['tmp_name'], $image_dir.$image_src)) {
     header('Location: ?page=upload');
