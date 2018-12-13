@@ -4,50 +4,49 @@ $navBarMenuArray = [
     'name' => 'главная',
     'href' => '?page=main'
   ],
+
   'gallery' => [
     'name' => 'галлерея',
-    'href' => '?page=gal1',
-    'subMenu' => [
-      [
-        'name' => 'House&nbsp;type&nbsp;1',
-        'href' => '?page=gal1',
-      ],
-      [
-        'name' => 'House&nbsp;type&nbsp;2',
-        'href' => '?page=gal2',
-      ],
-      [
-        'name' => 'Upload&nbsp;files',
-        'href' => '?page=upload',
-      ]
-    ]
+    'href' => '?page=gallery'
   ],
+
   'contacts' => [
     'name' => 'контакты',
     'href' => '?page=contacts',
     'subMenu' => [
       [
-        'name' => 'о&nbsp;нас',
-        'href' => '?page=contacts',
-      ],
-      [
         'name' => 'обратная&nbsp;связь',
         'href' => '?page=feedback',
       ]
     ]
-  ],
-  'sign' => [
-    'name' => 'войти',
-    'href' => '#sign',
-    'subMenu' => [
-      [
-        'name' => 'вход',
-        'href' => '#',
-      ],
-      [
-        'name' => 'регистрация',
-        'href' => '#',
-      ]
-    ]
   ]
 ];
+
+if (!isset($_SESSION['user_id'])) {
+  unset($navBarMenuArray['gallery']['admin']);
+  unset($navBarMenuArray['profile']);
+
+  $navBarMenuArray['login'] = [
+    'name' => 'войти',
+    'href' => '?page=login'
+  ];
+} else {
+  unset($navBarMenuArray['login']);
+
+  $navBarMenuArray['gallery']['admin'] = [
+    [
+      'name' => 'Upload&nbsp;files',
+      'href' => '?page=upload',
+    ]
+  ];
+  $navBarMenuArray['profile'] = [
+    'name' => 'Профиль',
+    'href' => '?page=login',
+    'subMenu' => [
+      [
+        'name' => 'выход',
+        'href' => '?page=logout&redirect='.$page,
+      ]
+    ]
+  ];
+}
