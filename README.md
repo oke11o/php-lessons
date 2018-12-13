@@ -1,4 +1,4 @@
 # for geekbrains
-# current lesson 06
-# last upd 18-12-10
-# start tasks for lesson-06
+# current lesson 07
+# last upd 18-12-13
+# start tasks for lesson-07
