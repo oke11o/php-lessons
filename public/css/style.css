@@ -128,24 +128,23 @@ a {
 }
 
 .navBar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   width: 100%;
-  padding: 30px;
   border-bottom: 1px solid #f2c18e;
 }
 
 .navBar__logo {
+  justify-self: flex-start;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 30px;
 }
 
 .navBar__logo div {
@@ -161,10 +160,18 @@ a {
   font-weight: 700;
 }
 
+@media (max-width: 767px) {
+  .navBar__logo {
+    margin-bottom: 0;
+  }
+}
+
 .navBar__menu {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
@@ -174,13 +181,6 @@ a {
 
 .navBar__menu_margin {
   margin: 0;
-}
-
-@media (max-width: 767px) {
-  .navBar__menu_margin {
-    margin: 0 auto;
-    margin-top: 30px;
-  }
 }
 
 .navBar__menuItem {
@@ -213,8 +213,8 @@ a {
 
 @media (max-width: 767px) {
   .navBar {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
   }
 }
 
@@ -421,100 +421,6 @@ a {
   border-color: rgba(0, 0, 0, 0);
 }
 
-.taskCard__feedback {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 15px;
-}
-
-.taskCard__feedbackPost {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  width: calc(100% - 12px);
-  margin: 0;
-  padding: 5px;
-  background: #f7f7f7;
-  border: 1px solid #f7f7f7;
-  border-radius: 10px;
-  -webkit-transition: 0.25s;
-  transition: 0.25s;
-}
-
-.taskCard__feedbackPost:hover {
-  background: white;
-  border: 1px solid #f08f28;
-}
-
-.taskCard__feedbackPost p {
-  line-height: 1.2em;
-  max-height: 6em;
-  overflow: auto;
-  margin: 0;
-}
-
-.taskCard__feedbackPost p::-webkit-resizer {
-  width: 4px;
-  height: 0;
-}
-
-.taskCard__feedbackPost p::-webkit-scrollbar {
-  width: 4px;
-  background: #ced7e2;
-  border-radius: 2px;
-}
-
-.taskCard__feedbackPost p::-webkit-scrollbar-button {
-  width: 4px;
-  height: 0;
-}
-
-.taskCard__feedbackPost p::-webkit-scrollbar-thumb {
-  width: 4px;
-  background: #f08f28;
-  border-radius: 2px;
-}
-
-.taskCard__feedbackPost span {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: calc(100%-40px);
-  padding: 5px 20px 0 20px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.taskCard__feedbackPost span sub {
-  font-size: 0.9em;
-  font-style: italic;
-  color: #a4a4a4;
-}
-
-@media (max-width: 1599px) {
-  .taskCard__feedback {
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (max-width: 992px) {
-  .taskCard__feedback {
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
-  }
-}
-
 .subMenu {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -692,9 +598,127 @@ a {
   outline: none;
 }
 
-.feedback {
-  width: 80%;
-  margin: 0 auto;
+.feedbackCard {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+  width: calc(100% - 30px);
+  border-radius: 25px;
+  padding: 30px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.feedbackCard:hover {
+  background-color: #f7f7f7;
+  -webkit-box-shadow: -4px 12px 20px 0 #b7b7b7;
+          box-shadow: -4px 12px 20px 0 #b7b7b7;
+}
+
+.feedbackCard__title {
+  text-align: center;
+  font-size: 1.35em;
+  font-weight: 400;
+  grid-column: 1 / -1;
+}
+
+.feedbackCard__postsWrap {
+  align-self: flex-start;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 15px;
+}
+
+@media (max-width: 1599px) {
+  .feedbackCard__postsWrap {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
+.feedbackCard__post {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  width: calc(100% - 12px);
+  margin: 0;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 10px;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
+.feedbackCard__post:hover {
+  background: white;
+  border: 1px solid #f08f28;
+}
+
+.feedbackCard__post p {
+  line-height: 1.2em;
+  max-height: 6em;
+  overflow: auto;
+  margin: 0;
+}
+
+.feedbackCard__post p::-webkit-resizer {
+  width: 4px;
+  height: 0;
+}
+
+.feedbackCard__post p::-webkit-scrollbar {
+  width: 4px;
+  background: #ced7e2;
+  border-radius: 2px;
+}
+
+.feedbackCard__post p::-webkit-scrollbar-button {
+  width: 4px;
+  height: 0;
+}
+
+.feedbackCard__post p::-webkit-scrollbar-thumb {
+  width: 4px;
+  background: #f08f28;
+  border-radius: 2px;
+}
+
+.feedbackCard__post span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: calc(100%-40px);
+  padding: 5px 20px 0 20px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.feedbackCard__post span sub {
+  font-size: 0.9em;
+  font-style: italic;
+  color: #a4a4a4;
+}
+
+@media (max-width: 992px) {
+  .feedbackCard {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
 }
 
 .feedback__section {
@@ -724,7 +748,7 @@ a {
 
 .feedback__input {
   height: 2em;
-  width: 25em;
+  width: calc(100% - 17px);
   font-size: 1em;
   padding: 0 7.5px;
   border: 1px solid white;
@@ -810,6 +834,120 @@ a {
   width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.loginCard {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+  width: calc(100% - 30px);
+  border-radius: 25px;
+  padding: 30px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.loginCard:hover {
+  background-color: #f7f7f7;
+  -webkit-box-shadow: -4px 12px 20px 0 #b7b7b7;
+          box-shadow: -4px 12px 20px 0 #b7b7b7;
+}
+
+.loginCard__title {
+  text-align: center;
+  font-size: 1.35em;
+  font-weight: 400;
+  grid-column: 1 / -1;
+}
+
+.loginCard__form {
+  width: 90%;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.loginCard__formTitle {
+  text-align: center;
+  font-size: 1.15em;
+  font-weight: 400;
+}
+
+.loginCard__formSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 3.5em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.loginCard__formSection:nth-child(n+2) {
+  margin-top: 1em;
+}
+
+.loginCard__formSection label {
+  padding: 0 0 7.5px 10px;
+}
+
+.loginCard__input {
+  height: 2em;
+  width: calc(100% - 17px);
+  font-size: 1em;
+  padding: 0 7.5px;
+  border: 1px solid white;
+  border-radius: 5px;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
+.loginCard__input:hover {
+  border: 1px solid #ced7e2;
+}
+
+.loginCard__input:focus {
+  outline: none;
+  border: 1px solid #f08f28;
+}
+
+.loginCard__input::-webkit-input-placeholder {
+  color: #ced7e2;
+}
+
+.loginCard__input::-moz-placeholder {
+  color: #ced7e2;
+}
+
+@media (max-width: 767px) {
+  .loginCard__input {
+    width: calc(100% - 17px);
+  }
+}
+
+.loginCard__buttons {
+  padding: 30px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+@media (max-width: 992px) {
+  .loginCard {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
 }
 
 .footerContacts {
