@@ -11,8 +11,7 @@ ENGINE=InnoDB;
 INSERT INTO visites (page)
 VALUES
   ('main'),
-  ('gal1'),
-  ('gal2'),
+  ('gallery'),
   ('contacts'),
   ('feedback'),
   ('upload'),

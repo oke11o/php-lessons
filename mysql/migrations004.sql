@@ -6,7 +6,8 @@ CREATE TABLE `users`
   `name` VARCHAR(256) NOT NULL DEFAULT '',
   `password_hash` VARCHAR(256) NULL,
   `token` VARCHAR(256) NULL,
-  `last_action_at` DATETIME NULL,
+  `last_action_at` DATETIME NULL,  
+  `privileges` VARCHAR(256) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `login` (`login`),
   UNIQUE INDEX `email` (`email`)
@@ -18,8 +19,8 @@ ENGINE=InnoDB;
 -- ALTER TABLE `users` ADD UNIQUE INDEX( `login`);
 -- ALTER TABLE `users` ADD `name` VARCHAR(256) NOT NULL AFTER `email`;
 
-INSERT INTO `users` (login, email, name, password_hash)
+INSERT INTO `users` (login, email, name, password_hash, privileges)
 VALUES
-  ('admin', 'admin@site.ru', 'master', '$argon2i$v=19$m=1024,t=2,p=2$TDY4NThWNkp3REVkLjNtOA$FqD2sLlB3HLFvxNLTxZNVkt3XE+5r+S4zmeiI+sf3es');
+  ('admin', 'admin@site.ru', 'master', '$argon2i$v=19$m=1024,t=2,p=2$TDY4NThWNkp3REVkLjNtOA$FqD2sLlB3HLFvxNLTxZNVkt3XE+5r+S4zmeiI+sf3es', 'ALL');
 
--- $argon2i$v=19$m=1024,t=2,p=2$TDY4NThWNkp3REVkLjNtOA$FqD2sLlB3HLFvxNLTxZNVkt3XE+5r+S4zmeiI+sf3es -- 'admin'
+-- $argon2i$v=19$m=1024,t=2,p=2$TDY4NThWNkp3REVkLjNtOA$FqD2sLlB3HLFvxNLTxZNVkt3XE+5r+S4zmeiI+sf3es == 'admin'
