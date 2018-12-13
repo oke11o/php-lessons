@@ -7,33 +7,27 @@
   <ul class="navBar__menu navBar__menu_margin">
     <?php
     foreach ($navBarMenuArray as $navBarItemKey => $navBarItem):
-      switch (array_key_exists('subMenu', $navBarItem)) {
+      switch (array_key_exists('subMenu', $navBarItem) || array_key_exists('admin', $navBarItem)) {
         case true: 
           $isSubMenuSet = ' sub-menu';
           break;
         default: $isSubMenuSet = '';
       }
-      
-      if ($page == $navBarItemKey || (!isset($page) && $navBarItemKey == 'main')) {
-        $navBarItemClass = 'navBar__item navBar__item_active';
-      } elseif (($page == 'gal1' || $page == 'gal2' || $page == 'product' || $page == 'upload') && $navBarItemKey == 'gallery') {
-        $navBarItemClass = 'navBar__item navBar__item_active';
-      } elseif (($page == 'contacts' || $page == 'feedback') && $navBarItemKey == 'contacts') {
-        $navBarItemClass = 'navBar__item navBar__item_active';
-      } else {
-        $navBarItemClass = 'navBar__item';
-      }
+
+      $navBarItemClass = menuItemClass($navBarItemKey, $page);
       ?>
 
       <li class="navBar__menuItem<?= $isSubMenuSet; ?>">
       <a class="<?= $navBarItemClass; ?>" href="<?= $navBarItem['href']; ?>"><?= $navBarItem['name']; ?></a>
       
-      <?php if (isset($navBarItem['subMenu'])): ?>
+      <?php
+      if (isset($navBarItem['subMenu']) || isset($navBarItem['admin'])):
+      ?>
 
         <div class="subMenu__wrap">
         <ul class="subMenu subMenu_hidden">
 
-        <?php foreach ($navBarItem['subMenu'] as $navBarSubItem): ?>
+        <?php foreach ($navBarItem['subMenu'] ?? $navBarItem['admin'] as $navBarSubKey => $navBarSubItem): ?>
 
           <li class="subMenu__item">
             <a href="<?= $navBarSubItem['href']; ?>" class="subMenu__itemHref"><?= $navBarSubItem['name']; ?></a>
