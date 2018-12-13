@@ -1,7 +1,7 @@
-<section class="taskCard taskCard_width">
-  <h2 class="taskCard__title">Отзывы</h2>
+<section class="feedbackCard taskCard_width">
+  <h2 class="feedbackCard__title">Отзывы</h2>
 
-  <form method="post" name="send_feedback" class="feedback">
+  <form method="post" name="feedback_form" class="feedback">
     <div class="feedback__section">
       <label for="feedback_name">Имя отправителя: <code>*</code></label>
       <input type="name" name="feedback_name" placeholder="Введите ваше имя" class="feedback__input" required>
@@ -23,7 +23,7 @@
     </div>
   </form>
 
-  <div class="taskCard__feedback">
+  <div class="feedbackCard__postsWrap">
     <?php
     //get last six feedbacks from database
     $lastSix_fb = getArrayFromMySQL($mysqli, 'SELECT * FROM `feedbacks` ORDER BY `id` DESC LIMIT 0, 6');
