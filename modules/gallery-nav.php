@@ -1,10 +1,13 @@
-<div class="galleryNavWrapper">  
-  <?php
-  foreach ($navBarMenuArray['gallery']['subMenu'] as $galleryButton):
-    $galleryButton_state = '?page='.$page == $galleryButton['href'] ? ' functionButton_disabled' : '';
-  ?>
+<?php
+if (isset($_SESSION['user_id'])):
+  foreach ($navBarMenuArray['gallery']['admin'] as $adminSubMenu):
+?>
 
-  <a href="<?=$galleryButton['href']?>" class="functionButton<?=$galleryButton_state?>"><?=$galleryButton['name']?></a>
-
-  <?php endforeach; ?>
+<div class="galleryNavWrapper">
+  <a href="<?=$$adminSubMenu['href']?>" class="functionButton"><?=$adminSubMenu['name']?></a>
 </div>
+
+<?php
+  endforeach;
+endif;
+?>
