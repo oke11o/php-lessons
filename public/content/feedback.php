@@ -26,10 +26,10 @@
   <div class="feedbackCard__postsWrap">
     <?php
     //get last six feedbacks from database
-    $lastSix_fb = getArrayFromMySQL($mysqli, 'SELECT * FROM `feedbacks` ORDER BY `id` DESC LIMIT 0, 6');
+    $lastSix_fb = mysqli_query($mysqli, 'SELECT * FROM `feedbacks` ORDER BY `id` DESC LIMIT 0, 6');
 
     //post last six feedbacks from database
-    showLastFeedbacks($lastSix_fb);
+    showFeedbacks($lastSix_fb);
     ?>
   </div>
 </section>
