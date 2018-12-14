@@ -27,17 +27,17 @@
     
     <div class="loginCard__formSection">
       <label for="reg_id">Логин / идентификатор: <code>*</code></label>
-      <input type="name" name="reg_id" class="loginCard__input">
+      <input type="name" name="reg_id" class="loginCard__input" required>
     </div>
 
     <div class="loginCard__formSection">
       <label for="reg_name">Имя:</label>
-      <input type="name" name="reg_name" class="loginCard__input">
+      <input type="name" name="reg_name" class="loginCard__input" required>
     </div>
 
     <div class="loginCard__formSection">
       <label for="reg_email">E-mail адресс: <code>*</code></label>
-      <input type="email" name="reg_email" class="loginCard__input">
+      <input type="email" name="reg_email" class="loginCard__input" required>
     </div>
 
     <div class="loginCard__formSection">
