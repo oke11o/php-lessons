@@ -4,7 +4,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['user_privileges'] != 'NONE'):
 ?>
 
 <div class="galleryNavWrapper">
-  <a href="<?=$$adminSubMenu['href']?>" class="functionButton"><?=$adminSubMenu['name']?></a>
+  <a href="<?=$adminSubMenu['href']?>" class="functionButton"><?=$adminSubMenu['name']?></a>
 </div>
 
 <?php

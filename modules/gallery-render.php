@@ -4,12 +4,13 @@ function renderProducts($connection)
   $products = getProducts($connection);
 
   foreach ($products as $product) {
-    $divElementOpen = '<a href="?page=product&product_id='.$product['id'].'" class="taskCard__imgWrap spawn-image">';
-    $imgElement = '<img src="'.$product['src'].'" class="taskCard__img" data-number="'.$product['id'].'">';    
-    $divViews = '<span class="image-views">'.$product['views'].'</span>';
-    $imgElementText = '<span>'.$product['name'].'</span>';
-    $divElementClose = '</a>';
+    $product_DOMdiv = '<a href="?page=product&product_id='.$product['productID'].'" class="product">';
+    $product_DOMimg = '<img src="'.$product['src'].'" class="product__img">';
+    $product_DOMname = '<h3 class="product__name">'.$product['name'].'</h3>';
+    $product_DOMdescription = '<p class="product__info">'.$product['description'].'</p>';
+    $product_DOMprice = '<button class="product__price"><i class="fas fa-cart-plus"></i>$ '.$product['price'].'</button>';
+    $product_DOMdivEnd = '</a>';
 
-    echo($divElementOpen.$imgElement.$divViews.$imgElementText.$divElementClose);
+    echo($product_DOMdiv.$product_DOMimg.$product_DOMname.$product_DOMdescription.$product_DOMprice.$product_DOMdivEnd);
   }
 }
