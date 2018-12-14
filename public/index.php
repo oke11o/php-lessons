@@ -3,10 +3,6 @@
   * --- reserved classes list ---
   * .sub-menu
   *   resereved for js to initialize menu with dropdown sub-menu
-  * .spawn-image
-  *   reserved for js to initialize all spawned images
-  * .image-views
-  *   reserved for js to initialize views of current image
   */
 error_reporting(E_ALL);
 
