@@ -1,6 +1,8 @@
 <?php
 //registration
 //===============================================================
+$regLoginMessage = '';
+$regEmailMessage = '';
 $regPasswordMessage = '';
 $reg_id = $_POST['reg_id'] ?? '';
 $reg_name = $_POST['reg_name'] ?? '';
@@ -9,12 +11,52 @@ $reg_password = $_POST['reg_password'] ?? '';
 $reg_confirm_pw = $_POST['reg_confirm_pw'] ?? '';
 $regState = false;
 
-if ($reg_password != $reg_confirm_pw && $reg_id && $reg_name && $reg_email) {
-  $regPasswordMessage = 'Пароли не совпадают';
-} elseif (($reg_password == $reg_confirm_pw) && $reg_password && $reg_id && $reg_name && $reg_email) {
-  $reg_password_hash = password_hash($reg_password, PASSWORD_ARGON2I);
+if ($reg_id && $reg_name && $reg_email && $reg_password && $reg_confirm_pw) {
+  $reg_confirm_pw = password_hash($_POST['reg_confirm_pw'], PASSWORD_ARGON2I);
+
+  if (checkUserLogin($mysqli, $reg_id)) {
+    $regLoginMessage = ' - Этот логин уже используется, придумайте другой.';
+  }
+
+  if (checkUserEmail($mysqli, $reg_email)) {
+    $regEmailMessage = ' - Этот e-mail адрес уже используется.';
+  }
+
+  if (!password_verify($reg_password, $reg_confirm_pw)) {
+    $regPasswordMessage = ' - Пароли не совпадают.';
+  }
   
-  $regState = createUser($mysqli, $reg_id, $reg_email, $reg_name, $reg_password_hash);
+  if (password_verify($reg_password, $reg_confirm_pw) && !checkUserLogin($mysqli, $reg_id) && !checkUserEmail($mysqli, $reg_email)) {
+    $regLoginMessage = '';
+    $regEmailMessage = '';
+    $regPasswordMessage = '';
+
+    $reg_password_hash = password_hash($reg_password, PASSWORD_ARGON2I);
+    
+    $regState = createUser($mysqli, $reg_id, $reg_email, $reg_name, $reg_password_hash);
+  }
+} else {
+  $regLoginMessage = '';
+  $regEmailMessage = '';
+  $regPasswordMessage = '';
+}
+
+function checkUserLogin($connection, $user_id)
+{
+  $request = "SELECT * FROM `users` WHERE `login` = '$user_id';";
+
+  $result = mysqli_fetch_assoc(mysqli_query($connection, $request));
+
+  return $result;
+}
+
+function checkUserEmail($connection, $user_email)
+{
+  $request = "SELECT * FROM `users` WHERE `email` = '$user_email';";
+
+  $result = mysqli_fetch_assoc(mysqli_query($connection, $request));
+
+  return $result;
 }
 
 function createUser($connection, $id, $email, $name, $password)
@@ -63,11 +105,7 @@ function authorizeUser($connection, $name, $password) {
   $password_hash = mysqli_fetch_assoc(mysqli_query($connection, $request));
   $hash = $password_hash['password_hash'];
   
-  if (password_verify($password, $hash)) {
-    return true;
-  } else {
-    return false;
-  }
+  return password_verify($password, $hash);
 }
 
 //check current user privileges
