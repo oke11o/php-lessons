@@ -33,12 +33,15 @@ if (!isset($_SESSION['user_id'])) {
 } else {
   unset($navBarMenuArray['login']);
 
-  $navBarMenuArray['gallery']['admin'] = [
-    [
-      'name' => 'Upload&nbsp;files',
-      'href' => '?page=upload',
-    ]
-  ];
+  if ($_SESSION['user_privileges'] != 'NONE') {
+    $navBarMenuArray['gallery']['admin'] = [
+      [
+        'name' => 'Upload&nbsp;files',
+        'href' => '?page=upload',
+      ]
+    ];
+  }
+  
   $navBarMenuArray['profile'] = [
     'name' => 'Профиль',
     'href' => '?page=login',
@@ -49,4 +52,8 @@ if (!isset($_SESSION['user_id'])) {
       ]
     ]
   ];
+
+  if ($page == 'product') {
+    $navBarMenuArray['profile']['subMenu'][0]['href'] = '?page=logout&redirect=product&product_id='.$_GET['product_id'];
+  }
 }

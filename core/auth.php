@@ -80,3 +80,18 @@ function checkUserPrivileges($connection, $user_id)
 
   return $result;
 }
+
+//logout
+//===============================================================
+function logout()
+{
+  if (isset($_GET['product_id'])) {
+    header('Location: ?page=product&product_id='.$_GET['product_id']);
+  } else {
+    header('Location: ?page='.$_GET['redirect']);
+  }
+    
+  unset($_SESSION['user_id']);
+  unset($_GET['redirect']);
+  unset($_SESSION['user_privileges']);
+}

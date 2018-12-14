@@ -20,13 +20,10 @@ switch ($page) {
     $currentPage = 'content/feedback.php';
     break;                              
   case 'login':
-    require 'auth.php';
     $currentPage = 'content/login.php';
     break;
   case 'logout':
-    unset($_SESSION['user_id']);
-    header('Location: ?page='.$_GET['redirect']);
-    uset($_GET['redirect']);
+    logout();
     break;
   default: $currentPage = 'content/main.php';
 }
