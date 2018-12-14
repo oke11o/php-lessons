@@ -7,7 +7,7 @@ CREATE TABLE `users`
   `password_hash` VARCHAR(256) NULL,
   `token` VARCHAR(256) NULL,
   `last_action_at` DATETIME NULL,  
-  `privileges` VARCHAR(256) NULL,
+  `privileges` VARCHAR(256) NOT NULL DEFAULT 'NONE',
   PRIMARY KEY (`id`),
   UNIQUE INDEX `login` (`login`),
   UNIQUE INDEX `email` (`email`)
