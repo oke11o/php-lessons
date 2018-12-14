@@ -16,4 +16,5 @@ VALUES
   ('feedback'),
   ('upload'),
   ('login'),
-  ('registration');
+  ('registration'),
+  ('profile');

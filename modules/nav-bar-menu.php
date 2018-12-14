@@ -44,7 +44,7 @@ if (!isset($_SESSION['user_id'])) {
   
   $navBarMenuArray['profile'] = [
     'name' => 'Профиль',
-    'href' => '?page=login',
+    'href' => '?page=profile',
     'subMenu' => [
       [
         'name' => 'выход',

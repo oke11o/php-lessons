@@ -4,6 +4,7 @@ session_start();
 require_once 'get-files-array.mysql.php';
 require_once '../config/init.config.php';
 require_once 'auth.php';
+
 //this page includes $_POST functions for feedback, upload and login forms
 require_once 'page-selector.php';
 

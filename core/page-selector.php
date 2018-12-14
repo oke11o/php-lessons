@@ -21,6 +21,10 @@ switch ($page) {
     break;                              
   case 'login':
     $currentPage = 'content/login.php';
+    break;                                  
+  case 'profile':
+    require 'profile-user.php';
+    $currentPage = 'content/profile.php';
     break;
   case 'logout':
     logout();
