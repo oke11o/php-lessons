@@ -909,45 +909,17 @@ a {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  text-transform: uppercase;
-  font-family: 'Tahoma', sans-serif;
-  font-weight: 700;
-  font-size: 12pt;
-  letter-spacing: 0.1em;
-  color: #ffffff;
-  padding: 10px 30px;
-  border: none;
-  border-radius: 10px;
-  background: #d74645;
-  cursor: pointer;
 }
 
-.product__price:hover {
-  background: #f76665;
+.product__buy {
+  position: absolute;
+  right: 0;
 }
 
-.product__price:active {
-  color: #cccccc;
-  background: #ac6665;
-}
-
-.product__price:focus {
-  outline: none;
-}
-
-.product__price:hover img {
-  opacity: 1;
-}
-
-.product__price img {
+.product__buy a img {
   height: 1em;
   -o-object-fit: contain;
      object-fit: contain;
-  -webkit-transform: translate(-12px, 2px) scale(1.25);
-          transform: translate(-12px, 2px) scale(1.25);
-  -webkit-transition: 0.25s;
-  transition: 0.25s;
-  opacity: 0;
 }
 
 .productPage {
