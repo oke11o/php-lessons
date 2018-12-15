@@ -916,12 +916,6 @@ a {
   right: 0;
 }
 
-.product__buy a img {
-  height: 1em;
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-
 .productPage {
   display: -ms-grid;
   display: grid;
