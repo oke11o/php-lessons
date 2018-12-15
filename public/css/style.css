@@ -935,6 +935,21 @@ a {
   outline: none;
 }
 
+.product__price:hover img {
+  opacity: 1;
+}
+
+.product__price img {
+  height: 1em;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -webkit-transform: translate(-12px, 2px) scale(1.25);
+          transform: translate(-12px, 2px) scale(1.25);
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  opacity: 0;
+}
+
 .productPage {
   display: -ms-grid;
   display: grid;
