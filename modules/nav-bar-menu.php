@@ -33,7 +33,7 @@ if (!isset($_SESSION['user_id'])) {
 } else {
   unset($navBarMenuArray['login']);
 
-  if ($_SESSION['user_privileges'] != 'NONE') {
+  if (($_SESSION['user_privileges'] ?? '') != 'NONE') {
     $navBarMenuArray['gallery']['admin'] = [
       [
         'name' => 'Upload&nbsp;files',
