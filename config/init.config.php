@@ -1,6 +1,6 @@
 <?php
 //connection to database
-$mysql_config = include_once '../config/config.mysql.php';
+$mysql_config = require_once '../config/config.mysql.php';
 
 $mysqli = mysqli_connect($mysql_config['db-host'],
   $mysql_config['db-user'],

@@ -29,7 +29,7 @@ function productsName($connection)
   return $namesArray;
 }
 
-function getProducts($connection)
+function getProductsPreview($connection)
 {
   $array = [];
   $types = productsName($connection);

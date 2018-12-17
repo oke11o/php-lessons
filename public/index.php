@@ -34,7 +34,7 @@ require '../core/init.php';
 
     <main class="bodyWrap__main">
       <?php 
-      getProducts($mysqli);
+      getProductsPreview($mysqli);
 
       require($currentPage);      
 

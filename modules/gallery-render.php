@@ -1,7 +1,7 @@
 <?php
 function renderProducts($connection)
 {
-  $products = getProducts($connection);
+  $products = getProductsPreview($connection);
 
   foreach ($products as $product):
   ?>

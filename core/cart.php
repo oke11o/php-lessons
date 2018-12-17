@@ -47,7 +47,7 @@ function renderCart($connection)
     return;
   }
 
-  $products = getProducts($connection);
+  $products = getProductsPreview($connection);
   $totalPrice = 0;
   $count = 0;
   ?>
