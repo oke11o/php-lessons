@@ -9,6 +9,7 @@ require_once 'auth.php';
 require_once 'page-selector.php';
 
 require_once 'products.php';
+require 'cart.php';
 
 include_once 'main-date.php';
 include_once 'math-functions.php';

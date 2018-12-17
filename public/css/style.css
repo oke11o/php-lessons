@@ -841,10 +841,23 @@ a {
   -ms-grid-columns: 1fr;
       grid-template-columns: 1fr;
   grid-gap: 30px;
+  padding-bottom: 30px;
+}
+
+.productWrapper {
+  position: relative;
+}
+
+.productWrapper:hover .product__buyWrap {
+  height: auto;
+}
+
+.productWrapper:hover .product__buyWrap .product__buyButton {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
 }
 
 .product {
-  position: relative;
   width: calc(100% - 2px);
   display: -ms-grid;
   display: grid;
@@ -885,12 +898,12 @@ a {
   font-weight: 400;
 }
 
-.product__name_dynamic {
-  position: absolute;
+.product__name_inGrid {
+  line-height: 1.2em;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
   margin: 0;
-  line-height: 40px;
-  width: calc(100% + 2px);
-  bottom: 100%;
 }
 
 .product__info {
@@ -909,11 +922,59 @@ a {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  font-size: 1.15em;
 }
 
-.product__buy {
+.product__buyWrap {
+  height: 0;
   position: absolute;
-  right: 0;
+  right: 30px;
+  bottom: 0;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  overflow: hidden;
+}
+
+.product__buyWrap:hover {
+  height: auto;
+}
+
+.product__buyWrap:hover .product__buyButton {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.product__buyButton {
+  text-transform: uppercase;
+  font-family: 'Tahoma', sans-serif;
+  font-weight: 700;
+  font-size: 12pt;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 10px;
+  background: #d74645;
+  cursor: pointer;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.product__buyButton:hover {
+  background: #f76665;
+}
+
+.product__buyButton:active {
+  color: #cccccc;
+  background: #ac6665;
+}
+
+.product__buyButton:focus {
+  outline: none;
 }
 
 .productPage {

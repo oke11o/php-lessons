@@ -29,5 +29,10 @@ switch ($page) {
   case 'logout':
     logout();
     break;
+  case 'clear':
+    require 'cart.php';
+    deleteFromCart($_GET['product_id']);
+    header('Location: ?page=gallery');
+    break;
   default: $currentPage = 'content/main.php';
 }

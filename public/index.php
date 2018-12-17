@@ -36,7 +36,9 @@ require '../core/init.php';
       <?php 
       getProducts($mysqli);
 
-      require($currentPage);
+      require($currentPage);      
+
+      renderCart($mysqli);
       ?>
     </main>
     
