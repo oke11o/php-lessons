@@ -13,10 +13,9 @@ function renderProducts($connection)
         <span class="product__price">$ <?=$product['price']?></span>
       </a>      
 
-      <form class="product__buyWrap" method="post" action="?page=gallery">
-        <input name="product" type="text" hidden value="<?=$product['productID']?>">
-        <button class="product__buyButton">купить</button>
-      </form>
+      <div class="product__buyWrap product__buyWrap_dynamic">
+        <a href="?page=add_to_cart&product_id=<?=$product['productID']?>&redirect=<?=$_GET['page']?>" class="product__buyButton product__buyButton_dynamic">купить</a>
+      </div>
     </div>
 
   <?php endforeach;

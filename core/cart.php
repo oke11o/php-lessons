@@ -1,9 +1,9 @@
 <?php
-$addToCartID = $_POST['product'] ?? '';
+// $addToCartID = $_POST['product'] ?? '';
 
-if ($addToCartID) {
-  addToCart($addToCartID);
-}
+// if ($addToCartID) {
+//   addToCart($addToCartID);
+// }
 
 function addToCart($item_id)
 {
@@ -22,6 +22,8 @@ function addToCart($item_id)
   if (!$cartIDisset) {
     $_SESSION['cart'][] = $item_id;
   }
+  
+  redirection($_GET['redirect']);
 }
 
 function deleteFromCart($item_id)
@@ -35,6 +37,8 @@ function deleteFromCart($item_id)
   if (count($_SESSION['cart']) < 1) {
     unset($_SESSION['cart']);
   }
+
+  redirection($_GET['redirect']);
 }
 
 function renderCart($connection)
@@ -66,7 +70,7 @@ function renderCart($connection)
           <h4><?=$product['name']?></h4>
           <span>ID: <a href="?page=product&product_id=<?=$product['productID']?>"><?=$product['productID']?></a></span>
           <span>price: $ <?=$product['price']?></span>
-          <a href="?page=clear&product_id=<?=$product['productID']?>">x</a>
+          <a href="?page=delete&product_id=<?=$product['productID']?>&redirect=<?=$_GET['page']?>">x</a>
         </div>
 
         <?php
