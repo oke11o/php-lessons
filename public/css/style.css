@@ -1065,13 +1065,48 @@ a {
       grid-template-columns: 1fr 1fr 1fr;
 }
 
+.cart_fixed {
+  z-index: 1000;
+  background: #f7f7f7;
+  position: fixed;
+  right: 10%;
+  bottom: 0;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  -webkit-transform: translateY(calc(100% - 3em));
+          transform: translateY(calc(100% - 3em));
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.cart_fixed:hover {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.cart_fixed:hover .cart__title_fixed,
+.cart_fixed:hover .cart__total_fixed {
+  background: #f2c18e;
+}
+
 .cart__title {
   text-align: center;
   font-size: 1.15em;
   font-weight: 700;
 }
 
+.cart__title_fixed {
+  display: block;
+  height: 100%;
+  margin: 0;
+  line-height: 3em;
+  background: #f08f28;
+  border-top-left-radius: 15px;
+  padding-left: 15px;
+}
+
 .cart__total {
+  font-size: 1.15em;
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
   grid-column: 2 / 4;
@@ -1085,16 +1120,33 @@ a {
       align-self: center;
 }
 
+.cart__total_fixed {
+  display: block;
+  height: 100%;
+  width: calc(100% - 15px);
+  margin: 0;
+  line-height: 3em;
+  text-align: center;
+  background: #f08f28;
+  border-top-right-radius: 15px;
+  padding-right: 15px;
+}
+
 .cart__item {
   grid-column: 1 / -1;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 4fr 2fr 2fr 1fr;
-      grid-template-columns: 4fr 2fr 2fr 1fr;
+  -ms-grid-columns: 4fr 3fr 3fr 1fr;
+      grid-template-columns: 4fr 3fr 3fr 1fr;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.cart__item:nth-child(n+2) {
+  border-top: 1px solid #f2c18e;
 }
 
 .cart__item h4 {
@@ -1103,6 +1155,8 @@ a {
 }
 
 .cart__itemID {
+  -ms-grid-column-align: center;
+      justify-self: center;
   color: #f08f28;
 }
 
@@ -1124,8 +1178,8 @@ a {
   background: #d74645;
   cursor: pointer;
   padding: 7.5px;
-  -ms-grid-column-align: center;
-      justify-self: center;
+  -ms-grid-column-align: end;
+      justify-self: end;
 }
 
 .cart__remove:hover {
@@ -1139,6 +1193,11 @@ a {
 
 .cart__remove:focus {
   outline: none;
+}
+
+.cart__price {
+  -ms-grid-column-align: center;
+      justify-self: center;
 }
 
 .loginCard {

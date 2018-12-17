@@ -53,8 +53,8 @@ function renderCart($connection)
   ?>
 
   <div class="cartWrapper">
-    <section class="cart">
-      <h3 class="cart__title">Корзина</h3>
+    <section class="cart cart_fixed">
+      <h3 class="cart__title cart__title_fixed">Корзина</h3>
 
       <?php
       foreach ($products as $product):
@@ -69,7 +69,7 @@ function renderCart($connection)
         <div class="cart__item">
           <h4><?=$product['name']?></h4>
           <span>ID: <a href="?page=product&product_id=<?=$product['productID']?>" class="cart__itemID"><?=$product['productID']?></a></span>
-          <span>price: <b>$ <?=$product['price']?></b></span>
+          <span class="cart__price"><b>$ <?=$product['price']?></b></span>
           <a href="?page=delete&product_id=<?=$product['productID']?>&redirect=<?=$_GET['page']?>" class="cart__remove">&times;</a>
         </div>
 
@@ -77,7 +77,7 @@ function renderCart($connection)
       endforeach;
       ?>
 
-      <span class="cart__total">Итого: <?=$count.' '.getStrText($count, ['товар', 'товара', 'товаров'])?> на сумму <b>$ <?=$totalPrice?></b></span>
+      <span class="cart__total cart__total_fixed">Итого: <?=$count.' '.getStrText($count, ['товар', 'товара', 'товаров'])?> на сумму <b>$ <?=$totalPrice?></b></span>
     </section>
   </div>
   
@@ -105,6 +105,10 @@ function getStrText($num, $array)
 
 function isItemIncart($item_id)
 {
+  if (!isset($_SESSION['cart'])) {
+    return false;
+  }
+
   foreach ($_SESSION['cart'] as $cart_id) {
     if ($cart_id == $item_id) {
       return true;
