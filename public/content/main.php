@@ -14,8 +14,3 @@
     <li><code>*</code>Написать CRUD-блок для управления выбранным модулем через единую функцию (<code>doFeedbackAction()</code>)</li>
   </ol>
 </section>
-
-<?php
-require 'calc-1.php';
-require 'calc-2.php';
-?>

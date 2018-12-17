@@ -3,16 +3,10 @@
   * --- reserved classes list ---
   * .sub-menu
   *   resereved for js to initialize menu with dropdown sub-menu
-  * .spawn-image
-  *   reserved for js to initialize all spawned images
-  * .image-views
-  *   reserved for js to initialize views of current image
   */
 error_reporting(E_ALL);
 
 require '../core/init.php';
-
-$page = $_GET['page'] ?? 'main';
 ?>
 
 <!DOCTYPE html>
@@ -31,41 +25,21 @@ $page = $_GET['page'] ?? 'main';
     <header>
       <?php
       //rendering main nav bar menu
-      include "../modules/nav-bar.php";
+      require '../modules/nav-bar.php';
       ?>
 
-      <h1 class='headerTitle'>Домашнее задание по курсу PHP. Урок 6.</h1>
-      <p class='headerDate'><?php echo ($date); ?></p>
+      <h1 class='headerTitle'>Домашнее задание по курсу PHP. Урок 7.</h1>
+      <p class='headerDate'><?=$date?></p>
     </header>
 
-    <main class="bodyWrap__main">      
-      <?php
-      $currentPage = '';
+    <main class="bodyWrap__main">
+      <?php 
+      getProductsPreview($mysqli);
 
-      switch ($page) {
-        case 'gal1':
-          $currentPage = 'content/gallery-house1.php';
-          break;        
-        case 'gal2':
-          $currentPage = 'content/gallery-house2.php';
-          break;        
-        case 'product':
-          $currentPage = 'content/product-page.php';
-          break;        
-        case 'contacts':
-          $currentPage = 'content/contacts.php';
-          break;                
-        case 'feedback':
-          $currentPage = 'content/feedback.php';
-          break;                        
-        case 'upload':
-          $currentPage = 'content/upload.php';
-          break;
-        default: $currentPage = 'content/main.php';
-      }
+      require($currentPage);      
 
-      require($currentPage);
-      ?>      
+      renderCart($mysqli);
+      ?>
     </main>
     
     <footer>

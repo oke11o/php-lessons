@@ -2,12 +2,14 @@
 //counter for visitesof current product
 function clickCounter($connection, $id)
 {
-  $views = mysqli_fetch_assoc(mysqli_query($connection, 'SELECT `views` FROM `gallery` WHERE `id` = '.(int)$id.';'));
+  $request = 'SELECT `views` FROM `gallery` WHERE `productID` = "'.(int)$id.'" AND `type` LIKE "%preview%";';
+  $views = mysqli_fetch_assoc(mysqli_query($connection, $request));
   
   $number = $views['views'];
   $number++;
   
-  mysqli_query($connection, 'UPDATE `gallery` SET `views` = "'.$number.'" WHERE `gallery`.`id` = '.(int)$id.';');
+  $request = 'UPDATE `gallery` SET `views` = "'.$number.'" WHERE `gallery`.`productID` = "'.(int)$id.'";';
+  mysqli_query($connection, $request);
 
   return $number;
 }
