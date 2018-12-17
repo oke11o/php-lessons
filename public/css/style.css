@@ -1031,23 +1031,23 @@ a {
 }
 
 .productPage__imagesWrap::-webkit-resizer {
-  width: 4px;
+  width: 5px;
   height: 0;
 }
 
 .productPage__imagesWrap::-webkit-scrollbar {
-  width: 4px;
+  width: 5px;
   background: #ced7e2;
   border-radius: 2px;
 }
 
 .productPage__imagesWrap::-webkit-scrollbar-button {
-  width: 4px;
+  width: 5px;
   height: 0;
 }
 
 .productPage__imagesWrap::-webkit-scrollbar-thumb {
-  width: 4px;
+  width: 5px;
   background: #f08f28;
   border-radius: 2px;
 }
@@ -1056,6 +1056,89 @@ a {
   width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.cart {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cart__title {
+  text-align: center;
+  font-size: 1.15em;
+  font-weight: 700;
+}
+
+.cart__total {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2 / 4;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / 2;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.cart__item {
+  grid-column: 1 / -1;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 4fr 2fr 2fr 1fr;
+      grid-template-columns: 4fr 2fr 2fr 1fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 30px;
+}
+
+.cart__item h4 {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.cart__itemID {
+  color: #f08f28;
+}
+
+.cart__itemID:hover {
+  color: #f2c18e;
+}
+
+.cart__remove {
+  display: block;
+  text-transform: uppercase;
+  font-family: 'Tahoma', sans-serif;
+  font-weight: 700;
+  font-size: 12pt;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 10px;
+  background: #d74645;
+  cursor: pointer;
+  padding: 7.5px;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+.cart__remove:hover {
+  background: #f76665;
+}
+
+.cart__remove:active {
+  color: #cccccc;
+  background: #ac6665;
+}
+
+.cart__remove:focus {
+  outline: none;
 }
 
 .loginCard {

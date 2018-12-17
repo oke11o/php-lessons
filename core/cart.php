@@ -52,13 +52,13 @@ function renderCart($connection)
   $count = 0;
   ?>
 
-  <section class="cart">
-    <h3 class="cart__title">Корзина</h3>
+  <div class="cartWrapper">
+    <section class="cart">
+      <h3 class="cart__title">Корзина</h3>
 
-    <?php
-    foreach ($_SESSION['cart'] as $cart_id):
+      <?php
       foreach ($products as $product):
-        if ($cart_id != $product['productID']) {
+        if (!isItemIncart($product['productID'])) {
           continue;
         }
 
@@ -68,18 +68,48 @@ function renderCart($connection)
 
         <div class="cart__item">
           <h4><?=$product['name']?></h4>
-          <span>ID: <a href="?page=product&product_id=<?=$product['productID']?>"><?=$product['productID']?></a></span>
-          <span>price: $ <?=$product['price']?></span>
-          <a href="?page=delete&product_id=<?=$product['productID']?>&redirect=<?=$_GET['page']?>">x</a>
+          <span>ID: <a href="?page=product&product_id=<?=$product['productID']?>" class="cart__itemID"><?=$product['productID']?></a></span>
+          <span>price: <b>$ <?=$product['price']?></b></span>
+          <a href="?page=delete&product_id=<?=$product['productID']?>&redirect=<?=$_GET['page']?>" class="cart__remove">&times;</a>
         </div>
 
         <?php
       endforeach;
-    endforeach;
-    ?>
+      ?>
 
-    <span>Итого: <?=$count?> товара на сумму $ <?=$totalPrice?></span>
-  </section>
+      <span class="cart__total">Итого: <?=$count.' '.getStrText($count, ['товар', 'товара', 'товаров'])?> на сумму <b>$ <?=$totalPrice?></b></span>
+    </section>
+  </div>
   
   <?php
+}
+
+function getStrText($num, $array)
+{
+  $num = $num % 100;
+
+  if ($num > 10 && $num < 20) {
+    $text = $array[2];
+  } else {
+    $i = $num % 10;
+    switch ($i) {
+      case (1): $text = $array[0]; break;
+      case (2):
+      case (3):
+      case (4): $text = $array[1]; break;
+      default: $text = $array[2];
+    }
+  }
+  return $text;
+}
+
+function isItemIncart($item_id)
+{
+  foreach ($_SESSION['cart'] as $cart_id) {
+    if ($cart_id == $item_id) {
+      return true;
+    }
+  }
+
+  return false;
 }

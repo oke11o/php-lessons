@@ -22,6 +22,14 @@ $_SESSION['last-opened-product'] = $product_id;
     <p><?=$product_data['details']?></p>
     <p><?=$product_data['productID']?></p>
     
+    <?php if (isItemIncart($product_data['productID'])): ?>
+
+    <a href="?page=delete&product_id=<?=$product_data['productID']?>&redirect=<?=$_GET['page']?>" class="product__buyButton product__buyButton_productPage">удалить</a>
+
+    <?php else: ?>
+
     <a href="?page=add_to_cart&product_id=<?=$product_data['productID']?>&redirect=<?=$_GET['page']?>" class="product__buyButton product__buyButton_productPage">купить</a>
+
+    <?php endif; ?>
   </div>  
 </section>

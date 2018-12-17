@@ -14,7 +14,15 @@ function renderProducts($connection)
       </a>      
 
       <div class="product__buyWrap product__buyWrap_dynamic">
+        <?php if (isItemIncart($product['productID'])): ?>
+
+        <a href="?page=delete&product_id=<?=$product['productID']?>&redirect=<?=$_GET['page']?>" class="product__buyButton product__buyButton_dynamic">удалить</a>
+
+        <?php else: ?>
+
         <a href="?page=add_to_cart&product_id=<?=$product['productID']?>&redirect=<?=$_GET['page']?>" class="product__buyButton product__buyButton_dynamic">купить</a>
+
+        <?php endif; ?>
       </div>
     </div>
 
